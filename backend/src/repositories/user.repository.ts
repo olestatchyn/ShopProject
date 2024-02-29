@@ -1,26 +1,21 @@
 import User from "../models/user";
 
-let testUserArray: User[] = [
-  { name: 'John Doe', email: 'john@example.com' },
-  { name: 'Jane Smith', email: 'jane@example.com' },
-];
-
 async function getAllUsers() {
-  return testUserArray;
+  return await User.find();
 }
 
 async function createUser(newUser) {
-  const userToCreate: User = {
+  const userToCreate = {
     name: newUser.name,
     email: newUser.email
   };
-  testUserArray.push(userToCreate);
-  return newUser;
+  const createdUser = await User.create(userToCreate);
+  return createdUser;
 }
 
 async function getUserByEmail(email) {
-  const existingUser = testUserArray.find(user => user.email === email);
-  if(existingUser){
+  const foundUser = await User.findOne({ email: email });
+  if(foundUser){
     return true;
   }
   return false;

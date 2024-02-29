@@ -6,7 +6,7 @@ function App() {
 
 	const userData = {
 		name: "Mydwakola",
-		email: "john@example.com"
+		email: "Mykola@example.com"
 	};
 
 	const fetchData = async () => {
