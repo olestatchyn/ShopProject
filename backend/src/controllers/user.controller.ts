@@ -4,8 +4,8 @@ import User from '../models/user';
 let userRouter = express.Router();
 
 let testUserArray: User[] = [
-  { id: "70495e80-e9ec-451f-a677-011d53482894", name: 'John Doe', email: 'john@example.com' },
-  { id: "b7b6a339-98ba-44cd-9b97-3ce500b5b140", name: 'Jane Smith', email: 'jane@example.com' },
+  { name: 'John Doe', email: 'john@example.com' },
+  { name: 'Jane Smith', email: 'jane@example.com' },
 ];
 
 userRouter.get('/users', async (req: Request, res: Response) => {
@@ -14,6 +14,30 @@ userRouter.get('/users', async (req: Request, res: Response) => {
   } catch (error) {
     console.log(error);
     res.status(500).send({ error: 'Internal Server Error' });
+  }
+});
+
+userRouter.post('/users', async (req: Request, res: Response) => {
+  try {
+    const { name, email } = req.body;
+
+    const existingUser = testUserArray.find(user => user.email === email);
+    
+    if (existingUser) {
+      return res.status(400).json({ error: 'User already exists' });
+    }
+
+    const newUser: User = {
+      name,
+      email
+    };
+
+    testUserArray.push(newUser);
+
+    res.status(201).json(newUser);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ error: 'Error creating new user' });
   }
 });
 
