@@ -10,7 +10,7 @@ function App() {
 	};
 
 	const fetchData = async () => {
-		const responce = await axios("https://jsonplaceholder.typicode.com/todos/1")
+		const responce = await axios("http://localhost:5000/api/users")
 		console.log(responce.data)
 	}
 
