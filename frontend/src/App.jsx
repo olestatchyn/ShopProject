@@ -5,8 +5,8 @@ function App() {
 	// const [data, setData] = useState([{}]);
 
 	const userData = {
-		name: "Mykola",
-		password: "1234"
+		name: "Mydwakola",
+		email: "john@example.com"
 	};
 
 	const fetchData = async () => {
@@ -15,8 +15,13 @@ function App() {
 	}
 
 	const fetchDataPost = async () => {
-		const responce = await axios.post('http://example.com/api/users', userData)
-		console.log(responce.data)
+		await axios.post('http://localhost:5000/api/users', userData)
+		.then(function (response) {
+			console.log('Response:', response.data);
+		})
+		.catch(function (error) {
+			console.log('Error:', error.response.data.error);
+		});
 	}
 
   return (

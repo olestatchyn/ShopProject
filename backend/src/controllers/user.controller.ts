@@ -24,7 +24,7 @@ userRouter.post('/users', async (req: Request, res: Response) => {
     const existingUser = testUserArray.find(user => user.email === email);
     
     if (existingUser) {
-      return res.status(400).json({ error: 'User already exists' });
+      return res.status(400).send({ error: 'User already exists' });
     }
 
     const newUser: User = {
