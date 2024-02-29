@@ -1,14 +1,16 @@
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import corsOptions from './src/cors/corsoptions';
+import dotenv from 'dotenv';
 import { userRouter } from './src/controllers/user.controller';
 
-const app = express();
-const port = 5000;
+dotenv.config();
 
-app.use(cors({
-  origin: 'http://localhost:3001'
-}));
+const app = express();
+const port = process.env.PORT;
+
+// app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
 

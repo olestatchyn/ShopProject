@@ -1,40 +1,37 @@
 import express, { Request, Response } from 'express';
-import User from '../models/user';
+import { getUsers, checkIfUserExists, createNewUser } from '../services/user.service';
+import { userSchema } from '../validation/createUser.validation';
 
 let userRouter = express.Router();
 
-let testUserArray: User[] = [
-  { name: 'John Doe', email: 'john@example.com' },
-  { name: 'Jane Smith', email: 'jane@example.com' },
-];
-
 userRouter.get('/users', async (req: Request, res: Response) => {
   try {
-    res.status(200).json(testUserArray);
+    const foundUsers = await getUsers();
+    res.status(200).json(foundUsers);
   } catch (error) {
     console.log(error);
-    res.status(500).send({ error: 'Internal Server Error' });
+    res.status(500).send({ error: 'Error getting all users' });
   }
 });
 
 userRouter.post('/users', async (req: Request, res: Response) => {
   try {
     const { name, email } = req.body;
+    const { error } = userSchema.validate(req.body);
 
-    const existingUser = testUserArray.find(user => user.email === email);
+    if (error) {
+      return res.status(400).json({ error: error.details[0].message });
+    }
     
+    const existingUser = await checkIfUserExists(email);
+
     if (existingUser) {
       return res.status(400).send({ error: 'User already exists' });
     }
+  
+    const createdUser = await createNewUser(req.body);
 
-    const newUser: User = {
-      name,
-      email
-    };
-
-    testUserArray.push(newUser);
-
-    res.status(201).json(newUser);
+    res.status(201).json(createdUser);
   } catch (error) {
     console.log(error);
     res.status(500).send({ error: 'Error creating new user' });
