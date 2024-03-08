@@ -1,11 +1,11 @@
 import React from 'react';
-import MyNavLink from '../UI/MyNavBar/MyNavLink';
+import MyNavLink from '../UI/nav-bar/MyNavLink';
 import cl from "./Footer.module.css"
 import main from './../../style/style.module.css'
 
 const Footer = () => {
 	return (
-		<div className={cl.Footer}>
+		<div className={cl.footer-item}>
 			<div className={main.container}>
 				<div>
 					<MyNavLink to="basket">test</MyNavLink>
