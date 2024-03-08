@@ -5,7 +5,7 @@ import main from './../../style/style.module.css'
 
 const Footer = () => {
 	return (
-		<div className={cl.footer-item}>
+		<div className={cl.footer_item}>
 			<div className={main.container}>
 				<div>
 					<MyNavLink to="basket">test</MyNavLink>
