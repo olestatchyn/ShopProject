@@ -2,9 +2,10 @@ version: '3.8'
 services:
   db:
     image: mongo:latest
+    command: mongod --port ${MONGO_PORT}
     restart: always
     ports:
-      - 27017:27017
+      - ${MONGO_PORT}:${MONGO_PORT}
     volumes:
       - data:/var/lib/mongodb/data
 
@@ -12,7 +13,7 @@ services:
     build: backend/.
     restart: always
     ports:
-      - '5000:5000'
+      - '${BACKEND_PORT}:${BACKEND_PORT}'
     depends_on:
       - db
 
@@ -20,7 +21,7 @@ services:
     build: frontend/.
     restart: always
     ports:
-      - '3000:3000'
+      - '${FRONTEND_PORT}:${FRONTEND_PORT}'
     depends_on:
       - backend
 
