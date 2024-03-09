@@ -70,14 +70,19 @@ const CreateCustomPizza = () => {
 
 	return (
 		<div>
-			{Object.entries(ingredients).map(([type, items]) => (
-        <DropdownCheckboxList
-          key={type}
-          title={ingredientTypesTranslations[type]}
-          items={items}
-          addProduct={(updatedItems) => updateIngredients(type, updatedItems)}
-        />
-      ))}
+			<div style={{display: "flex"}}>
+				{Object.entries(ingredients).map(([type, items], index) => (
+								// <div className={`div-` + index}>
+						<DropdownCheckboxList
+							className={`div-` + index}
+							key={type}
+							title={ingredientTypesTranslations[type]}
+							items={items}
+							addProduct={(updatedItems) => updateIngredients(type, updatedItems)}
+						/>
+					// </div>
+							))}
+			</div>
 
 			<h2>
         {baseSelected

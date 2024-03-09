@@ -7,14 +7,16 @@ export function useAuth() {
 }
 
 export const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-	const [userRole, setUserRole] = useState(null); // 'user', 'admin', or null
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
+	const [userRole, setUserRole] = useState("admin");
 
 
 	useEffect(() => {
     const token = localStorage.getItem('authToken');
+		const role = localStorage.getItem('userRole');
     if (token) {
       setIsAuthenticated(true);
+			setUserRole(role);
     }
   }, []);
 
@@ -37,16 +39,13 @@ export const AuthProvider = ({ children }) => {
 	
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, userRole, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
-// Імітація API для авторизації
 const fakeAuthApi = async ({ username, password }) => {
-  // Припустимо, що відправляється запит на сервер і перевіряється username і password
-  // Тут лише імітація успішної відповіді
   if (username === 'user' && password === 'password') {
     return { token: 'fake-jwt-token' };
   }

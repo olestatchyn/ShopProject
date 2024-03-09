@@ -8,10 +8,12 @@ import Shares from "../pages/shares/Shares";
 import { RequireAuth } from './RequireAuth'; 
 import Admin from "../pages/admin/Admin";
 import ErrorPage from "../pages/error/ErrorPage";
+import { ABOUT_ROUTE, ADMIN_ROUTE, BASCKET_ROUTE, HOME_ROUTE, PAYMENT_AND_DELIVERY_ROUTE, SHARES_ROUTE } from "./consts";
+
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: HOME_ROUTE,
     element: <Layout />,
 		errorElement: <ErrorPage />,
     children: [
@@ -20,23 +22,23 @@ export const router = createBrowserRouter([
         index: true
       },
       {
-        path: "/basket",
+        path: BASCKET_ROUTE,
         element: <RequireAuth><Basket /></RequireAuth>
       },
       {
-        path: "/admin",
+        path: ADMIN_ROUTE,
         element: <RequireAuth requiredRole="admin"><Admin /></RequireAuth>
       },
       {
-        path: "/about",
+        path: ABOUT_ROUTE,
         element: <About />
       },
       {
-        path: "/payment_and_delivery",
+        path: PAYMENT_AND_DELIVERY_ROUTE,
         element: <PaymentAndDelivery />
       },
       {
-        path: "/shares",
+        path: SHARES_ROUTE,
         element: <Shares />
       }
     ]

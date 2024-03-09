@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import MyButton from '../../UI/button/MyButton';
 import ItemControl from './ItemControl';
 
-const DropdownCheckboxList = ({title, items, addProduct}) => {
+const DropdownCheckboxList = ({title, items, addProduct, className}) => {
 
 	const [isOpen, setIsOpen] = useState(false);
 	const [customItems, setCustomItems] = useState(items);
@@ -25,7 +25,7 @@ const DropdownCheckboxList = ({title, items, addProduct}) => {
 	
 
 	return (
-		<div>
+		<div className={className}>
 			<MyButton onClick={toggleDropdown}>
 				{title}
 			</MyButton>
