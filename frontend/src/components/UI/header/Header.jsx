@@ -1,7 +1,7 @@
 import React from 'react';
 import cl from './Header.module.css'
-import main from './../../style/style.module.css'
-import MyNavLink from '../UI/nav-bar/MyNavLink';
+import main from "./../../../style/style.module.css"
+import MyNavLink from '../nav-bar/MyNavLink';
 
 const Header = () => {
 	return (

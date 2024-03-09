@@ -1,5 +1,5 @@
 import React from 'react';
-import FeedbackForm from '../../components/FeedbackForm/FeedbackForm';
+import FeedbackForm from '../../components/feedback form/FeedbackForm';
 
 const Shares = () => {
 	return (
