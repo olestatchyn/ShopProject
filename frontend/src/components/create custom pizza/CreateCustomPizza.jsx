@@ -84,7 +84,7 @@ const CreateCustomPizza = () => {
           ? `Фінальна ціна піци: ${totalPrice} грн`
           : "Будь ласка, оберіть основу для піци, щоб замовити"}
       </h2>	
-			
+			<MyButton style={{color: "red"}}>В кошик</MyButton>
 		</div>
 	);
 }
