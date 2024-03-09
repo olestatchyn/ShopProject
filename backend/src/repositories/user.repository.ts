@@ -1,24 +1,18 @@
+import mongoose from "mongoose";
 import User from "../models/user";
 
-async function getAllUsers() {
-  return await User.find();
+async function getUserByEmail(userEmail) {
+  const user = await User.findOne({ email: userEmail })
+  return user;
 }
 
 async function createUser(newUser) {
-  const userToCreate = {
+  return await User.create({
+    _id: new mongoose.Types.ObjectId(),
     name: newUser.name,
-    email: newUser.email
-  };
-  const createdUser = await User.create(userToCreate);
-  return createdUser;
+    email: newUser.email,
+    password: newUser.password
+  });
 }
 
-async function getUserByEmail(email) {
-  const foundUser = await User.findOne({ email: email });
-  if(foundUser){
-    return true;
-  }
-  return false;
-}
-
-export { getAllUsers, createUser, getUserByEmail }
+export { getUserByEmail, createUser }
