@@ -10,3 +10,26 @@
 	height: 159px;
 	width: 100vw;
 }
+
+.header__row{
+	display: flex;
+	justify-content: space-around; 
+	align-items: center;
+	width: 100%;
+}
+
+.header__col{
+	flex: 1;
+	display: flex; /* дозволяє використовувати Flexbox властивості всередині самої колонки */
+  justify-content: center; /* центрує контент всередині колонки */
+  align-items: center; /* вирівнює контент колонки по центру по вертикалі */
+  text-align: center;
+}
+
+.header__pages{
+
+}
+
+.header__pages__item{
+	
+}
