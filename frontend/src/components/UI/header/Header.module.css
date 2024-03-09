@@ -1,35 +1,106 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* {padding: 0;margin: 0;border: 0; font-family: 'OpenSans', sans-serif;}
+*, *:before, *:after {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+:focus, :active {outline: none;}
+a:focus, a:active {outline: none;}
+nav, footer, header, aside {display: block;}
+html, body {height: 100%;width: 100%;font-size: 100%;line-height: 1;font-size: 14px;-ms-text-size-adjust: 100%;-moz-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;}
+input, button, textarea {font-family: inherit;}
+input::-ms-clear {display: none;}
+button {cursor: pointer;}
+button::-moz-focus-inner {padding: 0;border: 0;}
+a, a:visited {text-decoration: none;}
+a:hover {text-decoration: none;}
+ul li {list-style: none;}
+img {vertical-align: top;}
+h1, h2, h3, h4, h5, h6 {font-size: inherit;font-weight: 400;}
+
 
 .header{
-	display: flex;
-	background-color: #8e8e8e;
-	height: 159px;
+	background-color: #262626;
+	height: 123px;
 	width: 100vw;
 }
-
+.header__container{
+	width: 1358px;
+	margin: 0 auto;
+	height: 100%;
+}
 .header__row{
 	display: flex;
-	justify-content: space-around; 
+	justify-content: space-between;
 	align-items: center;
-	width: 100%;
+	height: 100%;
 }
-
 .header__col{
-	flex: 1;
-	display: flex; /* дозволяє використовувати Flexbox властивості всередині самої колонки */
-  justify-content: center; /* центрує контент всередині колонки */
-  align-items: center; /* вирівнює контент колонки по центру по вертикалі */
-  text-align: center;
+
 }
 
+.header__logo{
+	height: 100%;
+
+}
+.header__logo img{
+	margin-left: -70px;
+	max-height: 100%;
+	width: auto;
+}
 .header__pages{
-
+	display: flex;
+	text-align: center;
+	line-height: 32px;
+}
+.myNavLink{
+	margin: 0 10px;
+}
+.header__pages__item{
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 150%;
+	border-radius: 30px;
+	padding: 9px 27px;
 }
 
-.header__pages__item{
-	
+.header__pages__item, .header__pages__item:visited, .header__pages__item:hover, .header__pages__item:active {
+	color: white;
+}
+.header__pages__item:hover{
+	background: linear-gradient(137deg, #ff9f47 0%, #fdb806 100%);
+}
+
+.header__pages__item a:visited{
+	color: white;
+}
+.active__page{
+	background: linear-gradient(137deg, #ff9f47 0%, #fdb806 100%);
+}
+
+.header__buttons{
+	display: flex;
+	color: white;
+	text-align: center;
+	line-height: 32px;
+}
+.header__LogIn{
+	font-weight: 400;
+	font-size: 16px;
+	border: 1px solid #ECEFF5;
+	border-radius: 12px;
+	width: 95px;
+	height: 35px;
+}
+.header__SignUp{
+	margin-left: 21px;
+	font-weight: 700;
+	font-size: 16px;
+	border-radius: 12px;
+	width: 95px;
+	height: 35px;
+	background: linear-gradient(137deg, #ff9f47 0%, #fdb806 100%);
+}
+.header__buttons div:hover{
+	background: linear-gradient(137deg, #ff9f47 0%, #fdb806 100%);
+}
+
+.button{
+  background: transparent;
 }
