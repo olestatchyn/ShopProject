@@ -31,6 +31,26 @@ const CreateCustomPizza = () => {
     ],
 	})
 
+	const calculateTotalPrice = () => {
+    let totalPrice = 0;
+    let baseSelected = false;
+
+    Object.entries(ingredients).forEach(([type, items]) => {
+      items.forEach(item => {
+        if (item.checked && item.count > 0) {
+          totalPrice += item.count * item.price;
+          if (type === 'base') {
+            baseSelected = true;
+          }
+        }
+      });
+    });
+
+    return { totalPrice, baseSelected };
+  };
+
+  const { totalPrice, baseSelected } = calculateTotalPrice();
+
 	const updateIngredients = (type, updatedList) => {
     setIngredients(prev => ({
       ...prev,
@@ -58,8 +78,14 @@ const CreateCustomPizza = () => {
           addProduct={(updatedItems) => updateIngredients(type, updatedItems)}
         />
       ))}
-		</div>
+
+			<h2>
+        {baseSelected
+          ? `Фінальна ціна піци: ${totalPrice} грн`
+          : "Будь ласка, оберіть основу для піци, щоб замовити"}
+      </h2>	
 			
+		</div>
 	);
 }
 
