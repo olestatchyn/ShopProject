@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import classes from "./RegistrationForm.module.css"
-import MyInput from './CustomInput';
-import MyButton from '../UI/button/MyButton';
+import MyInput from '../CustomInputForAuthentication';
+import MyButton from '../../UI/button/MyButton';
 
 const RegistrationForm = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -18,7 +18,7 @@ const RegistrationForm = () => {
     <div className={classes.input__box}>
       <div>
         <div>
-          <h1>Вхід</h1>
+          <h1>Реєстрація</h1>
           <h2>Давайте розпочнемо!</h2>
         </div>
         <div>

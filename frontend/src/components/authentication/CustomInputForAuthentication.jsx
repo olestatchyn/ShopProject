@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './RegistrationForm.module.css'; // Упевніться, що шлях до файлу CSS вірний
+import classes from './CustomInputForAuthentication.module.css'; // Упевніться, що шлях до файлу CSS вірний
 
 const MyInput = React.forwardRef(({ label, icon, onIconClick, ...props }, ref) => {
   return (

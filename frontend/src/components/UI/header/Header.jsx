@@ -4,11 +4,12 @@ import logo from './../../../source/Logo.svg';
 import MyNavLink from './../nav-bar/MyNavLink';
 import MyButton from '../button/MyButton';
 import MyModal from '../myModal/MyModal';
-import FeedbackForm from '../../feedback form/FeedbackForm';
-import RegistrationForm from '../../registrartion form/RegistrationForm';
+import RegistrationForm from '../../authentication/registrartion form/RegistrationForm';
+import LoginForm from '../../authentication/login form/LoginForm';
 
 const Header = () => {
-	const [modal, setModal] = useState(false);
+	const [regPopupVisible, setRegPopupVisible] = useState(false);
+	const [logPopupVisible, setLogPopupVisible] = useState(false);
 
 	return (
 		<div className={cl.header}>
@@ -43,14 +44,14 @@ const Header = () => {
 					<div className={cl.header__col}>
 						<div className={cl.header__buttons}>
 							<div className={cl.header__LogIn}>
-							<MyButton className={cl.button} >Log In</MyButton>
-							<MyModal visible={modal} setVisible={setModal}> 
-								<RegistrationForm />
+							<MyButton className={cl.button} onClick={()=>setLogPopupVisible(true)}>Log In</MyButton>
+							<MyModal visible={logPopupVisible} setVisible={setLogPopupVisible}> 
+								<LoginForm />
 							</MyModal>
 							</div>
 							<div className={cl.header__SignUp}>
-								<MyButton className={cl.button} onClick={()=>setModal(true)}>Sign Up</MyButton>
-								<MyModal visible={modal} setVisible={setModal}> 
+								<MyButton className={cl.button} onClick={()=>setRegPopupVisible(true)}>Sign Up</MyButton>
+								<MyModal visible={regPopupVisible} setVisible={setRegPopupVisible}> 
 									<RegistrationForm />
 								</MyModal>
 							</div>
