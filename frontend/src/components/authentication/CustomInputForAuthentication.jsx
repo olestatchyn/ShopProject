@@ -14,7 +14,7 @@ const MyInput = React.forwardRef(({ label, icon, onIconClick, ...props }, ref) =
       <label className={classes.myLabel}>{label}</label>
       {icon && (
         <button onClick={onIconClick} className={classes.inputIcon} type="button">
-          {icon}
+            <img src={icon} alt="eyeicon" />
         </button>
       )}
     </div>

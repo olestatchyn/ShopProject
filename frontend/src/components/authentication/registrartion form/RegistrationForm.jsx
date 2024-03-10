@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import classes from "./RegistrationForm.module.css"
 import MyInput from '../CustomInputForAuthentication';
 import MyButton from '../../UI/button/MyButton';
-
+import eyeIcon from './../../../source/eye.svg';
 const RegistrationForm = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const passwordRef = useRef(null);
@@ -17,12 +17,12 @@ const RegistrationForm = () => {
   return (
     <div className={classes.input__box}>
       <div>
-        <div>
+        <div className={classes.input__box__header}>
           <h1>Реєстрація</h1>
           <h2>Давайте розпочнемо!</h2>
         </div>
         <div>
-          <h1>Створити аккаунт</h1>
+          <div className={classes.input__box__label}>Створити аккаунт</div>
           <MyInput
             label="Ваше ім'я"
             placeholder="Ваше ім'я"
@@ -38,7 +38,7 @@ const RegistrationForm = () => {
             label="Створіть пароль"
             type={isPasswordVisible ? 'text' : 'password'}
             placeholder="Створіть пароль"
-            icon="👁️"
+            icon={eyeIcon}
             onIconClick={togglePasswordVisibility}
             ref={passwordRef}
           />
@@ -46,14 +46,19 @@ const RegistrationForm = () => {
             label="Підтвердіть пароль"
             type={isPasswordVisible ? 'text' : 'password'}
             placeholder="Створіть пароль"
-            icon="👁️"
+            icon={eyeIcon}
             onIconClick={togglePasswordVisibility}
             ref={passwordRef}
           />
-					<MyButton style={{background: "transparent"}}>Почати</MyButton>
-					<div>
-						<p>Уже маєте аккаунт?</p>
-						<MyButton style={{background: "transparent"}}>ЗАЛОГІНЬТЕСЬ ТУТ!</MyButton>
+					<MyButton style={{background: "transparent"}}>
+                      <div className={classes.registration}>
+                        Почати
+                      </div>
+
+                    </MyButton>
+					<div className={classes.alreadylogin} >
+						Уже маєте аккаунт?&nbsp;
+						<MyButton class={classes.alredylogin__link} style={{background: "transparent"}}>ЗАЛОГІНЬТЕСЬ ТУТ!</MyButton>
 					</div>
         </div>
       </div>

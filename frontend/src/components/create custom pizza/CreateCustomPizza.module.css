@@ -1,6 +1,11 @@
 .custom{
-    background: red;
 }
 .custom__lists{
-    color: blue;
+    display: flex;
+}
+.custom__lists > div{
+
+    border: 3px solid #ECEFF5;
+    border-radius: 24px;
+
 }
