@@ -21,7 +21,7 @@ h1, h2, h3, h4, h5, h6 {font-size: inherit;font-weight: 400;}
 	width: 100vw;
 }
 .header__container{
-	width: 1358px;
+	max-width: 1358px;
 	margin: 0 auto;
 	height: 100%;
 }
