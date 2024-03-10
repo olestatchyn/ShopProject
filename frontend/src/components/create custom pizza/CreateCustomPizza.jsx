@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DropdownCheckboxList from './DropdownCheckboxList/DropdownCheckboxList';
 import MyButton from '../UI/button/MyButton';
+import cl from './CreateCustomPizza.module.css';
 
 const CreateCustomPizza = () => {
 
@@ -69,8 +70,8 @@ const CreateCustomPizza = () => {
 	
 
 	return (
-		<div>
-			<div style={{display: "flex"}}>
+		<div className={cl.custom}>
+			<div className={cl.custom__lists}>
 				{Object.entries(ingredients).map(([type, items], index) => (
 								// <div className={`div-` + index}>
 						<DropdownCheckboxList
@@ -85,10 +86,10 @@ const CreateCustomPizza = () => {
 			</div>
 
 			<h2>
-        {baseSelected
-          ? `Фінальна ціна піци: ${totalPrice} грн`
-          : "Будь ласка, оберіть основу для піци, щоб замовити"}
-      </h2>	
+                {baseSelected
+                  ? `Фінальна ціна піци: ${totalPrice} грн`
+                  : "Будь ласка, оберіть основу для піци, щоб замовити"}
+            </h2>
 			<MyButton style={{color: "red"}}>В кошик</MyButton>
 		</div>
 	);

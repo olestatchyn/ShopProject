@@ -36,6 +36,16 @@ const Header = () => {
 						</div>
 					</div>
 					<div className={cl.header__col}>
+						<div className={cl.header__contacts}>
+							<div className={cl.header__schedule}>
+								Кожного дня 10:00 - 22:00
+							</div>
+							<div className={cl.header__phone}>
+								+ 38 (067) 009 02 09
+							</div>
+						</div>
+					</div>
+					<div className={cl.header__col}>
 						<div className={cl.header__buttons}>
 							<div className={cl.header__LogIn}>
 								<MyButton className={cl.button}>Log In</MyButton>
