@@ -1,0 +1,58 @@
+.input__box{ 
+	color: black; 
+	width: 80%;
+	margin: auto
+}
+	
+
+/* RegistrationForm.module.css */
+.inputContainer {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.myInput {
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+.myInput:focus {
+  outline: none;
+  border-color: #6658D3;
+}
+
+.myInput::placeholder {
+  color: transparent; /* Робить плейсхолдер прозорим, щоб текст лейбла був видимим */
+}
+
+.inputIcon {
+  position: absolute;
+  right: 10px;
+  top: 64%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+.myLabel {
+  position: absolute;
+	left: 14px;
+	font-size: 12px;
+	color: #8d8d8d;
+	top: 5px;
+	background-color: white;
+	padding: 0 5px;
+}
+
+/* .myInput:focus + .myLabel,
+.myInput:not(:placeholder-shown) + .myLabel {
+  left: 10px;
+  font-size: 12px;
+  color: #6658D3;
+} */
