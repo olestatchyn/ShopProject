@@ -51,6 +51,7 @@
 	padding-bottom: 26px;
 }
 .alredylogin__link{
+	text-transform: uppercase;
 	font-weight: 700;
 	text-decoration: underline;
 	color: #fdb806;
