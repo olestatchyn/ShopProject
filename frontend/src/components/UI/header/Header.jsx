@@ -43,13 +43,16 @@ const Header = () => {
 					<div className={cl.header__col}>
 						<div className={cl.header__buttons}>
 							<div className={cl.header__LogIn}>
-							<MyButton className={cl.button} onClick={()=>setModal(true)}>Log In</MyButton>
+							<MyButton className={cl.button} >Log In</MyButton>
 							<MyModal visible={modal} setVisible={setModal}> 
 								<RegistrationForm />
 							</MyModal>
 							</div>
 							<div className={cl.header__SignUp}>
-								<MyButton className={cl.button}>Sign Up</MyButton>
+								<MyButton className={cl.button} onClick={()=>setModal(true)}>Sign Up</MyButton>
+								<MyModal visible={modal} setVisible={setModal}> 
+									<RegistrationForm />
+								</MyModal>
 							</div>
 						</div>
 					</div>
