@@ -62,7 +62,10 @@ const Header = () => {
 							<div className={cl.header__SignUp}>
 								<MyButton className={cl.button} onClick={()=>setRegPopupVisible(true)}>Sign Up</MyButton>
 								<MyModal visible={regPopupVisible} setVisible={setRegPopupVisible}> 
-									<RegistrationForm />
+									<RegistrationForm 
+										setVisibleReg={setRegPopupVisible}
+										setVisibleLog={setLogPopupVisible}
+									/>
 								</MyModal>
 							</div>
 						</div>

@@ -3,8 +3,9 @@ import classes from "./RegistrationForm.module.css"
 import MyInput from '../CustomInputForAuthentication';
 import MyButton from '../../UI/button/MyButton';
 import eyeIcon from './../../../source/eye.svg';
+import cross from './../../../source/cross.svg';
 
-const RegistrationForm = () => {
+const RegistrationForm = ({setVisibleReg, setVisibleLog}) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const passwordRef = useRef(null);
 
@@ -15,12 +16,20 @@ const RegistrationForm = () => {
     }
   };
 
+	const handleSubmit = (e) => {
+    e.preventDefault();
+    setVisibleReg(false);
+    setVisibleLog(true);
+  };
   return (
     <div className={classes.input__box}>
       <div>
         <div className={classes.input__box__header}>
           <h1>Реєстрація</h1>
           <h2>Давайте розпочнемо!</h2>
+					<MyButton style={{background: "transparent", cursor: "default"}} onClick={()=>setVisibleReg(false)}>
+						<img src={cross} alt="" className={classes.cross} />
+					</MyButton>
         </div>
         <div>
           <div className={classes.input__box__label}>Створити аккаунт</div>
@@ -60,7 +69,11 @@ const RegistrationForm = () => {
           </MyButton>
 					<div className={classes.alreadylogin} >
 						Уже маєте аккаунт?&nbsp;
-						<MyButton className={classes.alredylogin__link} style={{background: "transparent"}}>ЗАЛОГІНЬТЕСЬ ТУТ!</MyButton>
+						<MyButton 
+							className={classes.alredylogin__link}  
+							style={{background: "transparent"}}
+							onClick={handleSubmit}
+						>ЗАЛОГІНЬТЕСЬ ТУТ!</MyButton>
 					</div>
         </div>
       </div>
@@ -78,10 +91,10 @@ const validateEmail = (email) => {
 };
 
 function validatePassword(password) {
-  const hasLatinLetters = /[a-zA-Z]/.test(password); // Перевірка на наявність латинських літер
-  const hasMinimumLength = password.length >= 6; // Перевірка на мінімальну довжину в 6 символів
-  const hasDigits = /\d/.test(password); // Перевірка на наявність цифр
-  const hasUpperCaseLetters = /[A-Z]/.test(password); // Перевірка на наявність великих літер
+  const hasLatinLetters = /[a-zA-Z]/.test(password); 
+  const hasMinimumLength = password.length >= 6; 
+  const hasDigits = /\d/.test(password); 
+  const hasUpperCaseLetters = /[A-Z]/.test(password); 
 
   if (hasLatinLetters && hasMinimumLength && hasDigits && hasUpperCaseLetters) {
     return { isValid: true, errorMessage: '' };

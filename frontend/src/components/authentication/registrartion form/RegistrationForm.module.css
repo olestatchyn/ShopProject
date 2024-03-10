@@ -1,9 +1,10 @@
 .input__box{ 
 	color: black;
 	margin: auto;
-
+	
 }
 .input__box__header{
+	position: relative;
 	height: 90px;
 	padding-top: 20px;
 	color: #fff;
@@ -56,4 +57,11 @@
 }
 .alredylogin__link:hover{
 	color: #ff9f47;
+}
+
+.cross {
+  position: absolute;
+  top: 30px; /* Регулюйте відповідно до потреби, щоб підняти зображення вище */
+  right: 20px; /* Регулюйте відповідно до потреби, щоб перемістити зображення праворуч */
+  cursor: pointer;
 }
