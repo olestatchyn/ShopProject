@@ -1,4 +1,75 @@
 .footer{
+	background-color: #262626;
+	height: 123px;
+	width: 100vw;
+
+	color: white;
+}
+.footer__container{
+	max-width: 1358px;
+	margin: 0 auto;
+	height: 100%;
+}
+.footer__row{
 	display: flex;
-	background-color: red;
+	justify-content: space-between;
+	align-items: center;
+	height: 100%;
+}
+.footer__col{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+}
+.footer__logo{
+	height: 100%;
+}
+.footer__logo img{
+	margin-left: -70px;
+	margin-top: -50px;
+}
+.footer__logo__description{
+	display: flex;
+	text-align: center;
+	line-height: 32px;
+	margin-top: -40px;
+	letter-spacing: 1px;
+}
+.footer__contacts{
+	font-weight: 400;
+	font-size: 16px;
+	display: flex;
+
+}
+.footer__address::before{
+	content:url('./../../../source/geo.svg');
+	position: relative;
+	top: 5px;
+	left: -10px;
+}
+.footer__email{
+	margin: 0 45px;
+}
+.footer__email::before{
+	content:url('./../../../source/@.svg');
+	position: relative;
+	top: 5px;
+	left: -10px;
+}
+.footer__number::before{
+	content:url('./../../../source/phone-footer.svg');
+	position: relative;
+	top: 5px;
+	left: -10px;
+}
+.footer__social{
+	display: flex;
+}
+.footer__instagram{
+	margin: 0 45px;
+}
+
+.footer__facebook{
+
 }
