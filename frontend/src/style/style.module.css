@@ -1,4 +1,7 @@
 .container{
+
 	/* background-color: #6d5454; */
-	width: 100vw;
+	max-width: 1300px;
+	margin: 0 auto;
+	height: 100%;
 }
