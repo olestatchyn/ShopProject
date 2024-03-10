@@ -31,9 +31,6 @@ h1, h2, h3, h4, h5, h6 {font-size: inherit;font-weight: 400;}
 	align-items: center;
 	height: 100%;
 }
-.header__col{
-
-}
 
 .header__logo{
 	height: 100%;
@@ -115,6 +112,11 @@ h1, h2, h3, h4, h5, h6 {font-size: inherit;font-weight: 400;}
 	width: 95px;
 	height: 35px;
 }
+
+.header__LogIn:hover{
+	background: linear-gradient(137deg, #ff9f47 0%, #fdb806 100%);
+}
+
 .header__SignUp{
 	margin-left: 21px;
 	font-weight: 700;
@@ -124,11 +126,13 @@ h1, h2, h3, h4, h5, h6 {font-size: inherit;font-weight: 400;}
 	height: 35px;
 	background: linear-gradient(137deg, #ff9f47 0%, #fdb806 100%);
 }
-.header__buttons div:hover{
-	background: linear-gradient(137deg, #ff9f47 0%, #fdb806 100%);
-}
 
 .button{
+<<<<<<< HEAD
 	color: #fff;
 	background: transparent;
+=======
+  background: transparent;
+	color: white;
+>>>>>>> c478bd000b18ea6af7fae50fffdd7ef4a34e97b3
 }

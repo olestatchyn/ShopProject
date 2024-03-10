@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import cl from './Header.module.css';
-import logo from './../../../sourse/Logo.svg';
+import logo from './../../../source/Logo.svg';
 import MyNavLink from './../nav-bar/MyNavLink';
 import MyButton from '../button/MyButton';
+import MyModal from '../myModal/MyModal';
+import RegistrationForm from '../../authentication/registrartion form/RegistrationForm';
+import LoginForm from '../../authentication/login form/LoginForm';
 
 const Header = () => {
+	const [regPopupVisible, setRegPopupVisible] = useState(false);
+	const [logPopupVisible, setLogPopupVisible] = useState(false);
+
 	return (
 		<div className={cl.header}>
 			<div className={cl.header__container}>
@@ -48,10 +54,16 @@ const Header = () => {
 					<div className={cl.header__col}>
 						<div className={cl.header__buttons}>
 							<div className={cl.header__LogIn}>
-								<MyButton className={cl.button}>Log In</MyButton>
+							<MyButton className={cl.button} onClick={()=>setLogPopupVisible(true)}>Log In</MyButton>
+							<MyModal visible={logPopupVisible} setVisible={setLogPopupVisible}> 
+								<LoginForm />
+							</MyModal>
 							</div>
 							<div className={cl.header__SignUp}>
-								<MyButton className={cl.button}>Sign Up</MyButton>
+								<MyButton className={cl.button} onClick={()=>setRegPopupVisible(true)}>Sign Up</MyButton>
+								<MyModal visible={regPopupVisible} setVisible={setRegPopupVisible}> 
+									<RegistrationForm />
+								</MyModal>
 							</div>
 						</div>
 					</div>
@@ -60,6 +72,7 @@ const Header = () => {
 		</div>
 	);
 }
+
 
 
 export default Header;
