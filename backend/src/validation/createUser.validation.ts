@@ -1,8 +1,14 @@
 import Joi from "joi";
 
-const userSchema = Joi.object({
+const userRegisterEntitySchema = Joi.object({
   name: Joi.string().required(),
-  email: Joi.string().email().required()
+  email: Joi.string().required(),
+  password: Joi.string().required(),
 });
 
-export { userSchema }
+const userLoginEntitySchema = Joi.object({
+  email: Joi.string().required(),
+  password: Joi.string().required(),
+});
+
+export { userRegisterEntitySchema, userLoginEntitySchema }

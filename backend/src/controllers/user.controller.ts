@@ -1,40 +1,44 @@
-import express, { Request, Response } from 'express';
-import { getUsers, checkIfUserExists, createNewUser } from '../services/user.service';
-import { userSchema } from '../validation/createUser.validation';
+import express, { Request, Response, NextFunction } from 'express';
+import { loginUser, registerUser } from '../services/user.service';
+import { userLoginEntitySchema, userRegisterEntitySchema } from '../validation/createUser.validation';
+import BadRequestError from '../errors/bad-request.error';
+import { ErrorMessage } from '../errors/error-consts';
 
 let userRouter = express.Router();
 
-userRouter.get('/users', async (req: Request, res: Response) => {
+userRouter.post('/register', async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const foundUsers = await getUsers();
-    res.status(200).json(foundUsers);
+    const bodyValidation = userRegisterEntitySchema.validate(req.body);
+
+    if (bodyValidation.error) {
+      throw new BadRequestError(ErrorMessage.invalidData);
+    }
+
+    let userInfo = req.body;
+    const newUser = await registerUser(userInfo);
+
+    res.status(201).json(newUser);
   } catch (error) {
     console.log(error);
-    res.status(500).send({ error: 'Error getting all users' });
+    next(error);
   }
 });
 
-userRouter.post('/users', async (req: Request, res: Response) => {
+userRouter.post('/login', async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const { name, email } = req.body;
-    const { error } = userSchema.validate(req.body);
+    const bodyValidation = userLoginEntitySchema.validate(req.body);
 
-    if (error) {
-      return res.status(400).json({ error: error.details[0].message });
+    if (bodyValidation.error) {
+      throw new BadRequestError(ErrorMessage.invalidData);
     }
-    
-    const existingUser = await checkIfUserExists(email);
 
-    if (existingUser) {
-      return res.status(400).send({ error: 'User already exists' });
-    }
-  
-    const createdUser = await createNewUser(req.body);
+    let userInfo = req.body;
+    const token = await loginUser(userInfo);
 
-    res.status(201).json(createdUser);
+    res.status(201).json(token);
   } catch (error) {
     console.log(error);
-    res.status(500).send({ error: 'Error creating new user' });
+    next(error);
   }
 });
 

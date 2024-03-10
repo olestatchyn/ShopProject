@@ -4,8 +4,8 @@ import User from '../models/user';
 export default async function seeding() {
   try {
     const users = [
-      { name: 'John Doe', email: 'john@example.com' },
-      { name: 'Jane Smith', email: 'jane@example.com' }
+      { name: 'John Doe', email: 'john@example.com', password: 'johnpassword' },
+      { name: 'Jane Smith', email: 'jane@example.com', password: 'janepassword' }
     ];
 
     await User.insertMany(users);
