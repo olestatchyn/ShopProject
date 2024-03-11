@@ -1,6 +1,7 @@
 .about{
 
 }
+
 .about__background{
     background-image: url("./../../source/about us/pizza.png");
     background-repeat: no-repeat;
@@ -95,4 +96,63 @@
 }
 .about__content__text > p:last-child{
     margin-bottom: 0;
+}
+
+.about__map{
+    background-image: url("./../../source/about us/map.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 690px;
+}
+.about__map__info{
+    border-radius: 12px;
+    width: 413px;
+    height: 469px;
+    /*background: #262626;*/
+    /*opacity: 0.7;*/
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    background-color: rgba(26, 26, 26, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    position: relative;
+    top: 100px;
+    left: 260px;
+}
+.about__map__info > div {
+    margin: 12px 0;
+}
+.about__map__info__logo{
+}
+.about__map__info__address::before{
+    content:url('./../../source/about us/geo.svg');
+    position: relative;
+    top: 10px;
+    left: -10px;
+}
+.about__map__info__email::before{
+    content:url('./../../source/about us/@.svg');
+    position: relative;
+    top: 10px;
+    left: -10px;
+}
+.about__map__info__phone::before{
+    content:url('./../../source/about us/phone.svg');
+    position: relative;
+    top: 10px;
+    left: -10px;
+}
+.about__map__info__schedule::before{
+    content:url('./../../source/about us/clock.svg');
+    position: relative;
+    top: 10px;
+    left: -10px;
+}
+.about__map__marker{
+    position: relative;
+
 }

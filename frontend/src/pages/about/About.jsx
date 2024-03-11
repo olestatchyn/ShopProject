@@ -8,6 +8,10 @@ import content1 from './../../source/about us/content1.png';
 import content2 from './../../source/about us/content2.png';
 import content3 from './../../source/about us/content3.png';
 import content4 from './../../source/about us/content4.png';
+import logo from './../../source/about us/Logo.png';
+import marker from './../../source/about us/marker.svg';
+
+
 const About = () => {
 	return (
 		<div className={cl.about}>
@@ -49,7 +53,6 @@ const About = () => {
 					</div>
 				</div>
 			</div>
-			<div className={cl.about__space}></div>
 
 			<div className={main.container}>
 				<div className={cl.about__content}>
@@ -109,6 +112,30 @@ const About = () => {
 							</div>
 						</div>
 					</div>
+				</div>
+
+			</div>
+
+			<div className={cl.about__map}>
+				<div className={cl.about__map__info}>
+					<div className={cl.about__map__info__logo}>
+						<img src={logo} alt="logo"/>
+					</div>
+					<div className={cl.about__map__info__address}>
+						вул. Європецська площа 3
+					</div>
+					<div className={cl.about__map__info__email}>
+						primepizza@gmail.com
+					</div>
+					<div className={cl.about__map__info__phone}>
+						+ 38 (095) 208 1079
+					</div>
+					<div className={cl.about__map__info__schedule}>
+						Кожного дня 10:00 - 22:00
+					</div>
+				</div>
+				<div className={cl.about__map__marker}>
+					<img src={marker} alt="marker"/>
 				</div>
 			</div>
 		</div>
