@@ -1,27 +1,49 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import classes from "./LoginForm.module.css"
-import MyInput from '../CustomInputForAuthentication';
+import MyInput from '../AuthInput';
 import MyButton from '../../UI/button/MyButton';
 import eyeIcon from "../../../source/eye.svg";
 import cross from './../../../source/cross.svg';
+import { validateEmail} from './../../../utils/validation';
 
 
 const LoginForm = ({setVisibleReg, setVisibleLog}) => {
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const passwordRef = useRef(null);
+	const [isPasswordVisible, setIsPasswordVisible] = useState(true);
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(prev => !prev);
-    if(passwordRef.current) {
-      passwordRef.current.type = isPasswordVisible ? 'text' : 'password';
-    }
   };
+
+	const [formData, setFormData] = useState({
+		email: '', 
+		password: '', 
+	});
+
+	const updateFormData = (field, value) => {
+		setFormData(prev => ({
+			...prev,
+			[field]: value
+		}));
+	};
 
 	const handleSubmit = (e) => {
     e.preventDefault();
     setVisibleLog(false);
     setVisibleReg(true);
   };
+
+	const allFieldsFilled = () => {
+		return formData.email && formData.password
+	};
+
+	const logAccount = () => {
+		const checkEmail = validateEmail(formData.email)
+		if (allFieldsFilled() && checkEmail.isValid) {
+			// кидаємо на бек
+			console.log('Всі умови виконані');
+		}  
+	}
+	
 
   return (
     <div className={classes.input__box}>
@@ -40,14 +62,20 @@ const LoginForm = ({setVisibleReg, setVisibleLog}) => {
             placeholder="Електронна пошта"
             name="email"
             type="email"
+						value={formData.email}
+						onChange={(e)=>updateFormData('email', e.target.value)}
+						validationFunction={validateEmail}
           />
-          <MyInput
-            label="Пароль"
-            type={isPasswordVisible ? 'text' : 'password'}
-            placeholder="Створіть пароль"
-            icon={eyeIcon}
-            onIconClick={togglePasswordVisibility}
-          />
+           <MyInput
+						name="password"
+						label="Пароль"
+						type={isPasswordVisible ? 'text' : 'password'}
+						placeholder="Пароль"
+						icon={eyeIcon}
+						onIconClick={togglePasswordVisibility}
+						value={formData.password}
+						onChange={(e)=>updateFormData('password', e.target.value)}
+					/>
 					<div className={classes.input__box__addition}>
 					  <div className={classes.input__box__stay}>
              	<label className={classes.customcheckbox}>
@@ -62,7 +90,9 @@ const LoginForm = ({setVisibleReg, setVisibleLog}) => {
 					</div>
 
 					<MyButton style={{background: "transparent"}}>
-						<div className={classes.login}>
+						<div 
+							className={classes.login}
+							onClick={logAccount}>
 								Продовжити
 						</div>
           </MyButton>
