@@ -120,7 +120,7 @@ const RegistrationForm = ({setVisibleReg, setVisibleLog}) => {
 					<div className={classes.alreadylogin} >
 						Уже маєте аккаунт?&nbsp;
 						<MyButton 
-							className={classes.alredylogin__link}  
+							className={classes.alreadylogin__link}
 							style={{background: "transparent"}}
 							onClick={handleSubmit}
 						>ЗАЛОГІНЬТЕСЬ ТУТ!</MyButton>

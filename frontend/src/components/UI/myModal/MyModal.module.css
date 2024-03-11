@@ -6,7 +6,9 @@
 	right: 0;
 	display: none;
 	background-color: rgba(0, 0, 0, 0.4);
+	z-index: 10;
 }
+
 
 .myModalContent{
 	background-color: #fff;

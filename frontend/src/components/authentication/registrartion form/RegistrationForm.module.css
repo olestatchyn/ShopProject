@@ -50,13 +50,13 @@
 	color: #212121;
 	padding-bottom: 26px;
 }
-.alredylogin__link{
+.alreadylogin__link{
 	text-transform: uppercase;
 	font-weight: 700;
 	text-decoration: underline;
 	color: #fdb806;
 }
-.alredylogin__link:hover{
+.alreadylogin__link:hover{
 	color: #ff9f47;
 }
 
