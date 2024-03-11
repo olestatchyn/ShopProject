@@ -1,23 +1,27 @@
 .about{
 
 }
-.about__pizza{
+.about__background{
     background-image: url("./../../source/about us/pizza.png");
     background-repeat: no-repeat;
     background-size: cover;
-
-
+    height: 866px;
+    position: relative;
+    top: -123px;
+    z-index: -1;
 }
-.about__space{
-    height: 175px;
-}
+/*.about__space{*/
+/*    height: 175px;*/
+/*}*/
 .about__contacts{
+    height: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: end;
     width: 965px;
     margin: 0 auto;
 }
-.about__column{
+.about__contacts__column{
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -28,7 +32,7 @@
     width: 302px;
     height: 350px;
     position: relative;
-    top: 175px;
+    top: 174px;
     padding: 0 30px;
 }
 .about__contacts__title{
@@ -39,4 +43,56 @@
 .about__contacts__text{
     font-weight: 300;
     font-size: 14px;
+}
+
+.about__content{
+    height: 1450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 90px 0;
+}
+.about__content__row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.about__content__row:nth-child(2) .about__content__img,
+.about__content__row:nth-child(4) .about__content__img {
+    order: 2;
+    margin-left: 30px;
+}
+
+.about__content__row:nth-child(2) .about__content__item,
+.about__content__row:nth-child(4) .about__content__item {
+    order: 1;
+}
+.about__content__row:nth-child(1) .about__content__img,
+.about__content__row:nth-child(3) .about__content__img {
+    margin-right: 30px;
+
+}
+
+.about__content__img{
+}
+.about__content__item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.about__content__title{
+    font-weight: 700;
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+.about__content__text{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+}
+.about__content__text > p{
+    margin-bottom: 40px;
+}
+.about__content__text > p:last-child{
+    margin-bottom: 0;
 }
