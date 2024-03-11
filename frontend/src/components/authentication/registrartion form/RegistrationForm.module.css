@@ -62,7 +62,16 @@
 
 .cross {
   position: absolute;
-  top: 30px; /* Регулюйте відповідно до потреби, щоб підняти зображення вище */
-  right: 20px; /* Регулюйте відповідно до потреби, щоб перемістити зображення праворуч */
+  top: 30px; 
+  right: 20px; 
   cursor: pointer;
+}
+
+.errorText {
+  position: absolute;
+  color: red;
+  font-size: 0.75rem;
+  top: 74%;
+	left: 50%; 
+  transform: translateX(-50%); 
 }

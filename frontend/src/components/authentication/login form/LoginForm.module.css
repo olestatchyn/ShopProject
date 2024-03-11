@@ -4,6 +4,7 @@
 
 }
 .input__box__header{
+	position: relative;
 	height: 90px;
 	padding-top: 20px;
 	color: #fff;
@@ -117,4 +118,11 @@
 	border: solid black;
 	border-width: 0 3px 3px 0;
 	transform: rotate(45deg);
+}
+
+.cross {
+  position: absolute;
+  top: 30px; 
+  right: 20px; 
+  cursor: pointer;
 }
