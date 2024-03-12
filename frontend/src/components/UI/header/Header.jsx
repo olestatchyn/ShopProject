@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import cl from './Header.module.css';
-import logo from './../../../source/Logo.svg';
+import logo from './../../../source/Logo.png';
 import MyNavLink from './../nav-bar/MyNavLink';
 import MyButton from '../button/MyButton';
 import MyModal from '../myModal/MyModal';

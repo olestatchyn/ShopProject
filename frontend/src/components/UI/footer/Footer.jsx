@@ -2,7 +2,7 @@ import React from 'react';
 import MyNavLink from '../nav-bar/MyNavLink';
 import cl from "./Footer.module.css"
 // import main from "./../../../style/style.module.css"
-import logo from "../../../source/Logo.svg";
+import logo from "../../../source/Logo.png";
 import instagram from "../../../source/Instagram.svg";
 import facebook from "../../../source/Facebook.svg";
 
@@ -17,10 +17,11 @@ const Footer = () => {
 							<MyNavLink className="myNavLink" to="/">
 								<img src={logo} alt="Logo"/>
 							</MyNavLink>
+							<div className={cl.footer__logo__description}>
+								© 2020 Всі права захищені
+							</div>
 						</div>
-						<div className={cl.footer__logo__description}>
-							© 2020 Всі права захищені
-						</div>
+
 					</div>
 
 					<div className={cl.footer__col}>
