@@ -29,9 +29,11 @@ const OrderForm = () => {
 
 				/>
 				<MyInput 
+					placeholder="Будинок"
 				
 				/>
 				<MyInput 
+					placeholder="Квартира"
 				
 				/>
 			</div>

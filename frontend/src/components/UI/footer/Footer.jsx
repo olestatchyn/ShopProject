@@ -1,7 +1,7 @@
 import React from 'react';
 import MyNavLink from '../nav-bar/MyNavLink';
 import cl from "./Footer.module.css"
-import main from "./../../../style/style.module.css"
+// import main from "./../../../style/style.module.css"
 import logo from "../../../source/Logo.svg";
 import instagram from "../../../source/Instagram.svg";
 import facebook from "../../../source/Facebook.svg";

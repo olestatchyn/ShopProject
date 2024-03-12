@@ -7,8 +7,9 @@ function App() {
 	// // const [data, setData] = useState([{}]);
 	
 	// const userData = {
-		// 	name: "Mydwakola",
-	// 	email: "Mykola@example.com"
+	// 	name: "Mydwakola",
+	// 	email: "Mykola@example.com",
+	// 	password: "password"
 	// };
 	
 	// const fetchData = async () => {
@@ -17,7 +18,7 @@ function App() {
 	// }
 	
 	// const fetchDataPost = async () => {
-	// 	await axios.post('http://localhost:5000/api/users', userData)
+	// 	await axios.post('http://localhost:5000/api/register', userData)
 	// 	.then(function (response) {
 	// 		console.log('Response:', response.data);
 	// 	})
@@ -25,7 +26,7 @@ function App() {
 	// 		console.log('Error:', error.response.data.error);
 	// 	});
 	// }
-
+	// fetchDataPost()
   // return (
 		//   <div>
 		//     {/* <h1>Hello world</h1> */}
@@ -44,6 +45,8 @@ function App() {
 		//   </div>
 		// );
 		return <RouterProvider router={router} />
+		// return <h1>Hello world</h1>
+
 	}
 	
 export default App;
