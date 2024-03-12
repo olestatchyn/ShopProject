@@ -8,27 +8,27 @@ import btnStroke from "../../source/button-stroke.svg";
 const CreateCustomPizza = () => {
   const [ingredients, setIngredients] = useState({
     base: [
-      { name: "Моццарела", checked: false, count: 0, price: 50 },
+      { name: "Моцарела", checked: false, count: 0, price: 50 },
       { name: "Пармезан", checked: false, count: 0, price: 50 },
     ],
     vegetables: [
-      { name: "Моццарела", checked: false, count: 0, price: 50 },
+      { name: "Моцарела", checked: false, count: 0, price: 50 },
       { name: "Пармезан", checked: false, count: 0, price: 50 },
     ],
     meat: [
-      { name: "Моццарела", checked: false, count: 0, price: 50 },
+      { name: "Моцарела", checked: false, count: 0, price: 50 },
       { name: "Пармезан", checked: false, count: 0, price: 50 },
     ],
     cheese: [
-      { name: "Моццарела", checked: false, count: 0, price: 50 },
+      { name: "Моцарела", checked: false, count: 0, price: 50 },
       { name: "Пармезан", checked: false, count: 0, price: 50 },
     ],
     sauce: [
-      { name: "Моццарела", checked: false, count: 0, price: 50 },
+      { name: "Моцарела", checked: false, count: 0, price: 50 },
       { name: "Пармезан", checked: false, count: 0, price: 50 },
     ],
     drinks: [
-      { name: "Моццарела", checked: false, count: 0, price: 50 },
+      { name: "Моцарела", checked: false, count: 0, price: 50 },
       { name: "Пармезан", checked: false, count: 0, price: 50 },
     ],
   });
@@ -74,16 +74,13 @@ const CreateCustomPizza = () => {
       <h2 className={cl.title}>Зроби свою ідеальну піцу!</h2>
       <div className={cl.custom__lists}>
         {Object.entries(ingredients).map(([type, items], index) => (
-          //<div className={`div-` + index}>
           <DropdownCheckboxList
-            //className={`${cl.div}__${index}`}
             key={type}
             title={ingredientTypesTranslations[type]}
             items={items}
             addProduct={(updatedItems) => updateIngredients(type, updatedItems)}
             className={cl.checkbox}
           />
-          //</div>
         ))}
       </div>
 

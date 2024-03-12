@@ -1,20 +1,27 @@
 .ingredient {
   display: flex;
   /* align-items: center; */
+  justify-content: space-between;
 }
 
-.checkbox {
+.checkboxButton {
   border: 1px solid #000;
   border-radius: 12px;
   width: 30px;
   height: 30px;
   margin-right: 20px;
+  background: none;
+}
+
+.checkboxButtonFocus {
+  border-color: #ff9f47;
 }
 
 .name {
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
+  flex: 1;
 }
 
 .price {
@@ -26,8 +33,10 @@
 .countContainer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 74px;
-  height: 33px;
+  height: 30px;
+  margin-right: 30px;
 }
 
 .count {
@@ -37,9 +46,17 @@
 }
 
 .countButton {
-  width: 20px;
-  height: 20px;
+  width: 19px;
+  height: 19px;
   border-radius: 100%;
   border: 1px solid #939eb4;
   background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rotate90 {
+  transform: rotate(90deg);
+  transition: transform 0.3s ease; /* Додайте плавну анімацію */
 }

@@ -7,6 +7,7 @@ import stroke from "./../../../source/stroke.svg";
 const DropdownCheckboxList = ({ title, items, addProduct, className }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [customItems, setCustomItems] = useState(items);
+  const [rotate, setRotate] = useState(0);
   const ingredientsRef = useRef(null);
 
   const toggleDropdown = () => {
@@ -14,6 +15,7 @@ const DropdownCheckboxList = ({ title, items, addProduct, className }) => {
     if (ingredientsRef.current) {
       ingredientsRef.current.classList.toggle("hidden");
     }
+    setRotate(isOpen ? 0 : 90);
   };
 
   useEffect(() => {
@@ -33,7 +35,16 @@ const DropdownCheckboxList = ({ title, items, addProduct, className }) => {
       <div className={css.background}> </div>
       <div className={className} onClick={toggleDropdown}>
         <h3 className={css.buttonTitle}>{title}</h3>
-        <img src={stroke} width={13} height={22} alt="stroke" />
+        <img
+          src={stroke}
+          width={13}
+          height={22}
+          alt="stroke"
+          style={{
+            transform: `rotate(${rotate}deg)`,
+            transition: "transform 0.3s ease",
+          }}
+        />
       </div>
       {isOpen && (
         <div ref={ingredientsRef} className={css.ingredients}>

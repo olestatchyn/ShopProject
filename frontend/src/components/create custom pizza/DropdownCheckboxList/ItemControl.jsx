@@ -1,43 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import MyButton from "../../UI/button/MyButton";
 import css from "./ItemControl.module.css";
+import minus from "./../../../source/minus.svg";
+import plus from "./../../../source/plus.svg";
+import check from "./../../../source/check.svg";
 
 const ItemControl = ({ item, onItemChange }) => {
+  const [showCountContainer, setShowCountContainer] = useState(item.checked);
+
   const handleChange = (changes) => {
     onItemChange({ ...item, ...changes });
   };
 
+  const handleCheckboxButtonClick = () => {
+    if (!item.checked) {
+      handleChange({ checked: true, count: item.count + 1 });
+      setShowCountContainer(true);
+    } else {
+      handleChange({ checked: false, count: 0 });
+      setShowCountContainer(false);
+    }
+  };
+
   return (
     <li className={css.ingredient}>
-      <input
-        type="checkbox"
-        checked={item.checked}
-        className={css.checkbox}
-        onChange={(e) => handleChange({ checked: e.target.checked })}
-      />
+      <MyButton
+        className={`${css.checkboxButton} ${
+          item.checked && css.checkboxButtonFocus
+        }`}
+        onClick={handleCheckboxButtonClick}
+      >
+        {item.checked && <img src={check} alt="check" />}
+      </MyButton>
 
       <p className={css.name}>{item.name}</p>
 
-      <div className={css.countContainer}>
-        <MyButton
-          className={css.countButton}
-          onClick={() => handleChange({ count: Math.max(0, item.count - 1) })}
-        >
-          -
-        </MyButton>
+      {showCountContainer && (
+        <div className={css.countContainer}>
+          <MyButton
+            className={css.countButton}
+            onClick={() => handleChange({ count: Math.max(1, item.count - 1) })}
+          >
+            <img src={minus} height={1.5} width={12} alt="minus" />
+          </MyButton>
 
-        <p className={css.count}>{item.count}</p>
+          <p className={css.count}>{item.count}</p>
 
-        <MyButton
-          className={css.countButton}
-          onClick={() => handleChange({ count: item.count + 1 })}
-        >
-          +
-        </MyButton>
-      </div>
+          <MyButton
+            className={css.countButton}
+            onClick={() => handleChange({ count: item.count + 1 })}
+          >
+            <img src={plus} alt="plus" />
+          </MyButton>
+        </div>
+      )}
 
       {/* <p>{price}</p> */}
-      <p className={css.price}>15 грн</p>
+      <p className={css.price}>{item.price} грн</p>
     </li>
   );
 };
