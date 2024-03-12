@@ -1,0 +1,45 @@
+.ingredient {
+  display: flex;
+  /* align-items: center; */
+}
+
+.checkbox {
+  border: 1px solid #000;
+  border-radius: 12px;
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+}
+
+.name {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.countContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 74px;
+  height: 33px;
+}
+
+.count {
+  font-weight: 300;
+  font-size: 24px;
+  color: #939eb4;
+}
+
+.countButton {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  border: 1px solid #939eb4;
+  background: #fff;
+}

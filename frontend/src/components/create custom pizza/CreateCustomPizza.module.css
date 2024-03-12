@@ -1,11 +1,84 @@
-.custom{
+.custom__lists {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px 30px;
 }
-.custom__lists{
-    display: flex;
+
+.title {
+  font-weight: 700;
+  font-size: 36px;
+  text-align: center;
+  color: #000;
+  margin-bottom: 70px;
 }
-.custom__lists > div{
 
-    border: 3px solid #ECEFF5;
-    border-radius: 24px;
+.checkbox {
+  width: 413px;
+  height: 64px;
+  border: 3px solid #eceff5;
+  border-radius: 24px;
+  background-color: #fff;
+  padding: 14px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  z-index: 3;
+}
 
+.addButton {
+  border-radius: 30px;
+  width: 236px;
+  height: 60px;
+  background: linear-gradient(137deg, #ffdb47 0%, #fdcc06 100%);
+
+  display: flex;
+  align-items: center;
+
+  padding: 10px 13px;
+
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 150%;
+  text-align: center;
+  color: #fff;
+}
+
+.addButton p {
+  text-align: center;
+  width: 276px;
+}
+
+.addButton:hover,
+.addButton:focus {
+  background: linear-gradient(137deg, #ff9f47 0%, #fdb806 100%);
+}
+
+.orderSum {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.Sum {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  font-size: 42px;
+}
+
+.orderContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 600px;
+  height: 60px;
+  margin-top: 60px;
+  margin: 60px auto 145px;
+}
+
+.orderContainer p {
+  font-weight: 400;
+  font-size: 24px;
+  width: 100%;
+  text-align: center;
 }
