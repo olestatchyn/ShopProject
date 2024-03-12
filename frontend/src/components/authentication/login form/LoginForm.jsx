@@ -1,28 +1,50 @@
-import React, { useState, useRef } from "react";
-import classes from "./LoginForm.module.css";
-import MyInput from "../CustomInputForAuthentication";
-import MyButton from "../../UI/button/MyButton";
+import React, { useState, useRef, useEffect } from 'react';
+import classes from "./LoginForm.module.css"
+import MyInput from '../AuthInput';
+import MyButton from '../../UI/button/MyButton';
 import eyeIconBlocked from "../../../source/eye-blocked.svg";
 import eyeIcon from "../../../source/eye-open.svg";
+import cross from './../../../source/cross.svg';
+import { validateEmail} from './../../../utils/validation';
 
-import cross from "./../../../source/cross.svg";
 
-const LoginForm = ({ setVisibleReg, setVisibleLog }) => {
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const passwordRef = useRef(null);
+const LoginForm = ({setVisibleReg, setVisibleLog}) => {
+	const [isPasswordVisible, setIsPasswordVisible] = useState(true);
 
   const togglePasswordVisibility = () => {
-    setIsPasswordVisible((prev) => !prev);
-    if (passwordRef.current) {
-      passwordRef.current.type = isPasswordVisible ? "text" : "password";
-    }
+    setIsPasswordVisible(prev => !prev);
   };
 
-  const handleSubmit = (e) => {
+	const [formData, setFormData] = useState({
+		email: '', 
+		password: '', 
+	});
+
+	const updateFormData = (field, value) => {
+		setFormData(prev => ({
+			...prev,
+			[field]: value
+		}));
+	};
+
+	const handleSubmit = (e) => {
     e.preventDefault();
     setVisibleLog(false);
     setVisibleReg(true);
   };
+
+	const allFieldsFilled = () => {
+		return formData.email && formData.password
+	};
+
+	const logAccount = () => {
+		const checkEmail = validateEmail(formData.email)
+		if (allFieldsFilled() && checkEmail.isValid) {
+			// кидаємо на бек
+			console.log('Всі умови виконані');
+		}  
+	}
+	
 
   return (
     <div className={classes.input__box}>
@@ -44,20 +66,26 @@ const LoginForm = ({ setVisibleReg, setVisibleLog }) => {
             placeholder="Електронна пошта"
             name="email"
             type="email"
+						value={formData.email}
+						onChange={(e)=>updateFormData('email', e.target.value)}
+						validationFunction={validateEmail}
           />
-          <MyInput
-            label="Пароль"
-            type={isPasswordVisible ? "text" : "password"}
-            placeholder="Створіть пароль"
-            icon={isPasswordVisible ? eyeIconBlocked : eyeIcon}
-            onIconClick={togglePasswordVisibility}
-          />
-          <div className={classes.input__box__addition}>
-            <div className={classes.input__box__stay}>
-              <label className={classes.customcheckbox}>
-                <input type="checkbox" id="remember-me" />
-                <span className={classes.checkmark}></span>
-                Запам'ятати мене
+           <MyInput
+						name="password"
+						label="Пароль"
+						type={isPasswordVisible ? 'text' : 'password'}
+						placeholder="Пароль"
+						icon={isPasswordVisible ? eyeIconBlocked : eyeIcon}
+						onIconClick={togglePasswordVisibility}
+						value={formData.password}
+						onChange={(e)=>updateFormData('password', e.target.value)}
+					/>
+					<div className={classes.input__box__addition}>
+					  <div className={classes.input__box__stay}>
+             	<label className={classes.customcheckbox}>
+               	<input type="checkbox" id="remember-me"/>
+               	<span className={classes.checkmark}></span>
+               	Запам'ятати мене
               </label>
             </div>
             <div>
@@ -67,8 +95,12 @@ const LoginForm = ({ setVisibleReg, setVisibleLog }) => {
             </div>
           </div>
 
-          <MyButton style={{ background: "transparent" }}>
-            <div className={classes.login}>Продовжити</div>
+					<MyButton style={{background: "transparent"}}>
+						<div 
+							className={classes.login}
+							onClick={logAccount}>
+								Продовжити
+						</div>
           </MyButton>
           <div className={classes.notregistered}>
             Новий користувач?&nbsp;

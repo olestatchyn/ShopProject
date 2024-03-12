@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import classes from "./CustomInputForAuthentication.module.css";
+import React, { useEffect, useState } from 'react';
+import classes from './AuthInput.module.css';
 
 const MyInput = ({
   label,
