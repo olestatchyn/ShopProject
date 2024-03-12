@@ -103,7 +103,3 @@
 
   /* transition: 0.4s; */
 }
-
-.input__animation:focus + .inputIcon svg {
-  fill: red;
-}

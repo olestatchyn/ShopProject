@@ -75,9 +75,14 @@
   font-size: 12px;
   color: #fdb806;
   background: #fff;
+  user-select: none;
 }
 .input__box__forget:hover {
   color: #ff9f47;
+}
+
+.customcheckbox {
+  user-select: none;
 }
 
 .customcheckbox input[type="checkbox"] {

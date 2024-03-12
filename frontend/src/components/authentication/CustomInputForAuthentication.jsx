@@ -46,6 +46,9 @@ const MyInput = ({
           {...props}
           onChange={handleChange}
           required
+          onFocus={(e) => {
+            e.target.setAttribute("autocomplete", "off");
+          }}
           placeholder=" "
         />
         <span className={classes.inputLabel}>{label}</span>
