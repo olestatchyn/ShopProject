@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState} from 'react';
 import classes from "./LoginForm.module.css"
 import MyInput from '../AuthInput';
 import MyButton from '../../UI/button/MyButton';
