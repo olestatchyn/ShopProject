@@ -2,7 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import classes from "./LoginForm.module.css"
 import MyInput from '../AuthInput';
 import MyButton from '../../UI/button/MyButton';
-import eyeIcon from "../../../source/eye.svg";
+import eyeIconBlocked from "../../../source/eye-blocked.svg";
+import eyeIcon from "../../../source/eye-open.svg";
 import cross from './../../../source/cross.svg';
 import { validateEmail} from './../../../utils/validation';
 
@@ -51,9 +52,12 @@ const LoginForm = ({setVisibleReg, setVisibleLog}) => {
         <div className={classes.input__box__header}>
           <h1>Вхід</h1>
           <h2>Ласкаво просимо назад!</h2>
-					<MyButton style={{background: "transparent", cursor: "default"}} onClick={()=>setVisibleLog(false)}>
-						<img src={cross} alt="" className={classes.cross} />
-					</MyButton>
+          <MyButton
+            style={{ background: "transparent", cursor: "default" }}
+            onClick={() => setVisibleLog(false)}
+          >
+            <img src={cross} alt="" className={classes.cross} />
+          </MyButton>
         </div>
         <div>
           <h1 className={classes.input__box__label}>Вхід у ваш аккаунт</h1>
@@ -71,7 +75,7 @@ const LoginForm = ({setVisibleReg, setVisibleLog}) => {
 						label="Пароль"
 						type={isPasswordVisible ? 'text' : 'password'}
 						placeholder="Пароль"
-						icon={eyeIcon}
+						icon={isPasswordVisible ? eyeIconBlocked : eyeIcon}
 						onIconClick={togglePasswordVisibility}
 						value={formData.password}
 						onChange={(e)=>updateFormData('password', e.target.value)}
@@ -83,11 +87,13 @@ const LoginForm = ({setVisibleReg, setVisibleLog}) => {
                	<span className={classes.checkmark}></span>
                	Запам'ятати мене
               </label>
-          	</div>
-            <div >
-						  <MyButton className={classes.input__box__forget}>Забули пароль?</MyButton>
             </div>
-					</div>
+            <div>
+              <MyButton className={classes.input__box__forget}>
+                Забули пароль?
+              </MyButton>
+            </div>
+          </div>
 
 					<MyButton style={{background: "transparent"}}>
 						<div 
@@ -96,19 +102,20 @@ const LoginForm = ({setVisibleReg, setVisibleLog}) => {
 								Продовжити
 						</div>
           </MyButton>
-					<div className={classes.notregistered}>
-						Новий користувач?&nbsp;
-						<MyButton 
-							className={classes.notregistered__link} 
-							style={{background: "transparent"}}
-							onClick={handleSubmit}	
-						
-						>Зареєструйтесь тут!</MyButton>
-					</div>
+          <div className={classes.notregistered}>
+            Новий користувач?&nbsp;
+            <MyButton
+              className={classes.notregistered__link}
+              style={{ background: "transparent" }}
+              onClick={handleSubmit}
+            >
+              Зареєструйтесь тут!
+            </MyButton>
+          </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default LoginForm;
