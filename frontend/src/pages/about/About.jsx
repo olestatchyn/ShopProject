@@ -20,7 +20,7 @@ const About = () => {
 				<div className={cl.about__contacts}>
 					<div className={cl.about__contacts__column}>
 						<div className={cl.about__contacts__img}>
-							<img src={facebook} alt=""/>
+							<a href="#"><img src={facebook} alt=""/></a>
 						</div>
 						<div className={cl.about__contacts__title}>
 							Facebook
@@ -31,7 +31,7 @@ const About = () => {
 					</div>
 					<div className={cl.about__contacts__column}>
 						<div className={cl.about__contacts__img}>
-							<img src={instagram} alt=""/>
+							<a href="#"><img src={instagram} alt=""/></a>
 						</div>
 						<div className={cl.about__contacts__title}>
 							Instagram
@@ -42,7 +42,7 @@ const About = () => {
 					</div>
 					<div className={cl.about__contacts__column}>
 						<div className={cl.about__contacts__img}>
-							<img src={gmail} alt=""/>
+							<a href="#"><img src={gmail} alt=""/></a>
 						</div>
 						<div className={cl.about__contacts__title}>
 							Gmail
