@@ -48,7 +48,6 @@
 }
 
 .about__content{
-    height: 1450px;
     display: flex;
     flex-direction: column;
     justify-content: center;
