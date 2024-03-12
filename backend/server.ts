@@ -23,6 +23,6 @@ app.use('/api', userRouter);
 
 app.listen(port, async () => {
   await connectToDb();
-  await seeding();
+  // await seeding();
   console.log(`App listening on port: http://localhost:${port}/`);
 });

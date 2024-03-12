@@ -7,7 +7,7 @@ export function useAuth() {
 }
 
 export const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
 	const [userRole, setUserRole] = useState("admin");
 
 

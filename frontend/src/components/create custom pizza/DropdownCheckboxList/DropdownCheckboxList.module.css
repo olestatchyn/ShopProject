@@ -1,0 +1,64 @@
+.buttonTitle {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 150%;
+  color: #000;
+  cursor: pointer;
+}
+
+.chooseIngredients {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.ingredients {
+  padding: 30px;
+  padding-top: 94px;
+  border: 3px solid #eceff5;
+  border-radius: 24px;
+  margin-top: -64px;
+  animation: slideFromTop 0.5s forwards;
+}
+
+@keyframes slideFromTop {
+  from {
+    margin-top: -300px;
+    opacity: 0;
+  }
+  to {
+    margin-top: -64px;
+    opacity: 1;
+  }
+}
+
+.ingredients.hidden {
+  animation: slideToTop 0.5s forwards;
+}
+
+@keyframes slideToTop {
+  from {
+    margin-top: -64px;
+    opacity: 1;
+  }
+  to {
+    margin-top: -300px;
+    opacity: 0;
+  }
+}
+
+.ingredientsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.background {
+  background-color: #fff;
+  width: 413px;
+  height: 64px;
+  margin-bottom: -64px;
+  z-index: 2;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+}

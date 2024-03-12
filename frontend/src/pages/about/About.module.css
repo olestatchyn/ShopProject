@@ -11,9 +11,7 @@
     top: -123px;
     z-index: -1;
 }
-/*.about__space{*/
-/*    height: 175px;*/
-/*}*/
+
 .about__contacts{
     height: 100%;
     display: flex;
@@ -36,6 +34,9 @@
     top: 174px;
     padding: 0 30px;
 }
+.about__contacts__img{
+
+}
 .about__contacts__title{
     font-weight: 400;
     font-size: 24px;
@@ -47,7 +48,6 @@
 }
 
 .about__content{
-    height: 1450px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -108,8 +108,6 @@
     border-radius: 12px;
     width: 413px;
     height: 469px;
-    /*background: #262626;*/
-    /*opacity: 0.7;*/
     color: #fff;
     font-weight: 700;
     font-size: 16px;
@@ -117,7 +115,7 @@
     background-color: rgba(26, 26, 26, 0.7);
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     position: relative;
     top: 100px;

@@ -9,8 +9,6 @@ import content2 from './../../source/about us/content2.png';
 import content3 from './../../source/about us/content3.png';
 import content4 from './../../source/about us/content4.png';
 import logo from './../../source/about us/Logo.png';
-import marker from './../../source/about us/marker.svg';
-
 
 const About = () => {
 	return (
@@ -20,7 +18,7 @@ const About = () => {
 				<div className={cl.about__contacts}>
 					<div className={cl.about__contacts__column}>
 						<div className={cl.about__contacts__img}>
-							<img src={facebook} alt=""/>
+							<a href="#"><img src={facebook} alt=""/></a>
 						</div>
 						<div className={cl.about__contacts__title}>
 							Facebook
@@ -31,7 +29,7 @@ const About = () => {
 					</div>
 					<div className={cl.about__contacts__column}>
 						<div className={cl.about__contacts__img}>
-							<img src={instagram} alt=""/>
+							<a href="#"><img src={instagram} alt=""/></a>
 						</div>
 						<div className={cl.about__contacts__title}>
 							Instagram
@@ -42,7 +40,7 @@ const About = () => {
 					</div>
 					<div className={cl.about__contacts__column}>
 						<div className={cl.about__contacts__img}>
-							<img src={gmail} alt=""/>
+							<a href="#"><img src={gmail} alt=""/></a>
 						</div>
 						<div className={cl.about__contacts__title}>
 							Gmail
@@ -133,9 +131,6 @@ const About = () => {
 					<div className={cl.about__map__info__schedule}>
 						Кожного дня 10:00 - 22:00
 					</div>
-				</div>
-				<div className={cl.about__map__marker}>
-					<img src={marker} alt="marker"/>
 				</div>
 			</div>
 		</div>
