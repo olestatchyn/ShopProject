@@ -49,3 +49,17 @@ export const validateName = (name) => {
 	}
 };
 	
+
+export const validatePhone = (phone) => {
+  const regex = /^0\d{9}$/;
+
+  if (!phone) {
+    return { isValid: false, errorMessage: 'Номер телефону не може бути порожнім' };
+  } else if (phone.length !== 10) {
+    return { isValid: false, errorMessage: 'Номер телефону повинен містити 10 цифр' };
+  } else if (!regex.test(phone)) {
+    return { isValid: false, errorMessage: 'Номер телефону повинен починатися з 0 і містити тільки цифри' };
+  } else {
+    return { isValid: true, errorMessage: '' };
+  }
+};

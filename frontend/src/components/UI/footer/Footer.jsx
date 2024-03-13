@@ -15,7 +15,7 @@ const Footer = () => {
 					<div className={cl.footer__col}>
 						<div className={cl.footer__logo}>
 							<MyNavLink className="myNavLink" to="/">
-								<img src={logo} alt="Logo"/>
+								{/* <img src={logo} alt="Logo"/> */}
 							</MyNavLink>
 							<div className={cl.footer__logo__description}>
 								© 2020 Всі права захищені
