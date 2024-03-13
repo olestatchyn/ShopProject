@@ -6,6 +6,7 @@ const MyInput = ({
   icon,
   onIconClick,
   validationFunction,
+	placeholder,
   ...props
 }) => {
   const [isValid, setIsValid] = useState(true);
@@ -49,7 +50,6 @@ const MyInput = ({
           onFocus={(e) => {
             e.target.setAttribute("autocomplete", "off");
           }}
-          placeholder=" "
         />
         <span className={classes.inputLabel}>{label}</span>
       </div>
