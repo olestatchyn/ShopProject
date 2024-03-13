@@ -51,7 +51,7 @@ userRouter.post('/login/reset-password', async (req: Request, res: Response, nex
     }
 
     let userInfo = req.body;
-    await handlePasswordReset(userInfo);
+    await handlePasswordReset(userInfo.email);
 
     res.status(201).json("Email sent");
   } catch (error) {
