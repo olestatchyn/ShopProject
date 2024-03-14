@@ -55,7 +55,6 @@ const ItemControl = ({ item, onItemChange }) => {
         </div>
       )}
 
-      {/* <p>{price}</p> */}
       <p className={css.price}>{item.price} грн</p>
     </li>
   );
