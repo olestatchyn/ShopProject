@@ -1,5 +1,5 @@
 import React from 'react';
-import cl from './About.module.css';
+import cl from './About.module.scss';
 import main from './../../style/style.module.css';
 import facebook from './../../source/about us/facebook.svg';
 import instagram from './../../source/about us/instagram.svg';
@@ -9,6 +9,7 @@ import content2 from './../../source/about us/content2.png';
 import content3 from './../../source/about us/content3.png';
 import content4 from './../../source/about us/content4.png';
 import logo from './../../source/about us/Logo.png';
+import FeedbackForm from "../../components/feedback form/FeedbackForm";
 
 const About = () => {
 	return (

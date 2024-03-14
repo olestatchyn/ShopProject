@@ -1,0 +1,52 @@
+
+.feedback{
+    background: #ECEFF5;
+    padding: 110px 0 90px;
+}
+.feedback__container{
+    width: 960px;
+    margin: 0 auto;
+}
+.feedback__title{
+    font-weight: 700;
+    font-size: 36px;
+    text-align: center;
+    padding-bottom: 70px;
+    line-height: 150%;
+}
+.feedback_form{
+    display: flex;
+    justify-content: space-between;
+}
+.feedback_input{
+
+}
+.myInput{
+    border: 1px solid #939EB4;
+    border-radius: 30px;
+    width: 300px;
+    height: 60px;
+}
+.feedback_button{
+    color: white;
+    text-align: center;
+
+    border-radius: 30px;
+    width: 300px;
+    height: 60px;
+    line-height: 60px;
+    background: linear-gradient(137deg, #ff9f47 0%, #fdb806 100%);
+}
+
+.button{
+    font-weight: 700;
+    font-size: 24px;
+    background: transparent;
+}
+.feedback_button:after{
+    content: url("../../source/feedback.svg");
+    position: relative;
+    top: 10px;
+    left: 20px;
+
+}
