@@ -8,7 +8,7 @@ import Shares from "../pages/shares/Shares";
 import { RequireAuth } from './RequireAuth'; 
 import Admin from "../pages/admin/Admin";
 import ErrorPage from "../pages/error/ErrorPage";
-import { ABOUT_ROUTE, ADMIN_ROUTE, BASCKET_ROUTE, HOME_ROUTE, PAYMENT_AND_DELIVERY_ROUTE, SHARES_ROUTE } from "./consts";
+import { ABOUT_ROUTE, ADMIN_ROUTE, BASCKET_ROUTE, HOME_ROUTE, PAYMENT_AND_DELIVERY_ROUTE, SHARES_ROUTE} from "./consts";
 
 
 export const router = createBrowserRouter([
