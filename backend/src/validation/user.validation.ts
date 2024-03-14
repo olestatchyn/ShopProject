@@ -13,11 +13,10 @@ const userLoginEntitySchema = Joi.object({
 
 const userSendEmailEntitySchema = Joi.object({
   email: Joi.string().email().required(),
-  link: Joi.string().required(),
 });
 
 const userResetPasswordEntitySchema = Joi.object({
-  email: Joi.string().email().required(),
+  encryptedEmail: Joi.string().required(),
   password: Joi.string().required(),
 });
 
