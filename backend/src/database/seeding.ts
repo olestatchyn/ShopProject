@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
-import User from '../models/user';
+import User from '../models/user.model';
 
-export default async function seeding() {
+async function seedDatabase() {
   try {
     const users = [
       { name: 'John Doe', email: 'john@example.com', password: 'johnpassword' },
@@ -16,4 +16,20 @@ export default async function seeding() {
   }
 }
 
-export { seeding }
+export default async function handleSeed() {
+  try {
+    const db = mongoose.connection.db;
+    const collections = await db.collections();
+    
+    if (collections.length === 0) {
+      seedDatabase();
+      console.log('Database seeded successfully.');
+    } else {
+      console.log('Database not empty. Skipping seeding process.');
+    }
+  } catch (error) {
+    console.error('Error seeding database:', error);
+  }
+}
+
+export { handleSeed }
