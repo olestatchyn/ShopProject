@@ -1,11 +1,28 @@
-import { getPizzasFromRepository } from '../../repositories/products/pizza.repository';
+import BadRequestError from '../../errors/bad-request.error';
+import { ErrorMessage } from '../../errors/error-consts';
+import { createNewPizza, editPizzaByName, getPizzabyName, getPizzasFromRepository, deletePizza } from '../../repositories/products/pizza.repository';
 
-async function getPizzaArray(pizzaParams) {
-  const { page, limit } = pizzaParams;
-  const skip = (page - 1) * limit;
-  const pizzas = await getPizzasFromRepository({ skip, limit });
+async function getPizzaLimited(limit) {
+
+  const pizzas = await getPizzasFromRepository(limit);
 
   return pizzas;
 }
 
-export { getPizzaArray };
+async function createPizza(pizzaData) {
+  const pizza = await getPizzabyName(pizzaData.name);
+
+  if (pizza) throw new BadRequestError(ErrorMessage.pizzaExists);
+  
+  await createNewPizza(pizzaData);
+}
+
+async function editPizza(pizzaData) {
+  await editPizzaByName(pizzaData);
+}
+
+async function deletePizzaByName(name) {
+  await deletePizza(name);
+}
+
+export { getPizzaLimited, createPizza, editPizza, deletePizzaByName };

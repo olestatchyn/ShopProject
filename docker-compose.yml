@@ -17,13 +17,13 @@ services:
     depends_on:
       - db
 
-  # frontend:
-  #   build: frontend/.
-  #   restart: always
-  #   ports:
-  #     - '${FRONTEND_PORT}:${FRONTEND_PORT}'
-  #   depends_on:
-  #     - backend
+  frontend:
+    build: frontend/.
+    restart: always
+    ports:
+      - '${FRONTEND_PORT}:${FRONTEND_PORT}'
+    depends_on:
+      - backend
 
 volumes:
   data:
