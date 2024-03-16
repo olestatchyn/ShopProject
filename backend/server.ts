@@ -3,10 +3,12 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import corsOptions from './src/cors/corsoptions';
 import { userRouter } from './src/controllers/user.controller';
-import { connectToDb, dbStatus } from './src/database/connection';
+import { connectToDb } from './src/database/connection';
 import { handleSeed } from './src/database/seeding';
 import { errorHandlerMiddleware } from './src/middleware/error.middleware';
 import { expressLogger } from './src/loggers/endpoint.logger';
+import { healthRouter } from './src/controllers/health.controller';
+import { pizzaRouter } from './src/controllers/products/pizza.controller';
 
 const app = express();
 const port = process.env.BACKEND_PORT;
@@ -17,13 +19,8 @@ app.use(expressLogger);
 
 app.use(bodyParser.json());
 
-app.use('/api', userRouter);
-
-app.get('/health', (req, res) => {
-  const dbHealth = dbStatus();
-  const message = `Application is healthy. Database status: ${dbHealth}`;
-  res.status(200).json({ message });
-});
+app.use('/api', healthRouter, userRouter);
+app.use('/api/products', pizzaRouter);
 
 app.use(errorHandlerMiddleware);
 

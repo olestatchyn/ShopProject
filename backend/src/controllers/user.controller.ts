@@ -19,7 +19,6 @@ userRouter.post('/register', async (req: Request, res: Response, next: NextFunct
 
     res.status(201).json("User created");
   } catch (error) {
-    console.log(error);
     next(error);
   }
 });
@@ -37,7 +36,6 @@ userRouter.post('/login', async (req: Request, res: Response, next: NextFunction
 
     res.status(201).json(token);
   } catch (error) {
-    console.log(error);
     next(error);
   }
 });
@@ -55,7 +53,6 @@ userRouter.post('/login/reset-password', async (req: Request, res: Response, nex
 
     res.status(201).json("Email sent");
   } catch (error) {
-    console.log(error);
     next(error);
   }
 });
@@ -73,7 +70,6 @@ userRouter.patch('/login/reset-password', async (req: Request, res: Response, ne
 
     res.status(200).json("Password has been updated");
   } catch (error) {
-    console.log(error);
     next(error);
   }
 });
