@@ -1,0 +1,24 @@
+.page__wrapper {
+	display: flex;
+	margin-top: 30px;
+}
+
+.page{
+	padding: 10px;
+	border: 1px solid teal;
+	cursor: pointer;
+}
+
+.page__current {
+	border: 2px solid orange;
+	font-weight: bold;
+}
+
+.post {
+  display: flex;
+  padding: 15px;
+  border: 2px solid teal;
+  margin-top: 15px;
+  justify-content: space-between;
+  align-items: center;
+}

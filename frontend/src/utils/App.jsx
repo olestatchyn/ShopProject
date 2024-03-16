@@ -1,6 +1,7 @@
 // import axios from "axios"
 import { RouterProvider } from "react-router-dom";
 import { router } from "./router";
+import './../style/App.css';
 
 function App() {
 
