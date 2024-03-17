@@ -7,6 +7,7 @@ import d3 from './../../source/delivery/d3.png';
 import p1 from './../../source/delivery/p1.png';
 import p2 from './../../source/delivery/p2.png';
 import p3 from './../../source/delivery/p3.png';
+import FeedbackForm from "../../components/feedback form/FeedbackForm";
 
 const PaymentAndDelivery = () => {
 	return (
@@ -96,6 +97,7 @@ const PaymentAndDelivery = () => {
 					</div>
 				</div>
 			</div>
+			<FeedbackForm />
 		</div>
 	);
 }

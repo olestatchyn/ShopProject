@@ -18,7 +18,7 @@ const Footer = () => {
 								<img src={logo} alt="Logo"/>
 							</MyNavLink>
 							<div className={cl.footer__logo__description}>
-								© 2020 Всі права захищені
+								© 2024 Всі права захищені
 							</div>
 						</div>
 
