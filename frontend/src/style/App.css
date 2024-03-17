@@ -1,24 +1,41 @@
 .page__wrapper {
 	display: flex;
-	margin-top: 30px;
+	justify-content: center;
+	padding: 114px 0 60px;
 }
 
 .page{
-	padding: 10px;
-	border: 1px solid teal;
+	margin: 0 15px;
+
+	border-radius: 30px;
+	width: 170px;
+	height: 60px;
+
+	background: #ECEFF5;
+
 	cursor: pointer;
+
+	font-weight: 400;
+	font-size: 24px;
+
+	text-align: center;
+	line-height: 60px;
 }
 
 .page__current {
-	border: 2px solid orange;
-	font-weight: bold;
+
+	background: linear-gradient(137deg, #ff9f47 0%, #fdb806 100%);
+
+	font-weight: 700;
+
+	color: #fff;
 }
 
-.post {
-  display: flex;
-  padding: 15px;
-  border: 2px solid teal;
-  margin-top: 15px;
-  justify-content: space-between;
-  align-items: center;
-}
+/*.post {*/
+/*  display: flex;*/
+/*  padding: 15px;*/
+/*  border: 2px solid teal;*/
+/*  margin-top: 15px;*/
+/*  justify-content: space-between;*/
+/*  align-items: center;*/
+/*}*/

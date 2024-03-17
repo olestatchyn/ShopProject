@@ -1,0 +1,69 @@
+.post {
+  margin: 0 15px;
+  height: 472px;
+  border-radius: 18px;
+  border: #ECEFF5 solid 3px;
+
+
+}
+.post__content{
+
+}
+.post__img{
+
+}
+.post__img{
+  width: 342px;
+  height: 270px;
+  border-radius: 15px;
+}
+.post__container{
+
+  padding: 20px;
+
+}
+.post__title{
+  font-weight: 600;
+  font-size: 24px;
+
+
+
+}
+.post__ingredients{
+  font-weight: 300;
+  font-size: 16px;
+  margin: 20px 0 30px;
+}
+.post__param{
+  display: flex;
+  justify-content: space-between;
+}
+.post__size{
+  padding-top: 15px;
+}
+.post__size__button{
+
+
+
+  font-weight: 300;
+  font-size: 16px;
+
+  background: transparent;
+  &:first-child{
+    margin-right: 10px;
+  }
+}
+.post__price{
+  font-weight: 300;
+  font-size: 36px;
+}
+.post__basket{
+  text-align: center;
+}
+.post__basket__button{
+
+  background: transparent;
+  img{
+
+  }
+}

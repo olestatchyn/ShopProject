@@ -12,21 +12,69 @@ export default class PostService {
 				},
 			},
 			{
-				name: "",
-				description: ["", ""],
+				name: "Vegan",
+				description: ["вершки", "моцірелла"],
 				sizeAndPrice: {
 					30: 100,
 					40: 150
 				},
 			},
 			{
-				name: "",
-				description: ["", ""],
+				name: "Vegan",
+				description: ["вершки", "моцірелла"],
 				sizeAndPrice: {
 					30: 100,
 					40: 150
 				},
 			},
+			{
+				name: "Vegan",
+				description: ["вершки", "моцірелла"],
+				sizeAndPrice: {
+					30: 100,
+					40: 150
+				},
+			},
+				{
+					name: "Vegan",
+					description: ["вершки", "моцірелла"],
+					sizeAndPrice: {
+						30: 100,
+						40: 150
+					},
+				},
+				{
+					name: "Vegan",
+					description: ["вершки", "моцірелла"],
+					sizeAndPrice: {
+						30: 100,
+						40: 150
+					},
+				},
+				{
+					name: "Vegan",
+					description: ["вершки", "моцірелла"],
+					sizeAndPrice: {
+						30: 100,
+						40: 150
+					},
+				},
+				{
+					name: "Vegan",
+					description: ["вершки", "моцірелла"],
+					sizeAndPrice: {
+						30: 100,
+						40: 150
+					},
+				},
+				{
+					name: "Vegan",
+					description: ["вершки", "моцірелла"],
+					sizeAndPrice: {
+						30: 100,
+						40: 150
+					},
+				},
 		]
 			const responce = await axios.get("https://jsonplaceholder.typicode.com/posts", {
 				params: { 
