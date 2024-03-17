@@ -1,5 +1,7 @@
 import React from "react";
 import ProductItem from "./ProductItem";
+import pizza from "../../source/home/pizza.jpg"
+import cl from "./ProductList.module.scss";
 
 const ProductsList = ({ items }) => {
 
@@ -10,15 +12,15 @@ const ProductsList = ({ items }) => {
 	}
 
 	const imageUrls = {
-		"Vegan": "тут посилання на фотку",
-		"4 сири": "тут посилання на фотку",
-		"4 м'яса": "тут посилання на фотку",
-		"Мисливська": "тут посилання на фотку",
+		"Vegan": pizza,
+		"4 сири": pizza,
+		"4 м'яса": pizza,
+		"Мисливська": pizza,
 	};
 
-	
+
   return (
-    <div>
+    <div className={cl.menu__lists}>
       {items.map((items, index) => (
         <ProductItem
           number={index + 1}

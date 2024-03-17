@@ -4,7 +4,7 @@ import PostService from '../../API/ProductsService';
 import ProductsList from '../products list/ProductsList';
 import Pagination from '../pagination/Pagination';
 import MyButton from '../UI/button/MyButton';
-
+import PizzaLoader from "../../components/UI/loader/PizzaLoader";
 
 const Menu = () => {
 	const [items, setItems] = useState([]);
@@ -38,9 +38,10 @@ const Menu = () => {
 			}
 			{isPostLoading
 				? <div style={{marginTop: 50, display: "flex", justifyContent: "center"}}>
-					{/* <Loader /> */}
+					{<PizzaLoader />}
 				</div>
-				: <ProductsList items={items} title="Post about JS" />
+				:
+				<ProductsList items={items} title="Post about JS" />
 				}
 			<MyButton onClick={changePage}>
 				Показати ще
