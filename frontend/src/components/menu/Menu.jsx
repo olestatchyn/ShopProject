@@ -5,6 +5,7 @@ import ProductsList from '../products list/ProductsList';
 import Pagination from '../pagination/Pagination';
 import MyButton from '../UI/button/MyButton';
 import PizzaLoader from "../../components/UI/loader/PizzaLoader";
+import PostServiceFront from '../../API/ProductsServiceFront';
 
 const Menu = () => {
 	const [items, setItems] = useState([]);
@@ -13,10 +14,16 @@ const Menu = () => {
 	const [limit, setLimit] = useState(8);
 
 	const [fetchPosts, isPostLoading, postError] = useFetching(async () => {
-		const responce = await PostService.getAll(limit, currentPage)
+		const responce = await PostService.getAll(dict[currentPage], limit)
 		setItems(responce)
 	})
 
+	const dict = {
+		"Піца": "pizza",
+		"Салат": "salad",
+		"Напої": "drink",
+		"Інше": "other"
+	}
 	useEffect(() => {
 		fetchPosts()
 	}, [currentPage, limit]);
@@ -38,7 +45,7 @@ const Menu = () => {
 			}
 			{isPostLoading
 				? <div style={{marginTop: 50, display: "flex", justifyContent: "center"}}>
-					{<PizzaLoader />}
+					<PizzaLoader />
 				</div>
 				:
 				<ProductsList items={items} title="Post about JS" />

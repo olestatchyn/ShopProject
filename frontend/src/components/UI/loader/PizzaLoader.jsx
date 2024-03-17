@@ -3,10 +3,9 @@ import gsap from 'gsap';
 import cl from './PizzaLoader.module.scss';
 
 const PizzaLoader = () => {
-    const pizzaRef = useRef(null); // Створення ref для кореневого SVG елемента
+    const pizzaRef = useRef(null); 
 
     useEffect(() => {
-        // Визначення селекторів і функцій за допомогою useRef
         const select = s => pizzaRef.current.querySelector(s),
             toArray = s => Array.from(pizzaRef.current.querySelectorAll(s)),
             pizzaSpinDuration = 4,
@@ -17,7 +16,6 @@ const PizzaLoader = () => {
             allOlive = toArray('.olive'),
             allPeppers = toArray('.pepper');
 
-        // Встановлення початкових стилів для SVG
         gsap.set('svg', {
             visibility: 'visible'
         });
@@ -50,7 +48,6 @@ const PizzaLoader = () => {
             });
         }
 
-        // Створення таймлайну анімації
         let tl = gsap.timeline({repeat: -1, onRepeat: reset});
         tl.to(pizzaBase, {
             duration: pizzaSpinDuration,
@@ -137,8 +134,8 @@ const PizzaLoader = () => {
                     <circle cx="400" cy="300" r="99.23" fill="#EDC387"/>
                     <path
                         d="m425.22,394.11l.93,3.49m-51.36-191.69l-.93-3.49m43.69,197.08l-.63-3.55m-33.83-191.88l-.63-3.55m26.35,200.14l-.31-3.59m-16.98-194.1l-.31-3.59m8.81,198.07v3.61m0-198.45v-3.61m-8.81,201.67l.31-3.59m16.98-194.1l.31-3.59m-26.35,200.14l.63-3.55m33.83-191.88l.63-3.55m-43.69,197.08l.93-3.49m50.43-188.2l.93-3.49m-60.7,192.52l1.23-3.39m66.64-183.09l1.23-3.39m-77.25,186.5l1.52-3.27m82.34-176.59l1.52-3.27m-93.21,179.06l1.8-3.12m97.42-168.74l1.8-3.12m-108.46,170.25l2.07-2.96m111.76-159.61l2.07-2.96m-122.89,160.15l2.32-2.76m125.24-149.26l2.32-2.76m-136.38,148.83l2.55-2.55m137.77-137.77l2.55-2.55m-148.83,136.38l2.76-2.32m149.26-125.24l2.76-2.32m-160.15,122.89l2.96-2.07m159.61-111.76l2.96-2.07m-170.25,108.46l3.12-1.8m168.74-97.42l3.12-1.8m-179.06,93.21l3.27-1.52m176.59-82.34l3.27-1.52m-186.5,77.25l3.39-1.23m183.09-66.64l3.39-1.23m-189.04,59.77l-3.49.93m195.17-52.3l-3.49.93m-193.6,42.76l3.55-.63m191.88-33.83l3.55-.63m-200.14,26.35l3.59-.31m194.1-16.98l3.59-.31m-201.67,8.81h3.61m194.84,0h3.61m-198.08-8.49l-3.59-.31m201.29,17.61l-3.59-.31m-196.54-26.03l3.55.63m191.88,33.83l3.55.63m-193.6-42.76l-3.49-.93m191.69,51.36l3.49.93m-192.52-60.7l3.39,1.23m183.09,66.64l3.39,1.23m-183.23-75.73l-3.27-1.52m183.13,85.39l-3.27-1.52m-175.79-91.69l3.12,1.8m168.74,97.42l3.12,1.8m-170.25-108.46l2.96,2.07m159.61,111.76l2.96,2.07m-160.15-122.89l2.76,2.32m149.26,125.24l2.76,2.32m-146.28-133.83l-2.55-2.55m140.33,140.33l2.55,2.55m-136.38-148.83l2.32,2.76m125.24,149.26l2.32,2.76m-122.89-160.15l2.07,2.96m111.76,159.61l2.07,2.96m-108.46-170.25l1.8,3.12m97.42,168.74l1.8,3.12m-91.69-175.79l-1.52-3.27m83.87,179.86l1.52,3.27m-77.25-186.5l1.23,3.39m66.64,183.09l1.23,3.39"
-                        fill="none" opacity=".13" stroke="#AC2804" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="3"/>
+                        fill="none" opacity=".13" stroke="#AC2804" strokeLinecap="round" strokeLinejoin="round"
+                        strokeWidth="3"/>
 
                 </g>
                 <g id="pepper">
@@ -206,21 +203,21 @@ const PizzaLoader = () => {
                           d="m400,82.79c-8.16,0-14.78-6.62-14.78-14.77,0-8.16,6.62-14.78,14.78-14.78,8.16,0,14.77,6.61,14.77,14.78,0,8.16-6.61,14.77-14.77,14.77Z"
                           fill="#AC2804"/>
                     <ellipse className="olive ingredient" cx="400" cy="68.01" rx="4.5" fill="none" stroke="#1E2D2F"
-                             stroke-width="6"/>
+                             strokeWidth="6"/>
                     <ellipse className="olive ingredient" cx="400" cy="68.01" rx="4.5" fill="none" stroke="#1E2D2F"
-                             stroke-width="6"/>
+                             strokeWidth="6"/>
                     <ellipse className="olive ingredient" cx="400" cy="68.01" rx="4.5" fill="none" stroke="#1E2D2F"
-                             stroke-width="6"/>
+                             strokeWidth="6"/>
                     <ellipse className="olive ingredient" cx="400" cy="68.01" rx="4.5" fill="none" stroke="#1E2D2F"
-                             stroke-width="6"/>
+                             strokeWidth="6"/>
                     <ellipse className="olive ingredient" cx="400" cy="68.01" rx="4.5" fill="none" stroke="#1E2D2F"
-                             stroke-width="6"/>
+                             strokeWidth="6"/>
                     <ellipse className="olive ingredient" cx="400" cy="68.01" rx="4.5" fill="none" stroke="#1E2D2F"
-                             stroke-width="6"/>
+                             strokeWidth="6"/>
                     <ellipse className="olive ingredient" cx="400" cy="68.01" rx="4.5" fill="none" stroke="#1E2D2F"
-                             stroke-width="6"/>
+                             strokeWidth="6"/>
                     <ellipse className="olive ingredient" cx="400" cy="68.01" rx="4.5" fill="none" stroke="#1E2D2F"
-                             stroke-width="6"/>
+                             strokeWidth="6"/>
                 </g>
                 <g id="egg">
                     <path id="white" className="eggBits"
@@ -230,7 +227,7 @@ const PizzaLoader = () => {
                 </g>
                 <path id="eggShine" d="m392.87,298.02c.07-.58.22-1.15.46-1.71,1.15-2.62,3.98-3.99,6.67-3.41" fill="none"
                       stroke="#fff"
-                      stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                      strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
             </svg>
 
             </div>

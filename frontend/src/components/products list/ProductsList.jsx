@@ -23,6 +23,7 @@ const ProductsList = ({ items }) => {
     <div className={cl.menu__lists}>
       {items.map((items, index) => (
         <ProductItem
+					key={index}
           number={index + 1}
           items={items}
 					imageUrls={imageUrls}

@@ -7,6 +7,8 @@ const MyInput = ({
   onIconClick,
   validationFunction,
 	placeholder,
+	setIsProblem,
+	compareTo,
   ...props
 }) => {
   const [isValid, setIsValid] = useState(true);
@@ -14,8 +16,8 @@ const MyInput = ({
 
   const handleChange = (event) => {
     if (validationFunction) {
-      const validationResult = props.compareTo
-        ? validationFunction(event.target.value, props.compareTo)
+      const validationResult = compareTo
+        ? validationFunction(event.target.value, compareTo)
         : validationFunction(event.target.value);
       setIsValid(validationResult.isValid);
       setErrorMessage(validationResult.errorMessage);
@@ -24,18 +26,18 @@ const MyInput = ({
   };
 
   useEffect(() => {
-    if (props.compareTo) {
-      const validationResult = validationFunction(props.value, props.compareTo);
+    if (compareTo) {
+      const validationResult = validationFunction(props.value, compareTo);
       setIsValid(validationResult.isValid);
       setErrorMessage(validationResult.errorMessage);
     }
-    if (typeof props.setIsProblem === "function") {
-      props.setIsProblem((prev) => ({
+    if (typeof setIsProblem === "function") {
+      setIsProblem((prev) => ({
         ...prev,
         [props.name]: !isValid,
       }));
     }
-  }, [isValid, props.compareTo]);
+  }, [isValid, compareTo]);
 
   return (
     <div className={classes.inputContainer}>
@@ -53,7 +55,6 @@ const MyInput = ({
         />
         <span className={classes.inputLabel}>{label}</span>
       </div>
-      {/* <label className={classes.myLabel}>{label}</label> */}
       {icon && (
         <button
           onClick={onIconClick}

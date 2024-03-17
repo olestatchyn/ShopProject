@@ -1,87 +1,13 @@
 import axios from "axios"
 
 export default class PostService {
-	static async getAll(limit = 10, page="Піца"){
-			const pizza = [
-			{
-				name: "Vegan",
-				description: ["вершки", "моцірелла"],
-				sizeAndPrice: {
-					30: 100,
-					40: 150
-				},
-			},
-			{
-				name: "Vegan",
-				description: ["вершки", "моцірелла"],
-				sizeAndPrice: {
-					30: 100,
-					40: 150
-				},
-			},
-			{
-				name: "Vegan",
-				description: ["вершки", "моцірелла"],
-				sizeAndPrice: {
-					30: 100,
-					40: 150
-				},
-			},
-			{
-				name: "Vegan",
-				description: ["вершки", "моцірелла"],
-				sizeAndPrice: {
-					30: 100,
-					40: 150
-				},
-			},
-				{
-					name: "Vegan",
-					description: ["вершки", "моцірелла"],
-					sizeAndPrice: {
-						30: 100,
-						40: 150
-					},
-				},
-				{
-					name: "Vegan",
-					description: ["вершки", "моцірелла"],
-					sizeAndPrice: {
-						30: 100,
-						40: 150
-					},
-				},
-				{
-					name: "Vegan",
-					description: ["вершки", "моцірелла"],
-					sizeAndPrice: {
-						30: 100,
-						40: 150
-					},
-				},
-				{
-					name: "Vegan",
-					description: ["вершки", "моцірелла"],
-					sizeAndPrice: {
-						30: 100,
-						40: 150
-					},
-				},
-				{
-					name: "Vegan",
-					description: ["вершки", "моцірелла"],
-					sizeAndPrice: {
-						30: 100,
-						40: 150
-					},
-				},
-		]
-			const responce = await axios.get("https://jsonplaceholder.typicode.com/posts", {
-				params: { 
-					_limit: limit, 
-					_page: page
+	static async getAll(type, limit){
+			const link = `http://localhost:5000/api/products/${type}`
+			const responce = await axios.get(link, {
+				params: {
+					limit: limit
 				}
 			})
-		return pizza
+		return responce.data
 	}
 }

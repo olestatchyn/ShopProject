@@ -2,10 +2,10 @@ import { useMemo } from "react";
 
 export const usePagination = (totalPage, setCurrentPage) => {
   const pagesArray = useMemo(() => {
-    let result = ["Піца", "Салат", "Напої", "Десерт"];
+    let result = ["Піца", "Салат", "Напої", "Інше"];
 
     return result;
-  }, [totalPage]);
+  }, []);
 
   const changePage = (page) => {
     setCurrentPage(page);
