@@ -1,0 +1,38 @@
+.home__instagram{
+  width: 525px;
+  height: 220px;
+  margin: 0 auto -260px;
+  position: relative;
+  top: -260px;
+
+}
+.home__instagram__ext {
+  opacity: 0.9;
+  background: linear-gradient(137deg, #ff9f47 0%, #fdb806 100%);
+  border-radius: 12px;
+  padding: 20px 25px;
+}
+
+.home__instagram__int {
+  width: 475px;
+  height: 188px;
+  border: #fff solid 1px;
+  border-radius: 12px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home__instagram__text {
+  text-align: center;
+  font-weight: 700;
+  font-size: 36px;
+  color: #fff;
+  &:before{
+    content: url("../../../source/carousel/Instagram.svg");
+    position: relative;
+    top: 15px;
+    left: -20px;
+  }
+}

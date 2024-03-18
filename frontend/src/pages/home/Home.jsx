@@ -7,6 +7,7 @@ import FeedbackForm from "../../components/feedback form/FeedbackForm";
 import Menu from '../../components/menu/Menu';
 
 import CarouselComponent from "../../components/carousel/Carousel";
+import TextLogo from '../../components/UI/text-logo/TextLogo';
 
 
 const Home = () => {
@@ -16,21 +17,12 @@ const Home = () => {
 		<div className={cl.home}>
 
 			<div className={main.container}>
-
-				
 				<Menu />
 				<CreateCustomPizza />
-
 			</div>
 			<div className={cl.home__carousel}>
 				<CarouselComponent />
-				<div className={cl.home__instagram}>
-					<div className={cl.home__instagram__ext}>
-						<div className={cl.home__instagram__int}>
-							<div className={cl.home__instagram__text}>@primepizza.if</div>
-						</div>
-					</div>
-				</div>
+				<TextLogo />
 			</div>
 			<FeedbackForm />
 		</div>
