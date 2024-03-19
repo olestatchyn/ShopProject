@@ -5,6 +5,7 @@
 
 
 }
+
 .post__content{
 
 }
@@ -18,8 +19,8 @@
 }
 .post__container{
 
-  padding: 20px;
-
+  padding: 20px 20px 0;
+  margin-bottom: -50px;
 }
 .post__title{
   font-weight: 600;
@@ -58,6 +59,9 @@
 }
 .post__basket{
 
+  position: relative;
+  top: -35px;
+
   width: 40px;
   height: 40px;
   border-radius: 40px;
@@ -72,15 +76,32 @@
   &:hover{
     background: #fdb806;
     box-shadow: 0 0 20px 0 rgba(255, 219, 71, 0.5);
-
+    img{
+      filter: brightness(1.5);
+    }
   }
 
 }
+.post__basket__button img:hover {
 
+}
 .post__basket__button{
 
   background: transparent;
   img{
 
   }
+}
+
+.post__convex{
+  margin: 0 auto;
+  text-align: center;
+  border-bottom: 5px solid #ECEFF5;
+  padding: 20px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50px;
+  position: relative;
+  top: 15px;
+  background: #fff;
 }

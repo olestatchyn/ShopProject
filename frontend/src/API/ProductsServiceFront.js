@@ -65,14 +65,7 @@ export default class PostServiceFront {
 						40: 150
 					},
 				},
-				{
-					name: "Vegan",
-					description: ["вершки", "моцірелла"],
-					sizeAndPrice: {
-						30: 100,
-						40: 150
-					},
-				},
+
 		]
 		return pizza
 	}

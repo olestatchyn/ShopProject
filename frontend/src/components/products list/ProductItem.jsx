@@ -44,12 +44,13 @@ const ProductItem = ({ number, items, imageUrls }) => {
                     </button>
                 ))}
               </div>
-
               <div className={cl.post__price}>
                 <div>{`${price} грн`}</div>
               </div>
             </div>
+            <div className={cl.post__convex}>
 
+            </div>
             <div className={cl.post__basket}>
               <MyButton className={cl.post__basket__button}>
                 <img src={basket} alt="basket"/>
