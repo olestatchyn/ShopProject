@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import cl from "./ProductItem.module.scss";
 import MyButton from '../UI/button/MyButton';
-import basket from "../../source/home/basket.png";
+import basket from "../../source/home/basket.svg";
 const ProductItem = ({ number, items, imageUrls }) => {
   const [selectedSize, setSelectedSize] = useState('30');
   const [price, setPrice] = useState(0);
