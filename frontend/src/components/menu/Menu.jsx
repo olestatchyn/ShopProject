@@ -6,8 +6,10 @@ import Pagination from '../pagination/Pagination';
 import MyButton from '../UI/button/MyButton';
 import PizzaLoader from "../../components/UI/loader/PizzaLoader";
 import PostServiceFront from '../../API/ProductsServiceFront';
+import cl from './Menu.module.scss'
+import MoreButton from "../UI/more-button/MoreButton";
+import BasketButton from "../UI/basket-button/BasketButton";
 import { useSessionStorage } from '../../hooks/useSessionStorage';
-
 const Menu = () => {
 	const [items, setItems] = useState([]);
 	// const [items, setItems] = useSessionStorage('menuItems', {
@@ -58,19 +60,21 @@ const Menu = () => {
 					setCurrentPage={setCurrentPage}
 					currentPage={currentPage} 
 				/>
+
+			<BasketButton/>
 			{postError &&
 				<h1>Error loading</h1>
 			}
+
 			{isPostLoading
 				? <div style={{marginTop: 50, display: "flex", justifyContent: "center"}}>
 					<PizzaLoader />
 				</div>
 				:
 				<ProductsList items={items} title="Post about JS" />
-				}
-			<MyButton onClick={changePage}>
-				Показати ще
-			</MyButton>
+			}
+
+			<MoreButton changePage={changePage}/>
 		</div>
 	);
 }
