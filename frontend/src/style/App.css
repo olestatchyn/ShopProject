@@ -21,7 +21,12 @@
 	text-align: center;
 	line-height: 60px;
 }
+.page:hover{
+	background: linear-gradient(137deg, #ff9f47 0%, #fdb806 100%);
+	font-weight: 700;
 
+	color: #fff;
+}
 .page__current {
 
 	background: linear-gradient(137deg, #ff9f47 0%, #fdb806 100%);

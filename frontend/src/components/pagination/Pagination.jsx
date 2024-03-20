@@ -14,6 +14,7 @@ const Pagination = ({totalPage, setCurrentPage, currentPage}) => {
 								{p}
 						</span>
 					)}
+					
 				</div>
 	);
 }

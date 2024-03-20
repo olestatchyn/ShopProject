@@ -1,0 +1,25 @@
+.menu__more{
+  margin: 40px auto 120px;
+  width: 300px;
+  height: 60px;
+
+}
+.menu__more__button{
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(137deg, #ff9f47 0%, #fdb806 100%);
+  border-radius: 30px;
+}
+.menu__more__button__text{
+  padding-left: 30px;
+  font-weight: 700;
+  font-size: 24px;
+  color: #fff;
+  line-height: 60px;
+  &:after{
+    content: url("../../../source/home/more.svg");
+    position: relative;
+    top: 10px;
+    left: 30px;
+  }
+}

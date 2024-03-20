@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import cl from "./ProductItem.module.scss";
 import MyButton from '../UI/button/MyButton';
-import basket from "../../source/home/basket.png";
+import basket from "../../source/home/basket.svg";
 const ProductItem = ({ number, items, imageUrls }) => {
   const [selectedSize, setSelectedSize] = useState('30');
   const [price, setPrice] = useState(0);
@@ -44,12 +44,13 @@ const ProductItem = ({ number, items, imageUrls }) => {
                     </button>
                 ))}
               </div>
-
               <div className={cl.post__price}>
                 <div>{`${price} грн`}</div>
               </div>
             </div>
+            <div className={cl.post__convex}>
 
+            </div>
             <div className={cl.post__basket}>
               <MyButton className={cl.post__basket__button}>
                 <img src={basket} alt="basket"/>
