@@ -1,6 +1,6 @@
 import Joi from "joi";
 
-const pizzaPostSchema = Joi.object({
+const saladPostSchema = Joi.object({
   name: Joi.string().required(),
   description: Joi.string().required(),
   sizeAndPrice: Joi.object({
@@ -9,7 +9,7 @@ const pizzaPostSchema = Joi.object({
   }).required()
 });
 
-const pizzaPatchSchema = Joi.object({
+const saladPatchSchema = Joi.object({
   name: Joi.string().required(),
   description: Joi.string(),
   sizeAndPrice: Joi.object({
@@ -18,8 +18,8 @@ const pizzaPatchSchema = Joi.object({
   })
 });
 
-const pizzaDeleteSchema = Joi.object({
+const saladDeleteSchema = Joi.object({
   name: Joi.string().required(),
 });
 
-export { pizzaPostSchema, pizzaPatchSchema, pizzaDeleteSchema }
+export { saladPostSchema, saladPatchSchema, saladDeleteSchema }
