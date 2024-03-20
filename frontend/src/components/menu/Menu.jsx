@@ -8,7 +8,7 @@ import PizzaLoader from "../../components/UI/loader/PizzaLoader";
 import PostServiceFront from '../../API/ProductsServiceFront';
 import cl from './Menu.module.scss'
 import MoreButton from "../UI/more-button/MoreButton";
-import BasketButton from "../UI/basket/Basket";
+import BasketButton from "../UI/basket-button/BasketButton";
 const Menu = () => {
 	const [items, setItems] = useState([]);
 
