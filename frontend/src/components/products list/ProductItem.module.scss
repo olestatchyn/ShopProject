@@ -3,6 +3,7 @@
   border-radius: 18px;
   border: #ECEFF5 solid 3px;
 
+  width: 290px;
 
 }
 
@@ -13,11 +14,11 @@
 
 }
 .post__img{
-  width: 290px;
   height: 230px;
   border-radius: 15px;
 }
 .post__container{
+
 
   padding: 20px 20px 0;
   margin-bottom: -50px;
@@ -32,7 +33,9 @@
 .post__ingredients{
   font-weight: 300;
   font-size: 16px;
-  margin: 20px 0 30px;
+  margin: 20px 0 0;
+  width: 100%;
+
 }
 .post__param{
   display: flex;
@@ -104,4 +107,34 @@
   position: relative;
   top: 15px;
   background: #fff;
+}
+
+
+
+.post {
+  /* ... existing styles ... */
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Set a specific height if needed */
+}
+
+.post__content {
+  /* ... existing styles ... */
+  flex: 1; /* This will allow your content to grow and fill the space */
+}
+
+.post__container {
+  min-height: 300px;
+  /* ... existing styles ... */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* This should be kept */
+  flex: 1; /* Add this to allow the container to grow */
+}
+
+.post__footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 1 1 auto; /* This will prevent the footer from growing and keep it at the bottom */
 }

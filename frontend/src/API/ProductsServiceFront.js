@@ -3,7 +3,15 @@ export default class PostServiceFront {
 			const pizza = [
 			{
 				name: "Vegan",
-				description: ["вершки", "моцірелла"],
+				description: ["вершки","вершки","вершки","вершки","вершки","вершки","вершки","вершки", "моцірелла"],
+				sizeAndPrice: {
+					30: 100,
+					40: 150
+				},
+			},
+			{
+				name: "Vegan",
+				description: ["вершки","вершки","вершки","вершки", "моцірелла"],
 				sizeAndPrice: {
 					30: 100,
 					40: 150
@@ -19,15 +27,7 @@ export default class PostServiceFront {
 			},
 			{
 				name: "Vegan",
-				description: ["вершки", "моцірелла"],
-				sizeAndPrice: {
-					30: 100,
-					40: 150
-				},
-			},
-			{
-				name: "Vegan",
-				description: ["вершки", "моцірелла"],
+				description: ["вершки","вершки","вершки","вершки","вершки","вершки","вершки", "моцірелла"],
 				sizeAndPrice: {
 					30: 100,
 					40: 150
