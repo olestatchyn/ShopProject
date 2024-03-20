@@ -12,10 +12,8 @@ import TextLogo from '../../components/UI/text-logo/TextLogo';
 
 const Home = () => {
   
-
 	return (
 		<div className={cl.home}>
-
 			<div className={main.container}>
 				<Menu />
 				<CreateCustomPizza />

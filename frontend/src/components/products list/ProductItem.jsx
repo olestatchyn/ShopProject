@@ -28,7 +28,7 @@ const ProductItem = ({ number, items, imageUrls }) => {
             </div>
 
             <div className={cl.post__ingredients}>
-              {items.description.join(', ')}
+              {items.description}
             </div>
 
             <div className={cl.post__param}>
