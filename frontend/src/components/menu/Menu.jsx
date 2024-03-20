@@ -3,40 +3,33 @@ import { useFetching } from '../../hooks/useFetching';
 import PostService from '../../API/ProductsService';
 import ProductsList from '../products list/ProductsList';
 import Pagination from '../pagination/Pagination';
-import MyButton from '../UI/button/MyButton';
 import PizzaLoader from "../../components/UI/loader/PizzaLoader";
 import PostServiceFront from '../../API/ProductsServiceFront';
-import cl from './Menu.module.scss'
 import MoreButton from "../UI/more-button/MoreButton";
 import BasketButton from "../UI/basket-button/BasketButton";
 import { useSessionStorage } from '../../hooks/useSessionStorage';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 const Menu = () => {
-	const [items, setItems] = useState([]);
-	// const [items, setItems] = useSessionStorage('menuItems', {
-	// 	pizza: [],
-	// 	salad: [],
-	// 	drink: [],
-	// 	other: []
-	// });
-	
+	const [items, setItems] = useSessionStorage('menuItems', {
+		pizza: [],
+		salad: [],
+		drink: [],
+		other: []
+	});
+	const [basketItems, setBasketItems] = useLocalStorage('basketItems', []);
 
 	const [currentPage, setCurrentPage] = useState("Піца");
 	const [limit, setLimit] = useState(8);
+	const [countOfProduct, setCountOfProduct] = useState(0);
 
-	// const [fetchPosts, isPostLoading, postError] = useFetching(async () => {
-	// 	// if (!items[dict[currentPage]].length) {
-	// 		const response = await PostServiceFront.getAll(dict[currentPage], limit);
-	// 		setItems(prevItems => ({ ...prevItems, [dict[currentPage]]: response }));
-	// 		console.log(items);
-	// 	// } else {
-	// 		// console.log('from session storage problem');
-	// 	// }
-	// });
+
 	const [fetchPosts, isPostLoading, postError] = useFetching(async () => {
-		const responce = await PostServiceFront.getAll(dict[currentPage], limit)
-		setItems(responce)
-		console.log(items);
-	})
+		if (!items[dict[currentPage]].length) {
+			const response = await PostServiceFront.getAll(dict[currentPage], limit);
+		 	setItems(prevItems => ({ ...prevItems, [dict[currentPage]]: response }));
+		}
+	});
+
 
 	const dict = {
     Піца: "pizza",
@@ -51,32 +44,63 @@ const Menu = () => {
 	const changePage = (e) => {
 		e.preventDefault()
 		setLimit(limit + 8)
+		console.log(basketItems);
+	}
+
+	const addProductToBasket = (item, price, selectedSize) => {
+		const productToAdd = {
+			id: item._id, 
+			name: item.name,
+			price: price,
+			selectedSize: selectedSize,
+			quantity: 1 
+		};
+	
+		const existingProductIndex = basketItems.findIndex(basketItem => basketItem._id === item._id && basketItem.selectedSize === selectedSize);
+	
+		if (existingProductIndex > -1) {
+			const newBasketItems = basketItems.slice();
+			newBasketItems[existingProductIndex].quantity += 1;
+			setBasketItems(newBasketItems);
+		} else {
+			setBasketItems([...basketItems, productToAdd]);
+		}
+		setCountOfProduct(countOfProduct + 1);
+	};
+
+	const clearStorage = () => {
+		setBasketItems([]);
+		setCountOfProduct(0);
 	}
 
 	return (
-		<div>
-			<Pagination
-					totalPage={4}
-					setCurrentPage={setCurrentPage}
-					currentPage={currentPage} 
-				/>
+    <div>
+      <Pagination
+        totalPage={4}
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
+      />
 
-			<BasketButton/>
-			{postError &&
-				<h1>Error loading</h1>
-			}
+      <BasketButton countOfProduct={countOfProduct} />
+      {postError && <h1>Error loading</h1>}
 
-			{isPostLoading
-				? <div style={{marginTop: 50, display: "flex", justifyContent: "center"}}>
-					<PizzaLoader />
-				</div>
-				:
-				<ProductsList items={items} title="Post about JS" />
-			}
+      {isPostLoading ? (
+        <div
+          style={{ marginTop: 50, display: "flex", justifyContent: "center" }}
+        >
+          <PizzaLoader />
+        </div>
+      ) : (
+        <ProductsList
+          items={items[dict[currentPage]]}
+          addProductToBasket={addProductToBasket}
+        />
+      )}
 
-			<MoreButton changePage={changePage}/>
-		</div>
-	);
+      <MoreButton changePage={changePage} />
+      <MoreButton changePage={clearStorage} />
+    </div>
+  );
 }
 
 export default Menu;

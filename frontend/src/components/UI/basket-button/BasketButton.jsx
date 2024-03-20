@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import cl from "./BasketButton.module.scss";
 import MyNavLink from "../nav-bar/MyNavLink";
 import basket from '../../../source/home/basket2.svg';
 
-const BasketButton = () => {
+const BasketButton = ({countOfProduct}) => {
     const basketRef = useRef(null);
 
     useEffect(() => {
@@ -31,6 +31,7 @@ const BasketButton = () => {
                 <MyNavLink className={cl.basket__button}>
                     <img src={basket} alt="basket"/>
                 </MyNavLink>
+								<p>{countOfProduct}</p>
             </div>
         </div>
     );
