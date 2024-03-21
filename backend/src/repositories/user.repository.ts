@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import User from "../models/user.model";
 import { EntityNotFound } from "../errors/entity-not-found.error";
 import { ErrorMessage } from "../errors/error-consts";

@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import BadRequestError from "../../errors/bad-request.error";
 import { ErrorMessage } from "../../errors/error-consts";
 import Drink from "../../models/products/drink.model";

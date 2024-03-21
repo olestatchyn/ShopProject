@@ -101,9 +101,6 @@ async function resetPassword(userInfo) {
   const encryptedEmail = userInfo.encryptedEmail;
   const decryptedEmail = decryptEmail(encryptedEmail);
 
-  console.log(decryptEmail);
-  console.log(userInfo.password);
-
   const user = await getUserByEmail(decryptedEmail);
   if (!user) throw new BadRequestError(ErrorMessage.invalidEmail);
 

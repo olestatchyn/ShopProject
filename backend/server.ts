@@ -17,7 +17,7 @@ import { orderRouter } from './src/controllers/order.controller';
 const app = express();
 const port = process.env.BACKEND_PORT;
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 app.use(expressLogger);
 

@@ -69,7 +69,7 @@ pizzaRouter.delete('/pizza', async (req: Request, res: Response, next: NextFunct
     const pizzaName =  req.query.name;
     await deletePizzaByName(pizzaName);
 
-    res.status(204).json("Pizza deleted");
+    res.status(200).json("Pizza deleted");
   } catch (error) {
     next(error);
   }
