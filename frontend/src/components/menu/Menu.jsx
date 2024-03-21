@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useFetching } from "../../hooks/useFetching";
 import PostService from "../../API/ProductsService";
 import ProductsList from "../products list/ProductsList";
@@ -18,12 +18,15 @@ const Menu = () => {
     salad: [],
     drink: [],
     other: [],
+    count: 0,
   });
   const [basketItems, setBasketItems] = useLocalStorage("basketItems", []);
-
   const [currentPage, setCurrentPage] = useState("Піца");
   const [limit, setLimit] = useState(8);
-  const [countOfProduct, setCountOfProduct] = useState(0);
+
+  const countOfProduct = useMemo(() => {
+    return basketItems.reduce((total, item) => total + item.quantity, 0);
+  }, [basketItems]);
 
   const [fetchPosts, isPostLoading, postError] = useFetching(async () => {
     if (!items[dict[currentPage]].length) {
@@ -58,11 +61,12 @@ const Menu = () => {
       price: price,
       selectedSize: selectedSize,
       quantity: 1,
+      description: item.description,
     };
 
     const existingProductIndex = basketItems.findIndex(
       (basketItem) =>
-        basketItem._id === item._id && basketItem.selectedSize === selectedSize
+        basketItem.id === item._id && basketItem.selectedSize === selectedSize
     );
 
     if (existingProductIndex > -1) {
@@ -72,12 +76,10 @@ const Menu = () => {
     } else {
       setBasketItems([...basketItems, productToAdd]);
     }
-    setCountOfProduct(countOfProduct + 1);
   };
 
   const clearStorage = () => {
     setBasketItems([]);
-    setCountOfProduct(0);
   };
 
   return (

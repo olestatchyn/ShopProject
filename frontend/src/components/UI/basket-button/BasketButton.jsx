@@ -1,4 +1,3 @@
-import React, { useEffect, useRef, useState } from "react";
 import cl from "./BasketButton.module.scss";
 import MyNavLink from "../nav-bar/MyNavLink";
 import basket from "../../../source/home/basket2.svg";

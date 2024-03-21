@@ -1,14 +1,14 @@
 import React from 'react';
 import MyButton from '../button/MyButton';
 
-const CountControl = () => {
+const CountControl = ({count, onIncrement, onDecrement }) => {
 	return (
-		<div>
-			<MyButton>+</MyButton>
-			<p>0</p>
-			<MyButton>-</MyButton>
-		</div>
-	);
+    <div>
+      <MyButton onClick={onIncrement}>+</MyButton>
+      <p>{count}</p>
+      <MyButton onClick={onDecrement}>-</MyButton>
+    </div>
+  );
 }
 
 export default CountControl;
