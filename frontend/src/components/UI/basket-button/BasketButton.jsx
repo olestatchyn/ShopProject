@@ -28,7 +28,7 @@ const BasketButton = ({countOfProduct}) => {
     return (
         <div className={cl.basket} ref={basketRef}>
             <div className={cl.button}>
-                <MyNavLink className={cl.basket__button}>
+                <MyNavLink to="/basket" className={cl.basket__button}>
                     <img src={basket} alt="basket"/>
                 </MyNavLink>
 								<p>{countOfProduct}</p>

@@ -6,7 +6,7 @@ export default class PostServiceFront {
 					{
 						_id: "1",
 						name: "Vegan",
-						description: ["pizza", "моцірелла"],
+						description: "pizza, моцірелла",
 						sizeAndPrice: {
 							30: 100,
 							40: 150
@@ -15,7 +15,7 @@ export default class PostServiceFront {
 					{
 						_id: "2",
 						name: "Мисливська",
-						description: ["pizza", "моцірелла"],
+						description: "pizza, моцірелла",
 						sizeAndPrice: {
 							30: 100,
 							40: 150
@@ -24,7 +24,7 @@ export default class PostServiceFront {
 					{
 						_id: "3",
 						name: "Мисливська",
-						description: ["pizza", "моцірелла"],
+						description: "pizza, моцірелла",
 						sizeAndPrice: {
 							30: 100,
 							40: 150
@@ -33,7 +33,7 @@ export default class PostServiceFront {
 					{
 						_id: "4",
 						name: "Vegan",
-						description: ["pizza", "моцірелла"],
+						description: "pizza, моцірелла",
 						sizeAndPrice: {
 							30: 100,
 							40: 150
@@ -42,7 +42,7 @@ export default class PostServiceFront {
 						{
 							_id: "5",
 							name: "Vegan",
-							description: ["pizza", "моцірелла"],
+							description: "pizza, моцірелла",
 							sizeAndPrice: {
 								30: 100,
 								40: 150
@@ -51,7 +51,7 @@ export default class PostServiceFront {
 						{
 							_id: "6",
 							name: "Vegan",
-							description: ["pizza", "моцірелла"],
+							description: "pizza, моцірелла",
 							sizeAndPrice: {
 								30: 100,
 								40: 150
@@ -60,7 +60,7 @@ export default class PostServiceFront {
 						{
 							_id: "7",
 							name: "Vegan",
-							description: ["pizza", "моцірелла"],
+							description: "pizza, моцірелла",
 							sizeAndPrice: {
 								30: 100,
 								40: 150
@@ -69,7 +69,7 @@ export default class PostServiceFront {
 						{
 							_id: "8",
 							name: "Vegan",
-							description: ["pizza", "моцірелла"],
+							description: "pizza, моцірелла",
 							sizeAndPrice: {
 								30: 100,
 								40: 150
