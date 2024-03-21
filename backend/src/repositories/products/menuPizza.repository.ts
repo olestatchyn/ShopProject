@@ -13,12 +13,7 @@ async function getPizzabyName(name) {
 }
 
 async function createNewPizza(pizzaData) {
-  await Pizza.create({
-    _id: new mongoose.Types.ObjectId(),
-    name: pizzaData.name,
-    description: pizzaData.description,
-    sizeAndPrice: pizzaData.sizeAndPrice
-  });
+  await Pizza.create(pizzaData);
 }
 
 async function editPizzaByName(pizzaData) {

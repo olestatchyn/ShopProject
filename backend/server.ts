@@ -12,6 +12,7 @@ import { pizzaRouter } from './src/controllers/products/menuPizza.controller';
 import { saladRouter } from './src/controllers/products/menuSalad.controller';
 import { drinkRouter } from './src/controllers/products/menuDrink.controller';
 import { otherItemRouter } from './src/controllers/products/menuOtherItem.controller';
+import { orderRouter } from './src/controllers/order.controller';
 
 const app = express();
 const port = process.env.BACKEND_PORT;
@@ -24,6 +25,7 @@ app.use(bodyParser.json());
 
 app.use('/api', healthRouter, userRouter);
 app.use('/api/products', pizzaRouter, saladRouter, drinkRouter, otherItemRouter);
+app.use('/api/checkout', orderRouter);
 
 app.use(errorHandlerMiddleware);
 

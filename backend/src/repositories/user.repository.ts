@@ -22,7 +22,6 @@ async function editUserPassword(userEmail, newPassword) {
 
 async function createUser(newUser) {
   await User.create({
-    _id: new mongoose.Types.ObjectId(),
     name: newUser.name,
     email: newUser.email,
     password: newUser.password

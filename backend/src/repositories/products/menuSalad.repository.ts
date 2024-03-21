@@ -13,12 +13,7 @@ async function getSaladbyName(name) {
 }
 
 async function createNewSalad(saladData) {
-  await Salad.create({
-    _id: new mongoose.Types.ObjectId(),
-    name: saladData.name,
-    description: saladData.description,
-    sizeAndPrice: saladData.sizeAndPrice
-  });
+  await Salad.create(saladData);
 }
 
 async function editSaladByName(saladData) {

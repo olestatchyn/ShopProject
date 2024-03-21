@@ -13,12 +13,7 @@ async function getDrinkbyName(name) {
 }
 
 async function createNewDrink(drinkData) {
-  await Drink.create({
-    _id: new mongoose.Types.ObjectId(),
-    name: drinkData.name,
-    description: drinkData.description,
-    sizeAndPrice: drinkData.sizeAndPrice
-  });
+  await Drink.create(drinkData);
 }
 
 async function editDrinkByName(drinkData) {

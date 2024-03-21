@@ -13,12 +13,7 @@ async function getOtherItembyName(name) {
 }
 
 async function createNewOtherItem(otherItemData) {
-  await Other.create({
-    _id: new mongoose.Types.ObjectId(),
-    name: otherItemData.name,
-    description: otherItemData.description,
-    sizeAndPrice: otherItemData.sizeAndPrice
-  });
+  await Other.create(otherItemData);
 }
 
 async function editOtherItemByName(otherItemData) {

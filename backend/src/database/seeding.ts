@@ -4,6 +4,7 @@ import Pizza from '../models/products/pizza.model';
 import Drink from '../models/products/drink.model';
 import Salad from '../models/products/salad.model';
 import OtherItem from '../models/products/other.model';
+import Order from '../models/order.model';
 
 async function seedDatabase() {
   try {
@@ -243,6 +244,43 @@ async function seedDatabase() {
     await OtherItem.insertMany(others);
 
     console.log('Items of \"Other\" category records created successfully');
+
+    const orderExample = [
+      {
+        order: {
+          pizza: [
+            { name: 'Margherita', size: 'Medium', quantity: 2 },
+            { name: 'Pepperoni', size: 'Large', quantity: 1 }
+          ],
+          drink: [
+            { name: 'Coke', size: 'Medium', quantity: 3 }
+          ],
+          salad: [],
+          other: []
+        },
+        contacts: {
+          name: 'John Doe',
+          phoneNumber: 1234567890,
+          email: 'john@example.com'
+        },
+        address: {
+          street: '123 Main Street',
+          building: 4,
+          flat: 10
+        },
+        dateAndTime: {
+          date: '2024-03-21',
+          time: '18:00'
+        },
+        paymentMethod: 'Credit Card',
+        status: 'Pending',
+        totalPrice: 35.50
+      }
+    ];
+
+    await Order.insertMany(orderExample);
+
+    console.log('Order example created successfully');
 
   } catch (error) {
     throw new Error(`Error creating user records: ${error.message}`);
