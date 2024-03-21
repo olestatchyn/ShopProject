@@ -1,80 +1,87 @@
-import React, { useEffect, useState } from 'react';
-import { useFetching } from '../../hooks/useFetching';
-import PostService from '../../API/ProductsService';
-import ProductsList from '../products list/ProductsList';
-import Pagination from '../pagination/Pagination';
+import React, { useEffect, useState } from "react";
+import { useFetching } from "../../hooks/useFetching";
+import PostService from "../../API/ProductsService";
+import ProductsList from "../products list/ProductsList";
+import Pagination from "../pagination/Pagination";
 import PizzaLoader from "../../components/UI/loader/PizzaLoader";
-import PostServiceFront from '../../API/ProductsServiceFront';
+import PostServiceFront from "../../API/ProductsServiceFront";
 import MoreButton from "../UI/more-button/MoreButton";
 import BasketButton from "../UI/basket-button/BasketButton";
-import { useSessionStorage } from '../../hooks/useSessionStorage';
-import { useLocalStorage } from '../../hooks/useLocalStorage';
+import { useSessionStorage } from "../../hooks/useSessionStorage";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
+
+import cl from "./Menu.module.scss";
+
 const Menu = () => {
-	const [items, setItems] = useSessionStorage('menuItems', {
-		pizza: [],
-		salad: [],
-		drink: [],
-		other: []
-	});
-	const [basketItems, setBasketItems] = useLocalStorage('basketItems', []);
+  const [items, setItems] = useSessionStorage("menuItems", {
+    pizza: [],
+    salad: [],
+    drink: [],
+    other: [],
+  });
+  const [basketItems, setBasketItems] = useLocalStorage("basketItems", []);
 
-	const [currentPage, setCurrentPage] = useState("Піца");
-	const [limit, setLimit] = useState(8);
-	const [countOfProduct, setCountOfProduct] = useState(0);
+  const [currentPage, setCurrentPage] = useState("Піца");
+  const [limit, setLimit] = useState(8);
+  const [countOfProduct, setCountOfProduct] = useState(0);
 
+  const [fetchPosts, isPostLoading, postError] = useFetching(async () => {
+    if (!items[dict[currentPage]].length) {
+      const response = await PostServiceFront.getAll(dict[currentPage], limit);
+      setItems((prevItems) => ({
+        ...prevItems,
+        [dict[currentPage]]: response,
+      }));
+    }
+  });
 
-	const [fetchPosts, isPostLoading, postError] = useFetching(async () => {
-		if (!items[dict[currentPage]].length) {
-			const response = await PostServiceFront.getAll(dict[currentPage], limit);
-		 	setItems(prevItems => ({ ...prevItems, [dict[currentPage]]: response }));
-		}
-	});
-
-
-	const dict = {
+  const dict = {
     Піца: "pizza",
     Салат: "salad",
     Напої: "drink",
     Інше: "other",
   };
-	useEffect(() => {
-		fetchPosts()
-	}, [currentPage, limit]);
+  useEffect(() => {
+    fetchPosts();
+  }, [currentPage, limit]);
 
-	const changePage = (e) => {
-		e.preventDefault()
-		setLimit(limit + 8)
-		console.log(basketItems);
-	}
+  const changePage = (e) => {
+    e.preventDefault();
+    setLimit(limit + 8);
+    console.log(basketItems);
+  };
 
-	const addProductToBasket = (item, price, selectedSize) => {
-		const productToAdd = {
-			id: item._id, 
-			name: item.name,
-			price: price,
-			selectedSize: selectedSize,
-			quantity: 1 
-		};
-	
-		const existingProductIndex = basketItems.findIndex(basketItem => basketItem._id === item._id && basketItem.selectedSize === selectedSize);
-	
-		if (existingProductIndex > -1) {
-			const newBasketItems = basketItems.slice();
-			newBasketItems[existingProductIndex].quantity += 1;
-			setBasketItems(newBasketItems);
-		} else {
-			setBasketItems([...basketItems, productToAdd]);
-		}
-		setCountOfProduct(countOfProduct + 1);
-	};
+  const addProductToBasket = (item, price, selectedSize) => {
+    const productToAdd = {
+      id: item._id,
+      name: item.name,
+      price: price,
+      selectedSize: selectedSize,
+      quantity: 1,
+    };
 
-	const clearStorage = () => {
-		setBasketItems([]);
-		setCountOfProduct(0);
-	}
+    const existingProductIndex = basketItems.findIndex(
+      (basketItem) =>
+        basketItem._id === item._id && basketItem.selectedSize === selectedSize
+    );
 
-	return (
-    <div>
+    if (existingProductIndex > -1) {
+      const newBasketItems = basketItems.slice();
+      newBasketItems[existingProductIndex].quantity += 1;
+      setBasketItems(newBasketItems);
+    } else {
+      setBasketItems([...basketItems, productToAdd]);
+    }
+    setCountOfProduct(countOfProduct + 1);
+  };
+
+  const clearStorage = () => {
+    setBasketItems([]);
+    setCountOfProduct(0);
+  };
+
+  return (
+    <div className={cl.MenuContainer}>
       <Pagination
         totalPage={4}
         setCurrentPage={setCurrentPage}
@@ -82,6 +89,7 @@ const Menu = () => {
       />
 
       <BasketButton countOfProduct={countOfProduct} />
+
       {postError && <h1>Error loading</h1>}
 
       {isPostLoading ? (
@@ -101,6 +109,6 @@ const Menu = () => {
       <MoreButton changePage={clearStorage} />
     </div>
   );
-}
+};
 
 export default Menu;
