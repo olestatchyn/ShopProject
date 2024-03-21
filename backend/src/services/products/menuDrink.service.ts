@@ -13,7 +13,7 @@ async function createDrink(drinkData) {
   const drink = await getDrinkbyName(drinkData.name);
 
   if (drink) throw new BadRequestError(ErrorMessage.drinkExists);
-  
+
   await createNewDrink(drinkData);
 }
 

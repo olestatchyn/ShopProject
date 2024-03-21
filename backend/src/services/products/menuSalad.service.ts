@@ -13,7 +13,7 @@ async function createSalad(saladData) {
   const salad = await getSaladbyName(saladData.name);
 
   if (salad) throw new BadRequestError(ErrorMessage.saladExists);
-  
+
   await createNewSalad(saladData);
 }
 

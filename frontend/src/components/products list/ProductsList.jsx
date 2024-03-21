@@ -3,7 +3,7 @@ import ProductItem from "./ProductItem";
 import pizza from "../../source/home/pizza.jpg"
 import cl from "./ProductList.module.scss";
 
-const ProductsList = ({ items }) => {
+const ProductsList = ({ items, addProductToBasket }) => {
 
 	if(!items.length){
 		return(
@@ -27,6 +27,7 @@ const ProductsList = ({ items }) => {
           number={index + 1}
           items={items}
 					imageUrls={imageUrls}
+					addProductToBasket={addProductToBasket}
         />
       	))}
     </div>

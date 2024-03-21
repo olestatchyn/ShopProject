@@ -13,7 +13,7 @@ async function createOtherItem(otherItemData) {
   const otherItem = await getOtherItembyName(otherItemData.name);
 
   if (otherItem) throw new BadRequestError(ErrorMessage.otherItemExists);
-  
+
   await createNewOtherItem(otherItemData);
 }
 

@@ -32,7 +32,7 @@ pizzaRouter.post('/pizza', async (req: Request, res: Response, next: NextFunctio
       throw new BadRequestError(ErrorMessage.invalidData);
     }
 
-    const pizzaData = req.body;
+    const pizzaData =  req.body;
     await createPizza(pizzaData);
 
     res.status(201).json("Pizza created");
@@ -69,7 +69,7 @@ pizzaRouter.delete('/pizza', async (req: Request, res: Response, next: NextFunct
     const pizzaName =  req.query.name;
     await deletePizzaByName(pizzaName);
 
-    res.status(200).json("Pizza deleted");
+    res.status(204).json("Pizza deleted");
   } catch (error) {
     next(error);
   }

@@ -1,6 +1,6 @@
 import BadRequestError from '../../errors/bad-request.error';
 import { ErrorMessage } from '../../errors/error-consts';
-import { createNewPizza, editPizzaByName, getPizzabyName, getPizzasFromRepository, deletePizza } from '../../repositories/products/menuPizza.repository';
+import { createNewPizza, editPizzaByName, getPizzabyName, getPizzasFromRepository, deletePizza } from '../../repositories/products/pizza.repository';
 
 async function getPizzaLimited(limit) {
 

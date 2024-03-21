@@ -73,7 +73,6 @@ const CreateCustomPizza = () => {
     <div className={`${cl.custom} ${baseCss.container}`}>
       <h2 className={cl.title}>Зроби свою ідеальну піцу!</h2>
       <div className={cl.custom__lists}>
-      {/* <div> */}
         {Object.entries(ingredients).map(([type, items], index) => (
           <DropdownCheckboxList
             key={type}

@@ -48,7 +48,7 @@ async function seedDatabase() {
         description: 'Tomato sauce, mozzarella cheese, pepperoni, sausage, bacon, and ham',
         sizeAndPrice: { '30': 15, '40': 18 }
       },
-      { 
+      {
         name: 'Mushroom',
         description: 'Tomato sauce, mozzarella cheese, mushrooms, and black olives',
         sizeAndPrice: { '30': 11, '40': 14 }

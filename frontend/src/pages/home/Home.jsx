@@ -8,7 +8,6 @@ import Menu from "../../components/menu/Menu";
 
 import CarouselComponent from "../../components/carousel/Carousel";
 import TextLogo from "../../components/UI/text-logo/TextLogo";
-import ScrollToTopButton from "../../components/UI/ScrollToTopButton/ScrollToTopButton";
 
 const Home = () => {
   return (
@@ -22,8 +21,6 @@ const Home = () => {
         <TextLogo />
       </div>
       <FeedbackForm />
-
-      <ScrollToTopButton />
     </div>
   );
 };

@@ -11,95 +11,96 @@ import FeedbackForm from "../../components/feedback form/FeedbackForm";
 
 const PaymentAndDelivery = () => {
 	return (
-		<div className={cl.delivery}>
-
-			<div className={main.container}>
-				<div className={cl.delivery__content}>
-					<div className={cl.delivery__item}>
-						<div className={cl.delivery__title}>
-							Правила доставки
-						</div>
-						<div className={cl.delivery__row}>
-							<div className={cl.delivery__column}>
-								<div className={cl.delivery__img}>
-									<img src={d1} alt=""/>
-								</div>
-								<div className={cl.delivery__subtitle}>
-									Доставка по місту безкоштовна
-								</div>
-								<div className={cl.delivery__text}>
-									Consectetur adipiscing elit. Augue magna quisque euismod lectus interdum. Et venenatis quis congue urna convallis malesuada quam.
-								</div>
-							</div>
-							<div className={cl.delivery__column}>
-								<div className={cl.delivery__img}>
-									<img src={d2} alt=""/>
-								</div>
-								<div className={cl.delivery__subtitle}>
-									У “зелену зону” - до 30 хвилин
-								</div>
-								<div className={cl.delivery__text}>
-									Consectetur adipiscing elit. Augue magna quisque euismod lectus interdum. Et venenatis quis congue urna convallis malesuada quam.
-								</div>
-							</div>
-							<div className={cl.delivery__column}>
-								<div className={cl.delivery__img}>
-									<img src={d3} alt=""/>
-								</div>
-								<div className={cl.delivery__subtitle}>
-									У “червону зону” - до 60хв
-								</div>
-								<div className={cl.delivery__text}>
-									Consectetur adipiscing elit. Augue magna quisque euismod lectus interdum. Et venenatis quis congue urna convallis malesuada quam.
-								</div>
-							</div>
-						</div>
-					</div>
-					<div className={cl.delivery__item}>
-						<div className={cl.delivery__title}>
-                            Правила оплати
-						</div>
-						<div className={cl.delivery__row}>
-							<div className={cl.delivery__column}>
-								<div className={cl.delivery__img}>
-									<img src={p1} alt=""/>
-								</div>
-								<div className={cl.delivery__subtitle}>
-									Готівка
-								</div>
-								<div className={cl.delivery__text}>
-									Consectetur adipiscing elit. Augue magna quisque euismod lectus interdum. Et venenatis quis congue urna convallis malesuada quam.
-								</div>
-							</div>
-							<div className={cl.delivery__column}>
-								<div className={cl.delivery__img}>
-									<img src={p2} alt=""/>
-								</div>
-								<div className={cl.delivery__subtitle}>
-									Картка
-								</div>
-								<div className={cl.delivery__text}>
-									Consectetur adipiscing elit. Augue magna quisque euismod lectus interdum. Et venenatis quis congue urna convallis malesuada quam.
-								</div>
-							</div>
-							<div className={cl.delivery__column}>
-								<div className={cl.delivery__img}>
-									<img src={p3} alt=""/>
-								</div>
-								<div className={cl.delivery__subtitle}>
-									LiqPay
-								</div>
-								<div className={cl.delivery__text}>
-									Consectetur adipiscing elit. Augue magna quisque euismod lectus interdum. Et venenatis quis congue urna convallis malesuada quam.
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<FeedbackForm />
-		</div>
-	);
+    <div className={cl.delivery}>
+      <div className={main.container}>
+        <div className={cl.delivery__content}>
+          <div className={cl.delivery__item}>
+            <div className={cl.delivery__title}>Правила доставки</div>
+            <div className={cl.delivery__row}>
+              <div className={cl.delivery__column}>
+                <div className={cl.delivery__img}>
+                  <img src={d1} alt="" />
+                </div>
+                <div className={cl.delivery__subtitle}>
+                  Доставка по місту безкоштовна
+                </div>
+                <div className={cl.delivery__text}>
+                  Consectetur adipiscing elit. Augue magna quisque euismod
+                  lectus interdum. Et venenatis quis congue urna convallis
+                  malesuada quam.
+                </div>
+              </div>
+              <div className={cl.delivery__column}>
+                <div className={cl.delivery__img}>
+                  <img src={d2} alt="" />
+                </div>
+                <div className={cl.delivery__subtitle}>
+                  У “зелену зону” - до 30 хвилин
+                </div>
+                <div className={cl.delivery__text}>
+                  Consectetur adipiscing elit. Augue magna quisque euismod
+                  lectus interdum. Et venenatis quis congue urna convallis
+                  malesuada quam.
+                </div>
+              </div>
+              <div className={cl.delivery__column}>
+                <div className={cl.delivery__img}>
+                  <img src={d3} alt="" />
+                </div>
+                <div className={cl.delivery__subtitle}>
+                  У “червону зону” - до 60хв
+                </div>
+                <div className={cl.delivery__text}>
+                  Consectetur adipiscing elit. Augue magna quisque euismod
+                  lectus interdum. Et venenatis quis congue urna convallis
+                  malesuada quam.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={cl.delivery__item}>
+            <div className={cl.delivery__title}>Правила оплати</div>
+            <div className={cl.delivery__row}>
+              <div className={cl.delivery__column}>
+                <div className={cl.delivery__img}>
+                  <img src={p1} alt="" />
+                </div>
+                <div className={cl.delivery__subtitle}>Готівка</div>
+                <div className={cl.delivery__text}>
+                  Consectetur adipiscing elit. Augue magna quisque euismod
+                  lectus interdum. Et venenatis quis congue urna convallis
+                  malesuada quam.
+                </div>
+              </div>
+              <div className={cl.delivery__column}>
+                <div className={cl.delivery__img}>
+                  <img src={p2} alt="" />
+                </div>
+                <div className={cl.delivery__subtitle}>Картка</div>
+                <div className={cl.delivery__text}>
+                  Consectetur adipiscing elit. Augue magna quisque euismod
+                  lectus interdum. Et venenatis quis congue urna convallis
+                  malesuada quam.
+                </div>
+              </div>
+              <div className={cl.delivery__column}>
+                <div className={cl.delivery__img}>
+                  <img src={p3} alt="" />
+                </div>
+                <div className={cl.delivery__subtitle}>LiqPay</div>
+                <div className={cl.delivery__text}>
+                  Consectetur adipiscing elit. Augue magna quisque euismod
+                  lectus interdum. Et venenatis quis congue urna convallis
+                  malesuada quam.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <FeedbackForm />
+    </div>
+  );
 }
 
 export default PaymentAndDelivery;

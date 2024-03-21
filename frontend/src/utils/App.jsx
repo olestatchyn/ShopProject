@@ -1,10 +1,11 @@
 // import axios from "axios"
 import { RouterProvider } from "react-router-dom";
 import { router } from "./router";
-import "./../style/App.css";
+import './../style/App.css';
 
 function App() {
-  // const userDataRegister = {
+
+	// const userDataRegister = {
   //   name: "Teslia My",
   //   email: "test@example.com",
   //   password: "not_safe"
@@ -21,7 +22,7 @@ function App() {
   //     console.log('Response:', response.data);
   //   })
   //   .catch(function (error) {
-  // 		console.log(error);
+	// 		console.log(error);
   //     console.log('Error:', error.response.data.error);
   //   });
   //   await axios.post('http://localhost:5000/api/login', userDataLogin)
@@ -35,7 +36,7 @@ function App() {
 
   // fetchDataPost();
 
-  return <RouterProvider router={router} />;
-}
-
+		return <RouterProvider router={router} />
+	}
+	
 export default App;

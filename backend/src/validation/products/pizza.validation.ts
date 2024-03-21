@@ -22,4 +22,4 @@ const pizzaDeleteSchema = Joi.object({
   name: Joi.string().required(),
 });
 
-export { pizzaPostSchema, pizzaPatchSchema, pizzaDeleteSchema }
+export { pizzaPostSchema,pizzaPatchSchema, pizzaDeleteSchema }
