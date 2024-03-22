@@ -8,6 +8,7 @@ import Menu from "../../components/menu/Menu";
 
 import CarouselComponent from "../../components/carousel/Carousel";
 import TextLogo from "../../components/UI/text-logo/TextLogo";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 const Home = () => {
   return (

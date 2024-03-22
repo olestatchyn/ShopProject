@@ -12,6 +12,8 @@ const BasketItem = ({onQuantityChange, item, remove}) => {
       onQuantityChange(item.id, item.quantity - 1, item.selectedSize);
     }
   };
+
+	const price = item.price * item.quantity;
 	return (
     <div>
       <MyButton onClick={()=>remove(item.id, item.selectedSize)}>-</MyButton>
@@ -20,6 +22,7 @@ const BasketItem = ({onQuantityChange, item, remove}) => {
       <p>{item.description}</p>
       <p>{item.selectedSize}</p>
       <CountControl count={item.quantity} onIncrement={handleIncrement} onDecrement={handleDecrement}/>
+			<p>{price}</p>
     </div>
   );
 }

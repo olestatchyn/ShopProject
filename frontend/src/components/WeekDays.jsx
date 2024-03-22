@@ -6,18 +6,22 @@ const WeekDays = () => {
   useEffect(() => {
     const generateWeekDays = () => {
       const daysUA = ["Неділя", "Понеділок", "Вівторок", "Середа", "Четвер", "П'ятниця", "Субота"];
-      const daysEN = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
       const today = new Date();
       let weekDays = [];
 
       for (let i = 0; i < 7; i++) {
-        let dayIndex = (today.getDay() + i) % 7;
+        let futureDay = new Date(today);
+        futureDay.setDate(futureDay.getDate() + i);
+
+        const dayIndex = futureDay.getDay();
+        const formattedDate = futureDay.toISOString().split('T')[0]; // Форматуємо дату до YYYY-MM-DD
+
         if (i === 0) {
-          weekDays.push({name: "Сьогодні", value: "today"});
+          weekDays.push({ name: "Сьогодні", value: formattedDate });
         } else if (i === 1) {
-          weekDays.push({name: "Завтра", value: "tomorrow"});
+          weekDays.push({ name: "Завтра", value: formattedDate });
         } else {
-          weekDays.push({name: daysUA[dayIndex], value: daysEN[dayIndex]});
+          weekDays.push({ name: daysUA[dayIndex], value: formattedDate });
         }
       }
 
@@ -27,7 +31,7 @@ const WeekDays = () => {
     setDays(generateWeekDays());
   }, []);
 
-  return days
+  return days;
 };
 
 export default WeekDays;

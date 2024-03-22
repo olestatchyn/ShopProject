@@ -17,7 +17,9 @@ const Menu = () => {
 		other: [],
 		count: 0
 	});
-	const [basketItems, setBasketItems] = useLocalStorage('basketItems', []);
+	const [basketItems, setBasketItems] = useLocalStorage('basketItems', [
+
+	]);
 	const [currentPage, setCurrentPage] = useState("Піца");
 	const [limit, setLimit] = useState(8);
 
@@ -27,7 +29,7 @@ const Menu = () => {
 
 	const [fetchPosts, isPostLoading, postError] = useFetching(async () => {
 		if (!items[dict[currentPage]].length) {
-			const response = await PostServiceFront.getAll(dict[currentPage], limit);
+			const response = await PostService.getAll(dict[currentPage], limit);
 		 	setItems(prevItems => ({ ...prevItems, [dict[currentPage]]: response }));
 		}
 	});
@@ -56,7 +58,8 @@ const Menu = () => {
 			price: price,
 			selectedSize: selectedSize,
 			quantity: 1,
-			description: item.description
+			description: item.description,
+			type: dict[currentPage]
 		};
 	
 		const existingProductIndex = basketItems.findIndex(basketItem => basketItem.id === item._id && basketItem.selectedSize === selectedSize);

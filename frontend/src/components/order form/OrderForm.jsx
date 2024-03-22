@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import MyInput from '../authentication/AuthInput';
 import MySelect from '../UI/select/MySelect';
 import WeekDays from '../WeekDays';
@@ -7,6 +7,8 @@ import TimePicker from '../timer picker/TimerPicker';
 import { validateEmail, validateName, validatePhone } from './../../utils/validation';
 
 const OrderForm = () => {
+  const [data, setData] = useState([]);
+
 	const paymentMethod = [
 		{
 			name: "Готівка",
@@ -26,7 +28,7 @@ const OrderForm = () => {
 			houseNumber: true,
 	});
 
-	const [data, setData] = useState({
+	const [orderData, setOrderData] = useState({
 		contact: {
 			name: "",
       phone: "",
@@ -38,15 +40,32 @@ const OrderForm = () => {
 			flatNumber: ""
 		},
 		dateAndTime: {
-			day: "Today",
+			day: new Date().toISOString().split('T')[0],
 			time: "10:00",
-			paymentMethod: "Card"
+			paymentMethod: "Card",
+			status: 'Pending'
 		}
 		
 	});
+
+	useEffect(() => {
+    const storedItems = localStorage.getItem('dataAbout');
+		console.log(JSON.parse(storedItems));
+    if (storedItems) {
+      setData(JSON.parse(storedItems));
+    }
+  }, []); 
+
+	const removeItem = (itemId, selectedSize) => {
+		setData(prevItems => {
+			const newItems = prevItems.filter(item => !(item.id === itemId && item.selectedSize === selectedSize));
+			localStorage.setItem('basketItems', JSON.stringify(newItems));
+			return newItems;
+		});
+	};
 	
 	const updateData = (type, name, value) => {
-		setData((prev) => ({
+		setOrderData((prev) => ({
 			...prev,
 			[type]: {
 				...prev[type],
@@ -66,7 +85,7 @@ const OrderForm = () => {
 	}
 	
 	const allFieldsFilled = () => {
-		return data.address.street && data.address.houseNumber && data.contact.email && data.contact.name && data.contact.phone;
+		return orderData.address.street && orderData.address.houseNumber && orderData.contact.email && orderData.contact.name && orderData.contact.phone;
 	};
 
 	const allFieldsValid = () => {
@@ -76,10 +95,34 @@ const OrderForm = () => {
 	
 	const confirmOrder = () => {
 		if (allFieldsFilled() && allFieldsValid()) {
-			// кидаємо на бек
-			console.log('Всі умови виконані');
-		}  
-	}
+			const currentData = JSON.parse(localStorage.getItem('dataAbout')) || {};
+	
+			const updatedData = {
+				...currentData,
+				contacts: {
+					name: orderData.contact.name,
+					phoneNumber: orderData.contact.phone,
+					email: orderData.contact.email
+				},
+				address: {
+					street: orderData.address.street,
+					building: orderData.address.houseNumber,
+					flat: orderData.address.flatNumber
+				},
+				dateAndTime: {
+					date: orderData.dateAndTime.day,
+					time: orderData.dateAndTime.time
+				},
+				paymentMethod: orderData.dateAndTime.paymentMethod,
+				status: orderData.dateAndTime.status,
+			};
+	
+			localStorage.setItem('dataAbout', JSON.stringify(updatedData));
+
+			console.log(updateData);
+		}
+	};
+	
 
 	const weekDays = WeekDays()
 	return (
@@ -95,7 +138,7 @@ const OrderForm = () => {
 					label="Ваше ім'я"
 					validationFunction={validateName}
 					setIsProblem={setIsProblem}
-					value={data.contact.name}
+					value={orderData.contact.name}
 					onChange={(e)=> updateData("contact", "name", e.target.value)}
 				/>
 				<MyInput 
@@ -103,14 +146,14 @@ const OrderForm = () => {
 					validationFunction={validatePhone}
 					setIsProblem={setIsProblem}
 					label="Номер телефону"
-					value={data.contact.phone}
+					value={orderData.contact.phone}
 					onChange={(e)=> updateData("contact", "phone", e.target.value)}
 				/>
 				<MyInput 
 					name="email"
 					label="Емейл"
 					setIsProblem={setIsProblem}
-					value={data.contact.email}
+					value={orderData.contact.email}
 					validationFunction={validateEmail}
 					onChange={(e)=> updateData("contact", "email", e.target.value)}
 				/>
@@ -122,7 +165,7 @@ const OrderForm = () => {
 					validationFunction={validateName}
 					setIsProblem={setIsProblem}
 					label="Вулиця"
-					value={data.address.street}
+					value={orderData.address.street}
 					onChange={(e)=> updateData("address", "street", e.target.value)}
 				/>
 				<MyInput 
@@ -130,12 +173,12 @@ const OrderForm = () => {
 					validationFunction={validateName}
 					setIsProblem={setIsProblem}
 					label="Будинок"
-					value={data.address.houseNumber}
+					value={orderData.address.houseNumber}
 					onChange={(e)=> updateData("address", "houseNumber", e.target.value)}
 				/>
 				<MyInput 
 					label="Квартира"
-					value={data.address.flatNumber}
+					value={orderData.address.flatNumber}
 					onChange={(e)=> updateData("address", "flatNumber", e.target.value)}
 				/>
 			</div>
@@ -145,21 +188,22 @@ const OrderForm = () => {
 					<h2>Оплата</h2>
 				</div>
 				<MySelect
-					value={data.dateAndTime.date}
+					value={orderData.dateAndTime.date}
 					onChange={changeDay}
 					option={weekDays}
 				/>
 				<TimePicker 
-				  value={data.dateAndTime.time}
+				  value={orderData.dateAndTime.time}
 					onChange={changeTime}
 				/>
 				<MySelect 
-					value={data.dateAndTime.paymentMethod}
+					value={orderData.dateAndTime.paymentMethod}
 					onChange={changePaymentMethod}
 					option={paymentMethod}
 				/>
 			</div>
 			<MyButton onClick={confirmOrder}>Оформити замовлення</MyButton>
+			{/* <MyButton onClick={()=>console.log(JSON.parse(localStorage.getItem('dataAbout')))}>Оформити замовлення</MyButton> */}
 		</div>
 	);
 }
