@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import MyInput from '../authentication/AuthInput';
 import MySelect from '../UI/select/MySelect';
 import WeekDays from '../WeekDays';
@@ -6,9 +6,7 @@ import MyButton from '../UI/button/MyButton';
 import TimePicker from '../timer picker/TimerPicker';
 import { validateEmail, validateName, validatePhone } from './../../utils/validation';
 
-const OrderForm = () => {
-  const [data, setData] = useState([]);
-
+const OrderForm = ({onButtonClick}) => {
 	const paymentMethod = [
 		{
 			name: "Готівка",
@@ -47,22 +45,6 @@ const OrderForm = () => {
 		}
 		
 	});
-
-	useEffect(() => {
-    const storedItems = localStorage.getItem('dataAbout');
-		console.log(JSON.parse(storedItems));
-    if (storedItems) {
-      setData(JSON.parse(storedItems));
-    }
-  }, []); 
-
-	const removeItem = (itemId, selectedSize) => {
-		setData(prevItems => {
-			const newItems = prevItems.filter(item => !(item.id === itemId && item.selectedSize === selectedSize));
-			localStorage.setItem('basketItems', JSON.stringify(newItems));
-			return newItems;
-		});
-	};
 	
 	const updateData = (type, name, value) => {
 		setOrderData((prev) => ({
@@ -118,8 +100,7 @@ const OrderForm = () => {
 			};
 	
 			localStorage.setItem('dataAbout', JSON.stringify(updatedData));
-
-			console.log(updateData);
+			onButtonClick()
 		}
 	};
 	
