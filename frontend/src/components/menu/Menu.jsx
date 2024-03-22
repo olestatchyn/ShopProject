@@ -90,7 +90,7 @@ const Menu = () => {
         currentPage={currentPage}
       />
 
-      <BasketButton countOfProduct={countOfProduct} />
+      <BasketButton  countOfProduct={countOfProduct} />
 
       {postError && <h1>Error loading</h1>}
 

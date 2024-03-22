@@ -8,7 +8,8 @@ import Shares from "../pages/shares/Shares";
 import { RequireAuth } from './RequireAuth'; 
 import Admin from "../pages/admin/Admin";
 import ErrorPage from "../pages/error/ErrorPage";
-import { ABOUT_ROUTE, ADMIN_ROUTE, BASCKET_ROUTE, HOME_ROUTE, PAYMENT_AND_DELIVERY_ROUTE, SHARES_ROUTE} from "./consts";
+import { ABOUT_ROUTE, ADMIN_ROUTE, BASCKET_ROUTE, HOME_ROUTE, PAYMENT_AND_DELIVERY_ROUTE, PERSONAL_DETAIL_ROUTE, SHARES_ROUTE} from "./consts";
+import PersonalDetails from "../pages/personal details/PersonalDetails";
 
 
 export const router = createBrowserRouter([
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
       {
         path: BASCKET_ROUTE,
         element: <RequireAuth><Basket /></RequireAuth>
+      },
+      {
+        path: PERSONAL_DETAIL_ROUTE,
+        element: <RequireAuth><PersonalDetails /></RequireAuth>
       },
       {
         path: ADMIN_ROUTE,

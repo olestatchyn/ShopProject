@@ -4,5 +4,4 @@ export const BASCKET_ROUTE = '/basket'
 export const ABOUT_ROUTE = '/about'
 export const PAYMENT_AND_DELIVERY_ROUTE = '/payment_and_delivery'
 export const SHARES_ROUTE = '/shares'
-
-
+export const PERSONAL_DETAIL_ROUTE = '/personal-details'

@@ -121,7 +121,7 @@ const BasketItemList = () => {
         )}
       </div>
       <div>
-        <MyNavLink onClick={handleCheckoutClick}>Оформити замовлення</MyNavLink>
+        <MyNavLink onClick={handleCheckoutClick} to="/personal-details">Оформити замовлення</MyNavLink>
       </div>
       <div>
         <p>Усього: {totalPrice}</p>
