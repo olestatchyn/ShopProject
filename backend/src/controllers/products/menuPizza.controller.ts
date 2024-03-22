@@ -2,7 +2,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import { ErrorMessage } from '../../errors/error-consts';
 import BadRequestError from '../../errors/bad-request.error';
 import { productAccessSchema } from '../../validation/products/product.validation';
-import { getPizzaLimited, createPizza, editPizza, deletePizzaByName } from '../../services/products/pizza.service';
+import { getPizzaLimited, createPizza, editPizza, deletePizzaByName } from '../../services/products/menuPizza.service';
 import { pizzaDeleteSchema, pizzaPatchSchema, pizzaPostSchema } from '../../validation/products/pizza.validation';
 
 let pizzaRouter = express.Router();
@@ -69,7 +69,7 @@ pizzaRouter.delete('/pizza', async (req: Request, res: Response, next: NextFunct
     const pizzaName =  req.query.name;
     await deletePizzaByName(pizzaName);
 
-    res.status(204).json("Pizza deleted");
+    res.status(200).json("Pizza deleted");
   } catch (error) {
     next(error);
   }

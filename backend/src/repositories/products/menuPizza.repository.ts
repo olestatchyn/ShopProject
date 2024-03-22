@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import Pizza from "../../models/products/pizza.model";
 import BadRequestError from "../../errors/bad-request.error";
 import { ErrorMessage } from "../../errors/error-consts";
@@ -13,18 +12,13 @@ async function getPizzabyName(name) {
 }
 
 async function createNewPizza(pizzaData) {
-  await Pizza.create({
-    _id: new mongoose.Types.ObjectId(),
-    name: pizzaData.name,
-    description: pizzaData.description,
-    sizeAndPrice: pizzaData.sizeAndPrice
-  });
+  await Pizza.create(pizzaData);
 }
 
 async function editPizzaByName(pizzaData) {
   const pizza = await Pizza.findOne({ name: pizzaData.name });
 
-  if (!pizza) throw new BadRequestError(ErrorMessage.pizzaDoesntExists);
+  if (!pizza) throw new BadRequestError(ErrorMessage.pizzaDoesntExist);
 
   if (pizzaData.description) {
     pizza.description = pizzaData.description;
@@ -41,7 +35,7 @@ async function deletePizza(name) {
   const result = await Pizza.deleteOne({ name: name });
 
   if (result.deletedCount === 0) {
-    throw new BadRequestError(ErrorMessage.pizzaDoesntExists);
+    throw new BadRequestError(ErrorMessage.pizzaDoesntExist);
   }
 }
 

@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import User from "../models/user.model";
 import { EntityNotFound } from "../errors/entity-not-found.error";
 import { ErrorMessage } from "../errors/error-consts";
@@ -22,7 +21,6 @@ async function editUserPassword(userEmail, newPassword) {
 
 async function createUser(newUser) {
   await User.create({
-    _id: new mongoose.Types.ObjectId(),
     name: newUser.name,
     email: newUser.email,
     password: newUser.password

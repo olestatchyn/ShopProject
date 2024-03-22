@@ -2,10 +2,13 @@
   height: 90px;
   width: 90px;
   border-radius: 90px;
-  //margin-top: 2px;
-  position: absolute;
-  top: 220px;
-  right: 1%;
+  margin-top: -72px;
+  margin-left: 1300px;
+  position: sticky;
+
+  top: 40px;
+  right: 0;
+
   padding: 10px;
   background-color: #fff;
   cursor: pointer;
@@ -13,10 +16,10 @@
   justify-content: center;
   align-items: center;
   box-shadow: 0 0 30px 1px rgba(147, 158, 180, 0.6);
-  &:hover{
+  &:hover {
     background: linear-gradient(137deg, #ff9f47 0%, #fdb806 100%);
     box-shadow: 0 0 30px 1px rgba(255, 219, 71, 0.6);
-    img{
+    img {
       filter: brightness(0) invert(1);
     }
   }
@@ -30,9 +33,4 @@
       max-height: 100%;
     }
   }
-}
-
-.fixed {
-  position: fixed;
-  top: 50px;
 }

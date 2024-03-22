@@ -1,39 +1,38 @@
 .page__wrapper {
-	display: flex;
-	justify-content: center;
-	padding: 114px 0 60px;
+  display: flex;
+  justify-content: center;
+  /* padding: 114px 0 60px; */
 }
 
-.page{
-	margin: 0 15px;
+.page {
+  margin: 0 15px;
 
-	border-radius: 30px;
-	width: 170px;
-	height: 60px;
+  border-radius: 30px;
+  width: 170px;
+  height: 60px;
 
-	background: #ECEFF5;
+  background: #eceff5;
 
-	cursor: pointer;
+  cursor: pointer;
 
-	font-weight: 400;
-	font-size: 24px;
+  font-weight: 400;
+  font-size: 24px;
 
-	text-align: center;
-	line-height: 60px;
+  text-align: center;
+  line-height: 60px;
 }
-.page:hover{
-	background: linear-gradient(137deg, #ff9f47 0%, #fdb806 100%);
-	font-weight: 700;
+.page:hover {
+  background: linear-gradient(137deg, #ff9f47 0%, #fdb806 100%);
+  font-weight: 700;
 
-	color: #fff;
+  color: #fff;
 }
 .page__current {
+  background: linear-gradient(137deg, #ff9f47 0%, #fdb806 100%);
 
-	background: linear-gradient(137deg, #ff9f47 0%, #fdb806 100%);
+  font-weight: 700;
 
-	font-weight: 700;
-
-	color: #fff;
+  color: #fff;
 }
 
 /*.post {*/
