@@ -9,7 +9,7 @@ const BasketButton = ({ countOfProduct }) => {
         <MyNavLink to="basket" className={cl.basket__button}>
           <img src={basket} alt="basket" />
         </MyNavLink>
-        <p>{countOfProduct}</p>
+        <div className={cl.basket__count}>{countOfProduct}</div>
       </div>
     </div>
   );
