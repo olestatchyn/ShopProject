@@ -13,18 +13,19 @@ import { saladRouter } from './src/controllers/products/menuSalad.controller';
 import { drinkRouter } from './src/controllers/products/menuDrink.controller';
 import { otherItemRouter } from './src/controllers/products/menuOtherItem.controller';
 import { orderRouter } from './src/controllers/order.controller';
+import { popularityRouter } from './src/controllers/products/popularity.controller';
 
 const app = express();
 const port = process.env.BACKEND_PORT;
 
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 app.use(expressLogger);
 
 app.use(bodyParser.json());
 
 app.use('/api', healthRouter, userRouter);
-app.use('/api/products', pizzaRouter, saladRouter, drinkRouter, otherItemRouter);
+app.use('/api/products', pizzaRouter, saladRouter, drinkRouter, otherItemRouter, popularityRouter);
 app.use('/api/checkout', orderRouter);
 app.use('/api/products', pizzaRouter);
 

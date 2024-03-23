@@ -78,51 +78,61 @@ async function seedDatabase() {
       {
         name: 'Coca-Cola',
         description: 'Classic carbonated soft drink',
+        popularity: 0,
         sizeAndPrice: { '30': 1.5, '40': 2.5 }
       },
       {
         name: 'Orange Juice',
         description: 'Freshly squeezed oranges',
+        popularity: 0,
         sizeAndPrice: { '30': 2, '40': 3.5 }
       },
       {
         name: 'Lemonade',
         description: 'Refreshing lemon-flavored drink',
+        popularity: 0,
         sizeAndPrice: { '30': 2, '40': 3.5 }
       },
       {
         name: 'Iced Tea',
         description: 'Chilled tea with a hint of lemon',
+        popularity: 0,
         sizeAndPrice: { '30': 2, '40': 3.5 }
       },
       {
         name: 'Mango Smoothie',
         description: 'Blended mangoes with yogurt and honey',
+        popularity: 0,
         sizeAndPrice: { '30': 3.5, '40': 5 }
       },
       {
         name: 'Strawberry Milkshake',
         description: 'Creamy milkshake with fresh strawberries',
+        popularity: 0,
         sizeAndPrice: { '30': 4, '40': 6 }
       },
       {
         name: 'Espresso',
         description: 'Strong black coffee',
+        popularity: 0,
         sizeAndPrice: { '30': 2, '40': 3.5 }
       },
       {
         name: 'Cappuccino',
         description: 'Espresso with steamed milk and foam',
+        popularity: 0,
         sizeAndPrice: { '30': 3, '40': 4.5 }
       },
       {
         name: 'Green Tea',
         description: 'Healthy and refreshing green tea',
+        popularity: 0,
         sizeAndPrice: { '30': 2, '40': 3.5 }
       },
       {
         name: 'Hot Chocolate',
         description: 'Rich and creamy chocolate drink',
+        popularity: 0,
         sizeAndPrice: { '30': 3, '40': 4.5 }
       }
     ];
@@ -192,51 +202,61 @@ async function seedDatabase() {
       {
         name: 'Garlic Bread',
         description: 'Toasted bread with garlic butter spread',
+        popularity: 0,
         sizeAndPrice: { '30': 5, '40': 7 }
       },
       {
         name: 'Bruschetta',
         description: 'Toasted bread topped with diced tomatoes, garlic, basil, and olive oil',
+        popularity: 0,
         sizeAndPrice: { '30': 6, '40': 8 }
       },
       {
         name: 'French Fries',
         description: 'Crispy fried potato sticks',
+        popularity: 0,
         sizeAndPrice: { '30': 4, '40': 6 }
       },
       {
         name: 'Onion Rings',
         description: 'Breaded and deep-fried onion slices',
+        popularity: 0,
         sizeAndPrice: { '30': 5, '40': 7 }
       },
       {
         name: 'Buffalo Wings',
         description: 'Fried chicken wings tossed in buffalo sauce',
+        popularity: 0,
         sizeAndPrice: { '30': 8, '40': 10 }
       },
       {
         name: 'Cheese Sticks',
         description: 'Breaded and deep-fried cheese sticks',
+        popularity: 0,
         sizeAndPrice: { '30': 7, '40': 9 }
       },
       {
         name: 'Mozzarella Bites',
         description: 'Breaded and deep-fried mozzarella cheese bites',
+        popularity: 0,
         sizeAndPrice: { '30': 6, '40': 8 }
       },
       {
         name: 'Potato Skins',
         description: 'Potato shells filled with cheese, bacon, and green onions',
+        popularity: 0,
         sizeAndPrice: { '30': 7, '40': 9 }
       },
       {
         name: 'Side Salad',
         description: 'Mixed greens, cherry tomatoes, cucumbers, and choice of dressing',
+        popularity: 0,
         sizeAndPrice: { '30': 3, '40': 5 }
       },
       {
         name: 'Garlic Knots',
         description: 'Soft bread knots brushed with garlic butter and herbs',
+        popularity: 0,
         sizeAndPrice: { '30': 4, '40': 6 }
       }
     ];

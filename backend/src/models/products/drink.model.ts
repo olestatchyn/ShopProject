@@ -10,6 +10,10 @@ const drinkSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  popularity: { 
+    type: Number,
+    required: true,
+  },
   sizeAndPrice: {
     type: {
       '30': {

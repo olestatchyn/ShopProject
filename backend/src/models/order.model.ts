@@ -43,11 +43,11 @@ const orderSchema = new mongoose.Schema({
       required: true
     },
     building: {
-      type: Number,
+      type: String,
       required: true
     },
     flat: {
-      type: Number,
+      type: String,
       required: false
     },
   },

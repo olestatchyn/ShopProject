@@ -6,6 +6,10 @@ async function getOtherItemsFromRepository(limit) {
   return await Other.find().limit(limit);
 }
 
+async function getAllOtherItemsFromRepository() {
+  return await Other.find();
+}
+
 async function getOtherItembyName(name) {
   const otherItem = await Other.findOne({ name: name })
   return otherItem;
@@ -39,4 +43,12 @@ async function deleteOtherItem(name) {
   }
 }
 
-export { getOtherItemsFromRepository, getOtherItembyName, createNewOtherItem, editOtherItemByName, deleteOtherItem };
+async function increaseOneOtherItemPopularity(otherItemName, popularityIncrease) {
+  const otherItem = await Other.findOne({ name: otherItemName })
+  
+  otherItem.popularity += popularityIncrease;
+
+  await otherItem.save();
+}
+
+export { getOtherItemsFromRepository, getAllOtherItemsFromRepository, getOtherItembyName, createNewOtherItem, editOtherItemByName, deleteOtherItem, increaseOneOtherItemPopularity };

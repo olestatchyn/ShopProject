@@ -38,8 +38,8 @@ const orderSchema = Joi.object({
   }).required(),
   address: Joi.object({
     street: Joi.string().required(),
-    building: Joi.number().required(),
-    flat: Joi.number().optional(),
+    building: Joi.string().required(),
+    flat: Joi.string().optional(),
   }).required(),
   dateAndTime: Joi.object({
     date: Joi.string().required(),
