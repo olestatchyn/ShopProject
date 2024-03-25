@@ -11,7 +11,7 @@ userRouter.post('/register', async (req: Request, res: Response, next: NextFunct
     const bodyValidation = userRegisterEntitySchema.validate(req.body);
 
     if (bodyValidation.error) {
-      throw new BadRequestError(ErrorMessage.invalidData);
+      throw new BadRequestError(bodyValidation.error.details[0].message);
     }
 
     let userInfo = req.body;
@@ -28,7 +28,7 @@ userRouter.post('/login', async (req: Request, res: Response, next: NextFunction
     const bodyValidation = userLoginEntitySchema.validate(req.body);
 
     if (bodyValidation.error) {
-      throw new BadRequestError(ErrorMessage.invalidData);
+      throw new BadRequestError(bodyValidation.error.details[0].message);
     }
 
     let userInfo = req.body;
@@ -45,7 +45,7 @@ userRouter.post('/login/reset-password', async (req: Request, res: Response, nex
     const bodyValidation = userSendEmailEntitySchema.validate(req.body);
 
     if (bodyValidation.error) {
-      throw new BadRequestError(ErrorMessage.invalidData);
+      throw new BadRequestError(bodyValidation.error.details[0].message);
     }
 
     let userInfo = req.body;
@@ -62,7 +62,7 @@ userRouter.patch('/login/reset-password', async (req: Request, res: Response, ne
     const bodyValidation = userResetPasswordEntitySchema.validate(req.body);
 
     if (bodyValidation.error) {
-      throw new BadRequestError(ErrorMessage.invalidData);
+      throw new BadRequestError(bodyValidation.error.details[0].message);
     }
 
     let userInfo = req.body;

@@ -27,7 +27,6 @@ app.use(bodyParser.json());
 app.use('/api', healthRouter, userRouter);
 app.use('/api/products', pizzaRouter, saladRouter, drinkRouter, otherItemRouter, popularityRouter);
 app.use('/api/checkout', orderRouter);
-app.use('/api/products', pizzaRouter);
 
 app.use(errorHandlerMiddleware);
 

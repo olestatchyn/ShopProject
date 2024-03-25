@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import User from '../models/user.model';
 import Pizza from '../models/products/pizza.model';
 import Drink from '../models/products/drink.model';
 import Salad from '../models/products/salad.model';
@@ -8,15 +7,6 @@ import Order from '../models/order.model';
 
 async function seedDatabase() {
   try {
-    const users = [
-      { name: 'John Doe', email: 'john@example.com', password: 'johnpassword' },
-      { name: 'Jane Smith', email: 'jane@example.com', password: 'janepassword' }
-    ];
-
-    await User.insertMany(users);
-
-    console.log('User records created successfully');
-
     const pizzas = [
       { 
         name: 'Margherita',

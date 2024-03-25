@@ -4,6 +4,7 @@ import BadRequestError from '../../errors/bad-request.error';
 import { productAccessSchema } from '../../validation/products/product.validation';
 import { getSaladLimited, createSalad, editSalad, deleteSaladByName } from '../../services/products/menuSalad.service';
 import { saladPostSchema, saladPatchSchema, saladDeleteSchema } from '../../validation/products/salad.validation';
+import { verifyToken } from '../../middleware/authentication.middleware';
 
 let saladRouter = express.Router();
 
@@ -12,7 +13,7 @@ saladRouter.get('/salad', async (req: Request, res: Response, next: NextFunction
     const bodyValidation = productAccessSchema.validate(req.query);
 
     if (bodyValidation.error) {
-      throw new BadRequestError(ErrorMessage.invalidData);
+      throw new BadRequestError(bodyValidation.error.details[0].message);
     }
 
     const limit = req.query.limit;
@@ -26,12 +27,12 @@ saladRouter.get('/salad', async (req: Request, res: Response, next: NextFunction
   }
 });
 
-saladRouter.post('/salad', async (req: Request, res: Response, next: NextFunction) => {
+saladRouter.post('/salad', verifyToken, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const bodyValidation = saladPostSchema.validate(req.body);
 
     if (bodyValidation.error) {
-      throw new BadRequestError(ErrorMessage.invalidData);
+      throw new BadRequestError(bodyValidation.error.details[0].message);
     }
 
     const saladData = req.body;
@@ -43,12 +44,12 @@ saladRouter.post('/salad', async (req: Request, res: Response, next: NextFunctio
   }
 });
 
-saladRouter.patch('/salad', async (req: Request, res: Response, next: NextFunction) => {
+saladRouter.patch('/salad', verifyToken, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const bodyValidation = saladPatchSchema.validate(req.body);
 
     if (bodyValidation.error) {
-      throw new BadRequestError(ErrorMessage.invalidData);
+      throw new BadRequestError(bodyValidation.error.details[0].message);
     }
 
     const saladData = req.body;
@@ -60,12 +61,12 @@ saladRouter.patch('/salad', async (req: Request, res: Response, next: NextFuncti
   }
 });
 
-saladRouter.delete('/salad', async (req: Request, res: Response, next: NextFunction) => {
+saladRouter.delete('/salad', verifyToken, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const bodyValidation = saladDeleteSchema.validate(req.query);
 
     if (bodyValidation.error) {
-      throw new BadRequestError(ErrorMessage.invalidData);
+      throw new BadRequestError(bodyValidation.error.details[0].message);
     }
 
     const saladName = req.query.name;
