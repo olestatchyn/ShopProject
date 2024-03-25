@@ -16,7 +16,9 @@ otherItemRouter.get('/other', async (req: Request, res: Response, next: NextFunc
     }
 
     const limit = req.query.limit;
-    const otherItemArray = await getOtherItemLimited(limit);
+    const page = req.query.page;
+
+    const otherItemArray = await getOtherItemLimited(limit, page);
 
     res.status(200).json(otherItemArray);
   } catch (error) {

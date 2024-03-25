@@ -2,8 +2,8 @@ import Other from "../../models/products/other.model";
 import BadRequestError from "../../errors/bad-request.error";
 import { ErrorMessage } from "../../errors/error-consts";
 
-async function getOtherItemsFromRepository(limit) {
-  return await Other.find().limit(limit);
+async function getOtherItemsFromRepository(limit, offset) {
+  return await Other.find().skip(offset).limit(limit);
 }
 
 async function getAllOtherItemsFromRepository() {

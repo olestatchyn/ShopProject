@@ -2,8 +2,8 @@ import Salad from "../../models/products/salad.model";
 import BadRequestError from "../../errors/bad-request.error";
 import { ErrorMessage } from "../../errors/error-consts";
 
-async function getSaladsFromRepository(limit) {
-  return await Salad.find().limit(limit);
+async function getSaladsFromRepository(limit, offset) {
+  return await Salad.find().skip(offset).limit(limit);
 }
 
 async function getSaladbyName(name) {

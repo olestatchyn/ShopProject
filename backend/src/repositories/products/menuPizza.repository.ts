@@ -2,8 +2,8 @@ import Pizza from "../../models/products/pizza.model";
 import BadRequestError from "../../errors/bad-request.error";
 import { ErrorMessage } from "../../errors/error-consts";
 
-async function getPizzasFromRepository(limit) {
-  return await Pizza.find().limit(limit);
+async function getPizzasFromRepository(limit, offset) {
+  return await Pizza.find().skip(offset).limit(limit);
 }
 
 async function getPizzabyName(name) {

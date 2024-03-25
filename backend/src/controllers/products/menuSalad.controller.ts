@@ -16,7 +16,9 @@ saladRouter.get('/salad', async (req: Request, res: Response, next: NextFunction
     }
 
     const limit = req.query.limit;
-    const saladArray = await getSaladLimited(limit);
+    const page = req.query.page;
+
+    const saladArray = await getSaladLimited(limit, page);
 
     res.status(200).json(saladArray);
   } catch (error) {

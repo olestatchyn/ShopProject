@@ -16,7 +16,9 @@ drinkRouter.get('/drink', async (req: Request, res: Response, next: NextFunction
     }
 
     const limit = req.query.limit;
-    const drinkArray = await getDrinkLimited(limit);
+    const page = req.query.page;
+    
+    const drinkArray = await getDrinkLimited(limit, page);
 
     res.status(200).json(drinkArray);
   } catch (error) {

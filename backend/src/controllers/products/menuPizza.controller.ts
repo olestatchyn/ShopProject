@@ -16,7 +16,9 @@ pizzaRouter.get('/pizza', async (req: Request, res: Response, next: NextFunction
     }
 
     const limit =  req.query.limit;
-    const pizzaArray = await getPizzaLimited(limit);
+    const page = req.query.page;
+
+    const pizzaArray = await getPizzaLimited(limit, page);
 
     res.status(200).json(pizzaArray);
   } catch (error) {

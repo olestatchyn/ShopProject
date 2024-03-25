@@ -2,9 +2,10 @@ import BadRequestError from '../../errors/bad-request.error';
 import { ErrorMessage } from '../../errors/error-consts';
 import { getOtherItemsFromRepository, getOtherItembyName, createNewOtherItem, editOtherItemByName, deleteOtherItem, increaseOneOtherItemPopularity } from '../../repositories/products/menuOtherItem.repository';
 
-async function getOtherItemLimited(limit) {
+async function getOtherItemLimited(limit, page) {
+  const offset = (page - 1) * limit;
 
-  const otherItems = await getOtherItemsFromRepository(limit);
+  const otherItems = await getOtherItemsFromRepository(limit, offset);
 
   return otherItems;
 }

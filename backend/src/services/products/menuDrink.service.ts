@@ -2,9 +2,10 @@ import BadRequestError from '../../errors/bad-request.error';
 import { ErrorMessage } from '../../errors/error-consts';
 import { getDrinksFromRepository, getDrinkbyName, createNewDrink, editDrinkByName, deleteDrink, increaseOneDrinkPopularity } from '../../repositories/products/menuDrink.repository';
 
-async function getDrinkLimited(limit) {
+async function getDrinkLimited(limit, page) {
+  const offset = (page - 1) * limit;
 
-  const drinks = await getDrinksFromRepository(limit);
+  const drinks = await getDrinksFromRepository(limit, offset);
 
   return drinks;
 }
