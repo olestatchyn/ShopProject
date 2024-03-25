@@ -7,9 +7,41 @@ import { useNavigate } from 'react-router-dom';
 
 const OrderLoader = () => {
 	const navigate = useNavigate()
+	const orderObject = {
+		order: {
+			pizza: [
+				{ name: 'Margherita', size: 'Medium', quantity: 2 },
+				{ name: 'Pepperoni', size: 'Large', quantity: 1 }
+			],
+			drink: [
+				{ name: 'Coke', size: 'Medium', quantity: 3 }
+			],
+			salad: [],
+			other: []
+		},
+		contacts: {
+			name: 'John Doe',
+			phoneNumber: 1234567890,
+			email: 'john@example.com'
+		},
+		address: {
+			street: '123 Main Street',
+			building: 4,
+			flat: 10
+		},
+		dateAndTime: {
+			date: '2024-03-21',
+			time: '18:00'
+		},
+		paymentMethod: 'Credit Card',
+		status: 'Pending',
+		totalPrice: 35.50
+	};
+	
 	const [sendRequest, isSending, sendError] = useFetching(async () => {
 		try {
-			const response = await axios.post("URL", localStorage.getItem('dataAbout'), {
+			console.log(JSON.parse(localStorage.getItem('dataAbout')));
+			const response = await axios.post("http://localhost:5000/api/checkout/order", localStorage.getItem('dataAbout'), {
 				headers: {
 					'Content-Type': 'application/json',
 				},
@@ -25,7 +57,6 @@ const OrderLoader = () => {
 		}, []);
 
 	useEffect(() => {
-		console.log(isSending, sendError);
 		if (!isSending && sendError) {
 			const timer = setTimeout(() => {
 				navigate("/");

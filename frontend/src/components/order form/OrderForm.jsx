@@ -14,7 +14,7 @@ const OrderForm = ({onButtonClick}) => {
 		},
 		{
 			name: "Карта",
-      value: "Card"
+      value: "Credit Card"
 		}
 	]
 
@@ -40,7 +40,7 @@ const OrderForm = ({onButtonClick}) => {
 		dateAndTime: {
 			day: new Date().toISOString().split('T')[0],
 			time: "10:00",
-			paymentMethod: "Card",
+			paymentMethod: "Cash",
 			status: 'Pending'
 		}
 		
@@ -76,7 +76,7 @@ const OrderForm = ({onButtonClick}) => {
 
 	
 	const confirmOrder = () => {
-		if (allFieldsFilled() && allFieldsValid()) {
+		// if (allFieldsFilled() && allFieldsValid()) {
 			const currentData = JSON.parse(localStorage.getItem('dataAbout')) || {};
 	
 			const updatedData = {
@@ -101,7 +101,7 @@ const OrderForm = ({onButtonClick}) => {
 	
 			localStorage.setItem('dataAbout', JSON.stringify(updatedData));
 			onButtonClick()
-		}
+		// }
 	};
 	
 
@@ -151,8 +151,8 @@ const OrderForm = ({onButtonClick}) => {
 				/>
 				<MyInput 
 					name="houseNumber"
-					validationFunction={validateName}
-					setIsProblem={setIsProblem}
+					// validationFunction={validateName}
+					// setIsProblem={setIsProblem}
 					label="Будинок"
 					value={orderData.address.houseNumber}
 					onChange={(e)=> updateData("address", "houseNumber", e.target.value)}
@@ -184,7 +184,7 @@ const OrderForm = ({onButtonClick}) => {
 				/>
 			</div>
 			<MyButton onClick={confirmOrder}>Оформити замовлення</MyButton>
-			{/* <MyButton onClick={()=>console.log(JSON.parse(localStorage.getItem('dataAbout')))}>Оформити замовлення</MyButton> */}
+			<MyButton onClick={()=>console.log(JSON.parse(localStorage.getItem('dataAbout')))}>Чекнути дані</MyButton>
 		</div>
 	);
 }

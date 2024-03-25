@@ -44,8 +44,7 @@ const BasketItemList = () => {
 					...updatedData.order[category],
 					{
 						name: productToAdd.name,
-						price: productToAdd.price,
-						selectedSize: productToAdd.selectedSize,
+						size: productToAdd.selectedSize,
 						quantity: productToAdd.quantity,
 					}
 				];
@@ -104,6 +103,15 @@ const BasketItemList = () => {
 			localStorage.setItem('dataAbout', JSON.stringify(updatedData));
 	}, [items]);
 
+	// const clearStorage = () => {
+	// 	setData([]);
+	// 	localStorage.removeItem('dataAbout');
+	// }
+
+	const logDataAbout = () => {
+		console.log(JSON.parse(localStorage.getItem('dataAbout')));
+	}
+
   return (
     <div>
       <div>
@@ -121,7 +129,8 @@ const BasketItemList = () => {
         )}
       </div>
       <div>
-        <MyNavLink onClick={handleCheckoutClick} to="/personal-details">Оформити замовлення</MyNavLink>
+        <MyNavLink onClick={handleCheckoutClick}>Оформити замовлення</MyNavLink>
+				<MyButton onClick={logDataAbout}>Показати</MyButton>
       </div>
       <div>
         <p>Усього: {totalPrice}</p>

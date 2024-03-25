@@ -4,7 +4,9 @@ import CountControl from '../../UI/count-control/CountControl';
 
 const BasketItem = ({onQuantityChange, item, remove}) => {
 	const handleIncrement = () => {
-    onQuantityChange(item.id, item.quantity + 1, item.selectedSize);
+    if (item.quantity < 10) {
+      onQuantityChange(item.id, item.quantity + 1, item.selectedSize);
+    }
   };
   
   const handleDecrement = () => {

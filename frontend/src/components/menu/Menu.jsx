@@ -82,6 +82,13 @@ const Menu = () => {
     setBasketItems([]);
   };
 
+	const clearStorageData = () => {
+    localStorage.setItem('dataAbout', []);
+  };
+
+	const logDataAbout = () => {
+		console.log(localStorage.getItem('dataAbout'));
+	}
   return (
     <div className={cl.MenuContainer}>
       <Pagination
@@ -89,8 +96,8 @@ const Menu = () => {
         setCurrentPage={setCurrentPage}
         currentPage={currentPage}
       />
-
       <BasketButton  countOfProduct={countOfProduct} />
+
 
       {postError && <h1>Error loading</h1>}
 
@@ -108,7 +115,9 @@ const Menu = () => {
       )}
 
       <MoreButton changePage={changePage} />
+      <MoreButton changePage={logDataAbout} />
       <MoreButton changePage={clearStorage} />
+      <MoreButton changePage={clearStorageData} />
     </div>
   );
 };
