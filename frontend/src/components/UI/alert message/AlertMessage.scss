@@ -1,7 +1,9 @@
+@import "../../../style/index.scss";
+
 .info-alert-message {
   background-color: white !important;
-  color: $contentLeading !important;
-  box-shadow: $shadowInfoCard;
+  color: #000000 !important;
+  box-shadow: getRem(0) getRem(0) getRem(10) rgba(30, 30, 30, 0.1);
 }
 
 .custom-alert-message {
