@@ -1,8 +1,8 @@
-import React, { useState } from "react"
+import React from "react"
 // Correct the imports here
 import { Snackbar, Alert } from "@mui/material"
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline"
-// import "./AlertMessage.scss"
+import "./AlertMessage.scss"
 
 // import "./index.scss"
 const SUCCESS_CODE = 200

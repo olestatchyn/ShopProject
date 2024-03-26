@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import MyButton from '../UI/button/MyButton';
 // import './style.css';
 import cl from './RandomPizza.module.scss';
