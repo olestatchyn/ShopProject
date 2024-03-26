@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useFetching } from "../../hooks/useFetching";
 import PostService from "../../API/ProductsService";
-import ProductsList from "../products list/ProductsList";
-import Pagination from "../pagination/Pagination";
+import ProductsList from "../../components/products list/ProductsList";
+import Pagination from "../../components/pagination/Pagination";
 import PizzaLoader from "../../components/UI/loader/PizzaLoader";
 import PostServiceFront from "../../API/ProductsServiceFront";
-import MoreButton from "../UI/more-button/MoreButton";
-import BasketButton from "../UI/basket-button/BasketButton";
+import MoreButton from "../../components/UI/more-button/MoreButton";
+import BasketButton from "../../components/UI/basket-button/BasketButton";
 import { useSessionStorage } from "../../hooks/useSessionStorage";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 
@@ -36,6 +36,10 @@ const Menu = () => {
 		 	setItems(prevItems => ({ ...prevItems, [dict[currentPage]]: response }));
 		}
 	});
+
+	useEffect(() => {
+		setBasketItems(JSON.parse(localStorage.getItem('basketItems')))
+	}, []);
 
 
   const dict = {
@@ -76,12 +80,17 @@ const Menu = () => {
 		}
 	};
 
-	
-
   const clearStorage = () => {
     setBasketItems([]);
   };
 
+	const clearStorageData = () => {
+    localStorage.setItem('dataAbout', []);
+  };
+
+	const logDataAbout = () => {
+		console.log(localStorage.getItem('dataAbout'));
+	}
   return (
     <div className={cl.MenuContainer}>
       <Pagination
@@ -89,8 +98,8 @@ const Menu = () => {
         setCurrentPage={setCurrentPage}
         currentPage={currentPage}
       />
-
       <BasketButton  countOfProduct={countOfProduct} />
+
 
       {postError && <h1>Error loading</h1>}
 
@@ -108,7 +117,9 @@ const Menu = () => {
       )}
 
       <MoreButton changePage={changePage} />
+      <MoreButton changePage={logDataAbout} />
       <MoreButton changePage={clearStorage} />
+      <MoreButton changePage={clearStorageData} />
     </div>
   );
 };

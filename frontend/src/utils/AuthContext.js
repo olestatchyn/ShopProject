@@ -8,7 +8,7 @@ export function useAuth() {
 
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(true);
-	const [userRole, setUserRole] = useState("admin");
+	const [userRole, setUserRole] = useState("Admin");
 
 
 	useEffect(() => {

@@ -4,7 +4,9 @@ import CountControl from '../../UI/count-control/CountControl';
 
 const BasketItem = ({onQuantityChange, item, remove}) => {
 	const handleIncrement = () => {
-    onQuantityChange(item.id, item.quantity + 1, item.selectedSize);
+    if (item.quantity < 10) {
+      onQuantityChange(item.id, item.quantity + 1, item.selectedSize);
+    }
   };
   
   const handleDecrement = () => {
@@ -16,13 +18,13 @@ const BasketItem = ({onQuantityChange, item, remove}) => {
 	const price = item.price * item.quantity;
 	return (
     <div>
-      <MyButton onClick={()=>remove(item.id, item.selectedSize)}>-</MyButton>
+      {remove && <MyButton onClick={()=>remove(item.id, item.selectedSize)}>-</MyButton>}
       <img src="" alt="" />
       <span>{item.name}</span>
       <p>{item.description}</p>
       <p>{item.selectedSize}</p>
-      <CountControl count={item.quantity} onIncrement={handleIncrement} onDecrement={handleDecrement}/>
-			<p>{price}</p>
+      {onQuantityChange && <CountControl count={item.quantity} onIncrement={handleIncrement} onDecrement={handleDecrement}/>}
+			{remove && <p>{price}</p>}
     </div>
   );
 }

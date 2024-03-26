@@ -8,15 +8,15 @@ import Menu from "../../components/menu/Menu";
 
 import CarouselComponent from "../../components/carousel/Carousel";
 import TextLogo from "../../components/UI/text-logo/TextLogo";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
+import RandomPizza from "../../components/random pizza/RandomPizza";
 
 const Home = () => {
   return (
     <div className={cl.home}>
       <div className={main.container}>
-        <RandomPizza/>
-        <Menu />
-        <CreateCustomPizza />
+          <RandomPizza />
+          <Menu />
+          <CreateCustomPizza />
       </div>
       <div className={cl.home__carousel}>
         <CarouselComponent />
