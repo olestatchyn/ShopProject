@@ -14,9 +14,9 @@ const Home = () => {
   return (
     <div className={cl.home}>
       <div className={main.container}>
-				<RandomPizza />
-        <Menu />
-        <CreateCustomPizza />
+          <RandomPizza />
+          <Menu />
+          <CreateCustomPizza />
       </div>
       <div className={cl.home__carousel}>
         <CarouselComponent />
