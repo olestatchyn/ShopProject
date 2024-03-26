@@ -22,6 +22,12 @@
     img {
       filter: brightness(0) invert(1);
     }
+    .basket__count{
+        background: #fff;
+        border: #fdb806 solid 2px;
+        color: #fdb806;
+      line-height: 21px;
+    }
   }
   &__button {
     display: block;
@@ -32,5 +38,20 @@
       max-width: 100%;
       max-height: 100%;
     }
+  }
+  &__count{
+    position: absolute;
+    top: 65px;
+    left: 65px;
+    font-weight: 700;
+    font-size: 16px;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    background: linear-gradient(137deg, #ff9f47 0%, #fdb806 100%);
+    color: #fff;
+    text-align: center;
+    line-height: 25px;
+
   }
 }

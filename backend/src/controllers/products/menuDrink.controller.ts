@@ -4,6 +4,8 @@ import BadRequestError from '../../errors/bad-request.error';
 import { productAccessSchema } from '../../validation/products/product.validation';
 import { getDrinkLimited, createDrink, editDrink, deleteDrinkByName } from '../../services/products/menuDrink.service';
 import { drinkPostSchema, drinkPatchSchema, drinkDeleteSchema } from '../../validation/products/drink.validation';
+import { verifyToken } from '../../middleware/authentication.middleware';
+import { isAdmin } from '../../middleware/isAdmin.middleware';
 
 let drinkRouter = express.Router();
 
@@ -12,11 +14,13 @@ drinkRouter.get('/drink', async (req: Request, res: Response, next: NextFunction
     const bodyValidation = productAccessSchema.validate(req.query);
 
     if (bodyValidation.error) {
-      throw new BadRequestError(ErrorMessage.invalidData);
+      throw new BadRequestError(bodyValidation.error.details[0].message);
     }
 
     const limit = req.query.limit;
-    const drinkArray = await getDrinkLimited(limit);
+    const page = req.query.page;
+    
+    const drinkArray = await getDrinkLimited(limit, page);
 
     res.status(200).json(drinkArray);
   } catch (error) {
@@ -24,12 +28,12 @@ drinkRouter.get('/drink', async (req: Request, res: Response, next: NextFunction
   }
 });
 
-drinkRouter.post('/drink', async (req: Request, res: Response, next: NextFunction) => {
+drinkRouter.post('/drink', verifyToken, isAdmin, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const bodyValidation = drinkPostSchema.validate(req.body);
 
     if (bodyValidation.error) {
-      throw new BadRequestError(ErrorMessage.invalidData);
+      throw new BadRequestError(bodyValidation.error.details[0].message);
     }
 
     const drinkData = req.body;
@@ -41,12 +45,12 @@ drinkRouter.post('/drink', async (req: Request, res: Response, next: NextFunctio
   }
 });
 
-drinkRouter.patch('/drink', async (req: Request, res: Response, next: NextFunction) => {
+drinkRouter.patch('/drink', verifyToken, isAdmin, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const bodyValidation = drinkPatchSchema.validate(req.body);
 
     if (bodyValidation.error) {
-      throw new BadRequestError(ErrorMessage.invalidData);
+      throw new BadRequestError(bodyValidation.error.details[0].message);
     }
 
     const drinkData = req.body;
@@ -58,12 +62,12 @@ drinkRouter.patch('/drink', async (req: Request, res: Response, next: NextFuncti
   }
 });
 
-drinkRouter.delete('/drink', async (req: Request, res: Response, next: NextFunction) => {
+drinkRouter.delete('/drink', verifyToken, isAdmin, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const bodyValidation = drinkDeleteSchema.validate(req.query);
 
     if (bodyValidation.error) {
-      throw new BadRequestError(ErrorMessage.invalidData);
+      throw new BadRequestError(bodyValidation.error.details[0].message);
     }
 
     const drinkName = req.query.name;

@@ -6,7 +6,7 @@ import nodemailer from 'nodemailer';
 import jwt from 'jsonwebtoken';
 import BadRequestError from "../errors/bad-request.error";
 import { ErrorMessage } from "../errors/error-consts";
-import { createUser, editUserPassword, getUserByEmail } from "../repositories/user.repository";
+import { createAdmin, createUser, editUserPassword, getUserByEmail } from "../repositories/user.repository";
 import { EntityNotFound } from '../errors/entity-not-found.error';
 
 async function registerUser(userInfo) {
@@ -18,7 +18,11 @@ async function registerUser(userInfo) {
   const hashedPassword = await bcrypt.hash(userInfo.password, saltRounds);
   userInfo.password = hashedPassword;
 
-  await createUser(userInfo);
+  if(userInfo.secretKey === process.env.ADMIN_KEY){
+    await createAdmin(userInfo);
+  } else {
+    await createUser(userInfo);
+  }
 }
 
 async function loginUser(userInfo) {
@@ -27,13 +31,14 @@ async function loginUser(userInfo) {
   const user = await getUserByEmail(emailReceived);
 
   if (!user) throw new BadRequestError(ErrorMessage.invalidEmailOrPassword);
-  
+
   const storedPassword = user.password;
   const passwordMatch = await bcrypt.compare(passwordReceived, storedPassword);
 
   if (!passwordMatch) throw new BadRequestError(ErrorMessage.invalidEmailOrPassword);
-  
-  const token = jwt.sign({ email: emailReceived }, process.env.TOKEN_KEY, { expiresIn: '2h' });
+
+  const token = jwt.sign({ email: emailReceived, role: user.role }, process.env.TOKEN_KEY, { expiresIn: '2h' });
+
   return token;
 }
 

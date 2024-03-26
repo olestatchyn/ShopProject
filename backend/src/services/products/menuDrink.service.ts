@@ -1,10 +1,11 @@
 import BadRequestError from '../../errors/bad-request.error';
 import { ErrorMessage } from '../../errors/error-consts';
-import { getDrinksFromRepository, getDrinkbyName, createNewDrink, editDrinkByName, deleteDrink } from '../../repositories/products/menuDrink.repository';
+import { getDrinksFromRepository, getDrinkbyName, createNewDrink, editDrinkByName, deleteDrink, increaseOneDrinkPopularity } from '../../repositories/products/menuDrink.repository';
 
-async function getDrinkLimited(limit) {
+async function getDrinkLimited(limit, page) {
+  const offset = (page - 1) * limit;
 
-  const drinks = await getDrinksFromRepository(limit);
+  const drinks = await getDrinksFromRepository(limit, offset);
 
   return drinks;
 }
@@ -25,4 +26,8 @@ async function deleteDrinkByName(name) {
   await deleteDrink(name);
 }
 
-export { getDrinkLimited, createDrink, editDrink, deleteDrinkByName };
+async function increaseDrinkPopularity(name, popularity) {
+  await increaseOneDrinkPopularity(name, popularity);
+}
+
+export { getDrinkLimited, createDrink, editDrink, deleteDrinkByName, increaseDrinkPopularity };

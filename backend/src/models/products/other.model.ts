@@ -10,6 +10,10 @@ const otherItemSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  popularity: { 
+    type: Number,
+    required: true,
+  },
   sizeAndPrice: {
     type: {
       '30': {

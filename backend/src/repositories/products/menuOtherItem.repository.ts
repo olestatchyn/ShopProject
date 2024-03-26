@@ -2,8 +2,12 @@ import Other from "../../models/products/other.model";
 import BadRequestError from "../../errors/bad-request.error";
 import { ErrorMessage } from "../../errors/error-consts";
 
-async function getOtherItemsFromRepository(limit) {
-  return await Other.find().limit(limit);
+async function getOtherItemsFromRepository(limit, offset) {
+  return await Other.find().skip(offset).limit(limit);
+}
+
+async function getAllOtherItemsFromRepository() {
+  return await Other.find();
 }
 
 async function getOtherItembyName(name) {
@@ -39,4 +43,12 @@ async function deleteOtherItem(name) {
   }
 }
 
-export { getOtherItemsFromRepository, getOtherItembyName, createNewOtherItem, editOtherItemByName, deleteOtherItem };
+async function increaseOneOtherItemPopularity(otherItemName, popularityIncrease) {
+  const otherItem = await Other.findOne({ name: otherItemName })
+  
+  otherItem.popularity += popularityIncrease;
+
+  await otherItem.save();
+}
+
+export { getOtherItemsFromRepository, getAllOtherItemsFromRepository, getOtherItembyName, createNewOtherItem, editOtherItemByName, deleteOtherItem, increaseOneOtherItemPopularity };

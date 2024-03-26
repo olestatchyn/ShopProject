@@ -4,6 +4,7 @@ import BadRequestError from '../../errors/bad-request.error';
 import { productAccessSchema } from '../../validation/products/product.validation';
 import { getOtherItemLimited, createOtherItem, editOtherItem, deleteOtherItemByName } from '../../services/products/menuOtherItem.service';
 import { otherItemPostSchema, otherItemPatchSchema, otherItemDeleteSchema } from '../../validation/products/otherItem.validation';
+import { verifyToken } from '../../middleware/authentication.middleware';
 
 let otherItemRouter = express.Router();
 
@@ -12,11 +13,13 @@ otherItemRouter.get('/other', async (req: Request, res: Response, next: NextFunc
     const bodyValidation = productAccessSchema.validate(req.query);
 
     if (bodyValidation.error) {
-      throw new BadRequestError(ErrorMessage.invalidData);
+      throw new BadRequestError(bodyValidation.error.details[0].message);
     }
 
     const limit = req.query.limit;
-    const otherItemArray = await getOtherItemLimited(limit);
+    const page = req.query.page;
+
+    const otherItemArray = await getOtherItemLimited(limit, page);
 
     res.status(200).json(otherItemArray);
   } catch (error) {
@@ -24,12 +27,12 @@ otherItemRouter.get('/other', async (req: Request, res: Response, next: NextFunc
   }
 });
 
-otherItemRouter.post('/other', async (req: Request, res: Response, next: NextFunction) => {
+otherItemRouter.post('/other', verifyToken, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const bodyValidation = otherItemPostSchema.validate(req.body);
 
     if (bodyValidation.error) {
-      throw new BadRequestError(ErrorMessage.invalidData);
+      throw new BadRequestError(bodyValidation.error.details[0].message);
     }
 
     const otherItemData = req.body;
@@ -41,12 +44,12 @@ otherItemRouter.post('/other', async (req: Request, res: Response, next: NextFun
   }
 });
 
-otherItemRouter.patch('/other', async (req: Request, res: Response, next: NextFunction) => {
+otherItemRouter.patch('/other', verifyToken, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const bodyValidation = otherItemPatchSchema.validate(req.body);
 
     if (bodyValidation.error) {
-      throw new BadRequestError(ErrorMessage.invalidData);
+      throw new BadRequestError(bodyValidation.error.details[0].message);
     }
 
     const otherItemData = req.body;
@@ -58,12 +61,12 @@ otherItemRouter.patch('/other', async (req: Request, res: Response, next: NextFu
   }
 });
 
-otherItemRouter.delete('/other', async (req: Request, res: Response, next: NextFunction) => {
+otherItemRouter.delete('/other', verifyToken, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const bodyValidation = otherItemDeleteSchema.validate(req.query);
 
     if (bodyValidation.error) {
-      throw new BadRequestError(ErrorMessage.invalidData);
+      throw new BadRequestError(bodyValidation.error.details[0].message);
     }
 
     const otherItemName = req.query.name;

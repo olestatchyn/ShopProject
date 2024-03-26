@@ -32,7 +32,7 @@ const Menu = () => {
 
 	const [fetchPosts, isPostLoading, postError] = useFetching(async () => {
 		if (!items[dict[currentPage]].length) {
-			const response = await PostService.getAll(dict[currentPage], limit);
+			const response = await PostServiceFront.getAll(dict[currentPage], limit);
 		 	setItems(prevItems => ({ ...prevItems, [dict[currentPage]]: response }));
 		}
 	});

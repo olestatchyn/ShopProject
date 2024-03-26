@@ -11,4 +11,7 @@ export const ErrorMessage = {
   saladDoesntExist: 'Salad does not exist',
   otherItemExists: 'Item of Other category already exists',
   otherItemDoesntExist: 'Item of Other category does not exist',
+  invalidToken: 'Invalid token',
+  noToken: 'Access denied. No token provided',
+  notAdmin: 'Not an admin',
 }

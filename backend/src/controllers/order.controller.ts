@@ -11,7 +11,7 @@ orderRouter.post('/order', async (req: Request, res: Response, next: NextFunctio
     const bodyValidation = orderSchema.validate(req.body);
 
     if (bodyValidation.error) {
-      throw new BadRequestError(ErrorMessage.invalidData);
+      throw new BadRequestError(bodyValidation.error.details[0].message);
     }
 
     let orderInfo = req.body;

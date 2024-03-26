@@ -23,8 +23,18 @@ async function createUser(newUser) {
   await User.create({
     name: newUser.name,
     email: newUser.email,
-    password: newUser.password
+    password: newUser.password,
+    role: 'User'
   });
 }
 
-export { getUserByEmail, createUser, editUserPassword }
+async function createAdmin(newAdmin) {
+  await User.create({
+    name: newAdmin.name,
+    email: newAdmin.email,
+    password: newAdmin.password,
+    role: 'Admin'
+  });
+}
+
+export { getUserByEmail, createUser, createAdmin, editUserPassword }
