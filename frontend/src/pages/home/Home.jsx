@@ -8,7 +8,6 @@ import Menu from "../../components/menu/Menu";
 
 import CarouselComponent from "../../components/carousel/Carousel";
 import TextLogo from "../../components/UI/text-logo/TextLogo";
-import RandomPizza from "../../components/random pizza/RandomPizza";
 
 const Home = () => {
   return (
